@@ -4,11 +4,11 @@ To describe zeta, you need to use zeta itself. <br />
 Define zeta‑based functions as symmetric combinations of ζ
 
 ```math
-\text{zsinh}(z, t) = \frac{\zeta(z + t) - \zeta(-z + t)}{2}
+\text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
 ```
 
 ```math
-\text{zcosh}(z, t) = \frac{\zeta(z + t) + \zeta(-z + t)}{2}
+\text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
 ```
 
 <br />
