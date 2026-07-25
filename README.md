@@ -1,6 +1,5 @@
 # Zeta Based Functions
 
-To describe zeta, you need to use zeta itself. <br />
 Define zeta‑based functions as symmetric combinations of ζ
 
 ```math
@@ -14,21 +13,11 @@ Define zeta‑based functions as symmetric combinations of ζ
 <br />
 
 ```math
-zsinh(−z, t) = −zsinh(z, t)
+zsinh(-z, t) = −zsinh(z, t)
 ```
 
 ```math
-zcosh(−z, t) = zcosh(z, t)
-```
-
-<br />
-
-```math
-\zeta(-z + t) = zcosh(z, t) - zsinh(z, t)
-```
-
-```math
-\zeta(z + t) = zcosh(z, t) + zsinh(z, t)
+zcosh(-z, t) = zcosh(z, t)
 ```
 
 <br />
@@ -40,7 +29,17 @@ zeta(0) = zcosh(0, 0) = -1/2
 <br />
 
 ```math
-\zeta(z + t)\zeta(-z + t) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
+\zeta(t + z) = zcosh(z, t) + zsinh(z, t)
+```
+
+```math
+\zeta(t - z) = zcosh(z, t) - zsinh(z, t)
+```
+
+<br />
+
+```math
+\zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
 ```
 
 Graphics zeros zsinh (green), zcosh (blue), t = 0
