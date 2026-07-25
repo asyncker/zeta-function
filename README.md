@@ -257,6 +257,8 @@ phase = i*pi/2
 zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phase)) * gamma(1 - z) * zeta(1 - z)
 ```
 
+<br /> Non-Newton with Multiplicative calculus
+
 <br />12-adic numbers<br />
 
 ```math
