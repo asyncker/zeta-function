@@ -80,6 +80,11 @@ If we take the derivative of zsinh using exp, then the function becomes non-clos
 L(z) =  \frac{\zeta'(z)}{\zeta(z)}
 ```
 
+define mpow:
+```math
+mpow(z, w) = abs(z)^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
+```
+
 zeros `(ζ(z) - ζ(-z)) / 2` or `Im(ζ(z))` or `zsinh(z, 0.0)`
 ```
 3.2047218910247483327471239066123833234226165500238
