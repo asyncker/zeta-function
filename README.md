@@ -80,11 +80,6 @@ If we take the derivative of zsinh using exp, then the function becomes non-clos
 L(z) =  \frac{\zeta'(z)}{\zeta(z)}
 ```
 
-define mpow:
-```math
-mpow(z, w) = abs(z)^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
-```
-
 zeros `(ζ(z) - ζ(-z)) / 2` or `Im(ζ(z))` or `zsinh(z, 0.0)`
 ```
 3.2047218910247483327471239066123833234226165500238
@@ -261,6 +256,11 @@ phase = i*pi/2
 zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phase)) * gamma(1 - z) * zeta(1 - z)
 ```
 
+define mpow:
+```
+mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
+```
+
 <br /> Non-Newton with Multiplicative calculus
 
 <br />12-adic numbers<br />
@@ -283,8 +283,9 @@ eps^-1 = w <br />
 w * eps = 1 <br />
 
 eps and w is the solution of the equation:
+1 - eps = 0.999999...
 ```
-(x - 1) * 1/x = 0.999999...
+(x - 1) * 1/x = 1 - eps 
 x = w
 ```
 
