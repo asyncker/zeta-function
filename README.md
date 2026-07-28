@@ -289,6 +289,13 @@ eps and w is the solution of the equation:
 x = w
 ```
 
+
+```
+7 / x^2 = eps
+x1 = +w * sqrt(7 * w)
+x2 = -w * sqrt(7 * w)
+```
+
 ```
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
