@@ -16,29 +16,27 @@ zsinh_zeros[i] < zcosh_zeros[i] (все истина кроме первого �
 zcosh(z, 1/2) + c (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zcosh-mandelbrot-zoom.png)
 zsinh(z, 1/2) + c (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zsinh-mandelbrot-zoom.png)
 ln(sin(1 / (|Re(z)| + |Im(z)| * i))) + c (c ~= -0.4670670970289143 + 0.008333333333333333i) (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/log_sin_test.png)
-zeta(z ^ 0.27) + 0: (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_pow.png)
-exp(z ^ 0.27) + 0: (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/exp_pow.png)
+zeta(z ^ 0.27) + 0 (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_pow.png)
+exp(z ^ 0.27) + 0 (https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/exp_pow.png)
 
-Im(ζ(iz + 1/2) * ζ(-iz + 1/2)) можно создать общую функцию харди Z(x, t) и взять t = 1/2 (это и есть оригинальная функция) и t = -1/2 и получится через Im и Re сделать тоже самое.
+Im(ζ(iz + 1/2) * ζ(-iz + 1/2)) можно создать общую функцию харди Z(x, t) и взять t = 1/2 (это оригинальная функция) и t = -1/2 и получится через Im и Re сделать тоже самое
 
-zeta через quaternion крайнее сложно сделать, но можно взять bicomplex и отобразить zeta в 4d, зная свойства идемпотентности в bicomplex это уже 4x4 матрица так ещё к тому же коммутативная, ну и сама идея отобразить zeta в гильбертовом простнатсве/эрмитовы операторы является той самой задачей куда я копаю.
+zeta сложно сделать через quaternion, но легко в 4d через bicomplex, используя идемпотентность. Также отобразить zeta в гильбертовом простнатсве/эрмитовы операторы является задачей где я копаю. Ещё нужны мультипликативные интегралы и производны не-ньютоновские исчисления. И многозначные функции arcgamma
 
-Ещё нужны мультипликативные интегралы и производны, то-есть не-ньютоновские исчисления. И идея создать многозначную функцию arcgamma.
+Идея создать алгебру, которая включает/объединяет элементы: p-adic, неархмедовых, гиперреальных, многочлены Лорана, кольцо Лорана. Всё начинается с +-*/^root (положительные, отрицательные, дробные числа, -, иррациональные, комплексные) и прочерк закроют новые числа:
+ω^-1 = ε
+ε^-1 = ω
++∞ > ω > 10^1000000
++0 < ε < 10^-1000000
+ω и ε отображают маштаб (ω^-7 * 6.246) вот плоскость https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/scale_plane_algebra.png
+0.999999... * ω = ...999999.0 и 1 * ω = ω теперь пробел не 0 и ε, а 0 и 1 выходит между 0.999999... и 1 несчётно много чисел 
+(ω - 1) * 1/ω = 1 - ε (ω и ε являются решение уравнения (x - 1) * 1/x = 0.999999...)
 
-Идея создать алгебру, которая включает/объединяет в себя элементы: p-adic, неархмедовых, гиперреальных, многочлены Лорана, кольцо Лорана. Всё начинается с +-*/^root (положительные, отрицательные, дробные числа, -, иррациональные, комплексные) видно, что есть прочерк эти новые числа и закроют этот прочерк:
-w^-1 = eps
-eps^-1 = w
-+inf > w > 10^1000000
-+0 < eps < 10^-1000000
-w и eps отображают маштаба (w^-23 * 6.246) вот плоскость https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/scale_plane_algebra.png
-0.999999... * w = ...999999.0 и 1 * w = w теперь пробел не 0 и eps, а 0 и 1 выходит между 0.999999... и 1 несчётно много чисел 
-(w - 1) * 1/w = 1 - eps (w и eps являются решение уравнения (x - 1) * 1/x = 0.999999...)
-
-Можно прикидывать примерные значения например eps ~= 0.001 и w ~= 1000:
-ln(eps) = -ln(w)
-ln(w) = -ln(eps)
-ln(w^eps) = -eps * ln(eps)
-eps * w = 1
-15 * w^3 * eps^2 + 3 * w = 18w
-nround(+eps) = +0
-around(-inf) = -w
+Можно вписывать примерные значения ε ~= 0.001 и ω ~= 1000, прикладной смысл в программирование, физики и тд:
+ln(ε) = -ln(ω)
+ln(ω) = -ln(ε)
+ln(ω^ε) = -ε * ln(ε)
+ε * ω = 1
+15 * ω^3 * ε^2 + 3 * ω = 18ω
+nround(+ε) = +0
+around(-∞) = -ω
