@@ -261,6 +261,28 @@ define mpow:
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 ```
 
+define dl, dp:
+```
+dl(z, w, k) = ln(dot(z, w)) * k
+dp(z, w, k) = exp(ln(dot(z, w)) * k)
+```
+
+```
+|z| = dp(z, z, 0.5)
+|z|^2 = dp(z, z, 1.0)
+sqrt(|z|) = dp(z, z, 0.25)
+1 / |z| = dp(z, z, -0.5)
+1 / |z|^2 = dp(z, z, -1.0)
+1 / sqrt(|z|) = dp(z, z, -0.25)
+
+ln(|z|) = dl(z, z, 0.5)
+ln(|z|^2) = dl(z, z, 1.0)
+ln(sqrt(|z|)) = dl(z, z, 0.25)
+ln(1 / |z|) = dl(z, z, -0.5)
+ln(1 / |z|^2) = dl(z, z, -1.0)
+ln(1 / sqrt(|z|)) = dl(z, z, -0.25)
+```
+
 <br /> Non-Newton with Multiplicative calculus
 
 <br />12-adic numbers<br />
