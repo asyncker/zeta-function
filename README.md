@@ -263,7 +263,7 @@ mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 
 define dl, dp:
 ```
-sp(z, w) = (z.x * z.x + w.i * w.i) + (z.x * w.i + z.i * w.x) * i
+sp(z, w) = (z.x * z.x + w.i * w.i) + (w.x * z.i + w.i * z.x) * i
 dl(z, k) = ln(sp(z, z)) * k
 dp(z, k) = sp(z, z)^k
 ```
