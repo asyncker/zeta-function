@@ -265,8 +265,6 @@ define dl, dp:
 ```
 dl(z, k) = ln(dot(z, z)) * k
 dp(z, k) = dot(z, z)^k
-dtl(z, w, k) = ln(dot(z, w)) * k
-dtp(z, w, k) = dot(z, w)^k
 ```
 
 ```
@@ -286,6 +284,8 @@ ln(1 / sqrt(|z|)) = dl(z, -0.25)
 ```
 
 ```
+dtl(z, w, k) = ln(dot(z, w)) * k
+dtp(z, w, k) = dot(z, w)^k
 dtp(z, w, k) = exp(dtl(z, w, k))
 dtl(z, w, k) = ln(dtp(z, w, k))
 ```
