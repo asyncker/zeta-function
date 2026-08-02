@@ -264,7 +264,7 @@ mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 define dl, dp:
 ```
 dl(z, w, k) = ln(dot(z, w)) * k
-dp(z, w, k) = exp(ln(dot(z, w)) * k)
+dp(z, w, k) = dot(z, w)^k
 ```
 
 ```
@@ -281,6 +281,11 @@ ln(sqrt(|z|)) = dl(z, z, 0.25)
 ln(1 / |z|) = dl(z, z, -0.5)
 ln(1 / |z|^2) = dl(z, z, -1.0)
 ln(1 / sqrt(|z|)) = dl(z, z, -0.25)
+```
+
+```
+dp(z, w, k) = exp(dl(z, w, k))
+dl(z, w, k) = ln(dp(z, w, k))
 ```
 
 <br /> Non-Newton with Multiplicative calculus
