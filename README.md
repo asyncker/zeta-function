@@ -353,7 +353,7 @@ a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
 999999... + 0.999999... = 999999... 999.999999... 
 ```
 
-Scale plane (x-asis it's mult y-asis it's power (example x * y^2)):<br />
+Scale plane (x-asis it's mult y-asis it's power (example x * eps^y)):<br />
 The x-axis is the multiplied coefficient for eps or w  <br />
 <img src="https://github.com/asyncker/zeta-trigonometry/blob/main/img/scale_plane_algebra.png">
 <br />
