@@ -286,6 +286,12 @@ ln(1 / |z|^2) = dl(z, -1.0)
 ln(1 / sqrt(|z|)) = dl(z, -0.25)
 ```
 
+```
+(re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
+(z^2)^0.5 = +-z
+(z̄^2)^0.5 = +-z̄
+```
+
 <br /> Non-Newton with Multiplicative calculus
 
 <br />12-adic numbers<br />
@@ -333,6 +339,9 @@ ln(w^w) = -w * ln(eps)
 
 ln(eps * w) = 0
 ln(w) / ln(eps) = -1
+
+ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
+(eps^2 + eps^2) ^ k = 2^k * eps^(2k)
 
 a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
 
