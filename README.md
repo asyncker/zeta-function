@@ -261,12 +261,18 @@ define mpow:
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 ```
 
-define dl, dp:
+define dl, dp, dtl, dtp:
 ```
 sop(z, w) = (z.x * z.x + w.i * w.i) + (w.x * z.i + w.i * z.x) * i
 dot(z, w) = (z.x * w.x + z.i * w.i) + (w.x * z.i - w.i * z.x) * i
+
+dtl(z, w, k) = ln(dot(z, w)) * k
+dtp(z, w, k) = dot(z, w)^k
 dl(z, k) = ln(dot(z, z)) * k
 dp(z, k) = dot(z, z)^k
+
+dtp(z, w, k) = exp(dtl(z, w, k))
+dtl(z, w, k) = ln(dtp(z, w, k))
 ```
 
 ```
@@ -283,13 +289,6 @@ ln(sqrt(|z|)) = dl(z, 0.25)
 ln(1 / |z|) = dl(z, -0.5)
 ln(1 / |z|^2) = dl(z, -1.0)
 ln(1 / sqrt(|z|)) = dl(z, -0.25)
-```
-
-```
-dtl(z, w, k) = ln(dot(z, w)) * k
-dtp(z, w, k) = dot(z, w)^k
-dtp(z, w, k) = exp(dtl(z, w, k))
-dtl(z, w, k) = ln(dtp(z, w, k))
 ```
 
 <br /> Non-Newton with Multiplicative calculus
