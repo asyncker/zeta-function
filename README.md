@@ -263,16 +263,11 @@ mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 
 define dl, dp, dtl, dtp:
 ```
-sop(z, w) = (z.x * z.x + w.i * w.i) + (w.x * z.i + w.i * z.x) * i
-dot(z, w) = (z.x * w.x + z.i * w.i) + (w.x * z.i - w.i * z.x) * i
-
-dtl(z, w, k) = ln(dot(z, w)) * k
-dtp(z, w, k) = dot(z, w)^k
-dl(z, k) = ln(dot(z, z)) * k
-dp(z, k) = dot(z, z)^k
-
-dtp(z, w, k) = exp(dtl(z, w, k))
-dtl(z, w, k) = ln(dtp(z, w, k))
+dot(z, w) = z * w̄
+dotln(z, w, k) = ln(z * w̄) * k
+dotpow(z, w, k) = exp(ln(z * w̄) * k)
+dl(z, k) = ln(z * z̄) * k
+dp(z, k) = (z * z̄)^k
 ```
 
 ```
