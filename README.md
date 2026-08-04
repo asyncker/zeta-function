@@ -256,6 +256,13 @@ phase = i*pi/2
 zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phase)) * gamma(1 - z) * zeta(1 - z)
 ```
 
+```
+sin(z * pi/2) * 2
+amplitude: +2, -2
+inter: ...-2, +2, −2,    +2, -2, +2...
+zeros: ...-6, -4, -2, 0, +2, +4, +6...
+```
+
 define mpow:
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
