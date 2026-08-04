@@ -299,6 +299,17 @@ ln(1 / sqrt(|z|)) = dl(z, -0.25)
 (z̄^2)^0.5 = +-z̄
 ```
 
+define fold
+```
+root(z, w) = z ^ (1/w)
+fold(z, k) = (z ^ k) ^ 1/k
+fold(z, k) = root(z ^ k, k)
+```
+
+```
+fold(z, 2) = +-z
+```
+
 <br /> Non-Newton with Multiplicative calculus
 
 <br />12-adic numbers<br />
