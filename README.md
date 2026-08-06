@@ -304,10 +304,11 @@ define fold
 root(z, w) = z ^ (1/w)
 fold(z, k) = (z ^ k) ^ 1/k
 fold(z, k) = root(z ^ k, k)
+folds(z, k) = roots(z ^ k, k)
 ```
 
 ```
-fold(z, 2) = +-z
+folds(z, 2) = +-z
 ```
 
 <br /> Non-Newton with Multiplicative calculus
