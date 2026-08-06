@@ -358,8 +358,8 @@ ln(w^w) = -w * ln(eps)
 ln(eps * w) = 0
 ln(w) / ln(eps) = -1
 
-sqrt(eps^2) = +-eps
-sqrt(w^2) = +-w
+roots(eps^2, 2) = +-eps
+roots(w^2, 2) = +-w
 
 ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
