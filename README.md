@@ -238,6 +238,11 @@ for (let i = 1; i < 30001; i++) {
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
+h₂-const:
+```
+h₂ = -2 * ln(2)
+```
+
 zeta function
 ```
 zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(-z + 1) * zeta(-z + 1)
