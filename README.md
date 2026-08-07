@@ -243,9 +243,11 @@ h₂-const:
 h₂ = -2 * ln(2)
 ```
 
-zeta((z^2) ^ (1/2)) + h₂
+zeta((z^2) ^ (1/2)) + h₂ (fractal)
+<img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-<img href="https://asyncker.github.io/fractals/render/zeta_abs.png" />
+zeta((z^2) ^ (1/2)) + h₂ (fractal with zoom)
+<img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 zeta function
 ```
