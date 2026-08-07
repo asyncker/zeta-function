@@ -264,7 +264,7 @@ define mpow:
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 ```
 
-define dl, dp, dtl, dtp:
+define dot, dotlog, dotpow:
 ```
 dot(z, w) = z * w̄
 dotlog(z, w, k) = log(z * w̄) * k
