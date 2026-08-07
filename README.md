@@ -231,13 +231,9 @@ A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes
 
 
 ```js
-<script src="./zcosh-zeros.js"></script>
-<script src="./zsinh-zeros.js"></script>
-<script>
-    for (let i = 1; i < 30001; i++) {
-        console.log(zsinh_zeros[i] <= zcosh_zeros[i]); // 30k all true except first
-    }
-</script>
+for (let i = 1; i < 30001; i++) {
+    console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
+}
 ```
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
@@ -271,26 +267,24 @@ mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 define dl, dp, dtl, dtp:
 ```
 dot(z, w) = z * w̄
-dotln(z, w, k) = ln(z * w̄) * k
-dotpow(z, w, k) = exp(ln(z * w̄) * k)
-dl(z, k) = ln(z * z̄) * k
-dp(z, k) = (z * z̄)^k
+dotlog(z, w, k) = log(z * w̄) * k
+dotpow(z, w, k) = exp(log(z * w̄) * k)
 ```
 
 ```
-|z| = dp(z, 0.5)
-|z|^2 = dp(z, 1.0)
-|z|^(1/2) = dp(z, 0.25)
-1 / |z| = dp(z, -0.5)
-1 / |z|^2 = dp(z, -1.0)
-1 / |z|^(1/2) = dp(z, -0.25)
+|z| = dotpow(z, z, 1/2)
+|z|^2 = dotpow(z, z, 1)
+|z|^(1/2) = dotpow(z, z, 1/4)
+1 / |z| = dotpow(z, z, -1/2)
+1 / |z|^2 = dotpow(z, z, -1)
+1 / |z|^(1/2) = dotpow(z, z, -1/4)
 
-ln(|z|) = dl(z, 0.5)
-ln(|z|^2) = dl(z, 1.0)
-ln(|z|^(1/2)) = dl(z, 0.25)
-ln(1 / |z|) = dl(z, -0.5)
-ln(1 / |z|^2) = dl(z, -1.0)
-ln(1 / |z|^(1/2)) = dl(z, -0.25)
+log(|z|) = dotlog(z, z, 1/2)
+log(|z|^2) = dotlog(z, z, 1)
+log(|z|^(1/2)) = dotlog(z, z, 1/4)
+log(1 / |z|) = dotlog(z, z, -1/2)
+log(1 / |z|^2) = dotlog(z, z, -1)
+log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 ```
 
 ```
