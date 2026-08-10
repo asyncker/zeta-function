@@ -34,6 +34,20 @@ def find_roots_for_t(func, t, num_roots=20, step=0.091):
             break
     return roots
 
+def find_zeros_2():
+    step = prev = cur = lastzero = 0.0
+    while True:
+        step += 0.01
+        t = step + 0.5j
+        if prev * cur < 0.0:
+            zerot = findroot(lambda x: im(zeta(1j * x) * zeta(-x * 1j)), (t - 0.01, t))
+            if (lastzero == zerot):
+                continue
+            lastzero = zerot
+            print(zerot)
+        prev = cur
+        cur = im(zeta(1j * t) * zeta(-t * 1j))
+
 iteration = 20
 zsinh_zeros = find_roots_for_t(zsinh, 0.49999, iteration)
 zcosh_zeros = find_roots_for_t(zcosh, 0.49999, iteration)
