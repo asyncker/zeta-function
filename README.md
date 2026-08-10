@@ -59,12 +59,6 @@ A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes
 
 <br />
 
-If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
-
-```math
-L(z) =  \frac{\zeta'(z)}{\zeta(z)}
-```
-
 ```js
 for (let i = 1; i < 30001; i++) {
     console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
@@ -188,6 +182,11 @@ folds(z, 2) = +-z
 ```
 
 <br /> Non-Newton with Multiplicative calculus
+If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
+
+```math
+L(z) =  \frac{\zeta'(z)}{\zeta(z)}
+```
 
 <br />12-adic numbers<br />
 
