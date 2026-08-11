@@ -137,6 +137,12 @@ inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
 ```
 
+
+test coff:
+```
+(4 * pi^2) ^ (s - 1) * zeta(s)
+```
+
 define mpow:
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
