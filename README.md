@@ -244,6 +244,7 @@ define Φ₆ complex:
 A test to determine whether a number is always composite as n approaches infinity. If possible, determine after what n there will never be any more prime numbers. Ideally, consider n tending to +∞
 ```
 ptlim(10^n) = 0 (n ≥ 0) | ∅
+ptlim(2n + 1) = {0, 1} | {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41...}
 ptlim(10^n + 7) = {0, 1} | {1, 2, 4, 8, 9, 24, 60, 110, 134, 222, 412...}
 ptlim(10^(2n) - 10^(1n) + 1) = 0 (n > 8) | {2, 4, 8}
 ```
