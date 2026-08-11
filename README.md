@@ -241,6 +241,13 @@ define Φ₆ complex:
 33333333333333336666666666666667 = 7 * 13 * 37 * 9901 * 99990001 * 9999999900000001
 ```
 
+A test to determine whether a number is always composite as n approaches infinity. If possible, determine after what n there will never be any more prime numbers. Ideally, consider n tending to +∞
+```
+ptlim(n^10) = 0 (n ≥ 0)
+ptlim(n^10 + 7) = {0, 1}
+ptlim(10^(2n) - 10^(1n) + 1) = 0 (n > 8)
+```
+
 ```
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
