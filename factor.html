@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Prime factorization</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 1.5em;
+    }
+
+    input {
+      font-size: 1.1em;
+      width: 26em;
+    }
+
+    button {
+      font-size: 1.1em;
+    }
+
+    #out {
+      margin-top: 1em;
+      font-size: 1.2em;
+    }
+
+    .mode-selector {
+      margin-bottom: 0.8em;
+      display: flex;
+      gap: 1.5em;
+      align-items: center;
+    }
+
+    .mode-selector label {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    .mode-selector input[type="radio"] {
+      width: 1.1em;
+      height: 1.1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Prime factorization</h2>
+  <p style="color: #555;">Bigint number is used.</p>
+
+  <div class="mode-selector">
+    <label>
+      <input type="radio" name="mode" value="factor" checked>
+      Factorize
+    </label>
+    <label>
+      <input type="radio" name="mode" value="prime">
+      Prime / Composite
+    </label>
+  </div>
+
+  <input id="num" value="9999999900000001" oninput="run()">
+  <div id="out"></div>
+
+  <script>
+    "use strict";
+
+    function gcd(a, b) {
+      a = a < 0n ? -a : a;
+      b = b < 0n ? -b : b;
+      while (b !== 0n) {
+        const t = a % b;
+        a = b;
+        b = t;
+      }
+      return a;
+    }
+
+    function modPow(base, exp, mod) {
+      let result = 1n;
+      base %= mod;
+      while (exp > 0n) {
+        if (exp & 1n) {
+          result = (result * base) % mod;
+        }
+        base = (base * base) % mod;
+        exp >>= 1n;
+      }
+      return result;
+    }
+
+    function isPrime(n) {
+      if (n < 2n) return false;
+      const small = [
+        2n, 3n, 5n, 7n, 11n, 13n,
+        17n, 19n, 23n, 29n, 31n,
+        37n, 41n, 43n, 47n, 53n,
+        59n, 61n, 67n, 71n, 73n,
+        79n, 83n, 89n, 97n
+      ];
+      for (const p of small) {
+        if (n % p === 0n) {
+          return n === p;
+        }
+      }
+      let d = n - 1n;
+      let s = 0n;
+      while ((d & 1n) === 0n) {
+        d >>= 1n;
+        s++;
+      }
+      const witnesses = [2n, 325n, 9375n, 28178n, 450775n, 9780504n, 1795265022n];
+      for (let a of witnesses) {
+        a %= n;
+        if (a === 0n) continue;
+        let x = modPow(a, d, n);
+        if (x === 1n || x === n - 1n) {
+          continue;
+        }
+        let composite = true;
+        for (let r = 1n; r < s; r++) {
+          x = (x * x) % n;
+          if (x === n - 1n) {
+            composite = false;
+            break;
+          }
+        }
+        if (composite) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function pollardRho(n) {
+      if (n % 2n === 0n) return 2n;
+      let c = 1n;
+      while (true) {
+        let x = 2n;
+        let y = 2n;
+        let d = 1n;
+        const f = (x) => (x * x + c) % n;
+        while (d === 1n) {
+          x = f(x);
+          y = f(f(y));
+          const diff = x > y ? x - y : y - x;
+          d = gcd(diff, n);
+        }
+        if (d !== n) {
+          return d;
+        }
+        c++;
+      }
+    }
+
+    function primesUpTo(limit) {
+      const sieve = new Uint8Array(limit + 1);
+      const primes = [];
+      for (let i = 2; i <= limit; i++) {
+        if (!sieve[i]) {
+          primes.push(BigInt(i));
+          if (i * i <= limit) {
+            for (let j = i * i; j <= limit; j += i) {
+              sieve[j] = 1;
+            }
+          }
+        }
+      }
+      return primes;
+    }
+
+    const smallPrimeList = primesUpTo(100000);
+
+    function factorList(n) {
+      let factors = [];
+      for (const p of smallPrimeList) {
+        if (n === 1n) break;
+        if (p * p > n) break;
+        while (n % p === 0n) {
+          factors.push(p);
+          n /= p;
+        }
+      }
+      if (n === 1n) {
+        return factors;
+      }
+      if (isPrime(n)) {
+        factors.push(n);
+        return factors;
+      }
+      const d = pollardRho(n);
+      return factors.concat(factorList(d), factorList(n / d));
+    }
+
+    function factorize(n) {
+      const list = factorList(n).sort((a, b) => (a < b ? -1 : 1));
+      const map = new Map();
+      for (const p of list) {
+        map.set(p, (map.get(p) || 0) + 1);
+      }
+      return [...map.entries()];
+    }
+
+    function run() {
+      const out = document.getElementById("out");
+      const raw = document.getElementById("num").value.replace(/\D/g, "");
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+
+      if (!raw) {
+        out.textContent = "Enter an integer";
+        return;
+      }
+
+      try {
+        const n = BigInt(raw);
+        if (n < 2n) {
+          out.textContent = "The number must be greater than 1.";
+          return;
+        }
+
+        if (mode === "prime") {
+          const prime = isPrime(n);
+          out.textContent = String(n) + (prime ? " is prime." : "");
+          return;
+        }
+
+        // mode === "factor"
+        const factors = factorize(n);
+        const expression = factors.map(([p, e]) => String(p) + (e > 1 ? "<sup>" + e + "</sup>" : "")).join(" × ");
+        const primeNote = factors.length === 1 && factors[0][1] === 1 ? " is prime." : "";
+        out.innerHTML = String(n) + " = " + expression + primeNote;
+      } catch (e) {
+        out.textContent = "Error: " + e.message;
+      }
+    }
+
+    // Re-run when mode changes
+    document.querySelectorAll('input[name="mode"]').forEach(el => {
+      el.addEventListener("change", run);
+    });
+
+    run();
+  </script>
+</body>
+</html>
