@@ -439,6 +439,8 @@
             if (keysPressed['-'] && currentTime - lastChangeTime > 400) { iteration -= 1; if (iteration <= 0) { iteration = 1; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 12) { iteration = 12; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['0'] && currentTime - lastChangeTime > 500) { if (isRecording) { stopRecording(); } else { startRecording(); } lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed / 2.0; rotationSpeed = rotationSpeed / 2.0; movespeedx = movespeedx / 2.0; movespeedy = movespeedy / 2.0; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; rotationSpeed = rotationSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['[']) { power -= 1.0 / 128.0; keypress = true; } // if (keysPressed['[']) { power *= 1.0 - 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; } // if (keysPressed[']']) { power *= 1.0 + 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed['j']) { multlight *= 1.0 - (1.0 / 128.0); keypress = true; }
