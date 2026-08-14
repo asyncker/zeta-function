@@ -43,10 +43,10 @@ zeta(0) = zcosh(0, 0) = -1/2
 ```
 
 Graphics zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-trigonometry/img/zeros-zsin-zcos.png">
+<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png">
 
 Graphics subtract zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-trigonometry/img/zeros-zsin-zcos-sub.png">
+<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png">
 
 The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
 The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
@@ -283,5 +283,5 @@ a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
 
 Scale plane (x-asis it's mult y-asis it's power (example x * eps^y)):<br />
 The x-axis is the multiplied coefficient for eps or w  <br />
-<img src="https://github.com/asyncker/zeta-trigonometry/blob/main/img/scale_plane_algebra.png">
+<img src="https://github.com/asyncker/zeta-function/blob/main/img/scale_plane_algebra.png">
 <br />
