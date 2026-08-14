@@ -107,23 +107,23 @@ See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
 define h-function:
 ```
-h(z, w) = z/2 * ln(1/w) = -z * ln(sqrt(w)) = -z/2 * ln(w)
+h(z, w) = w/2 * ln(1/z) = -w * ln(sqrt(z)) = -w/2 * ln(z)
 ```
 
 Lambert W/Boltzmann's entropy connection:
 ```
-h(-4, w) = -4/2 * ln(1/w)
+h(z, -4) = -4/2 * ln(1/z)
 ```
 
-h₄ = h(4, 2) it's supersymmetry value
+h₄ = h(2, 4) it's supersymmetry value
 ```
-h(4, 2) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = ln(1/4) = -2 * ln(2)
+h(2, 4) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = ln(1/4) = -2 * ln(2)
 ```
 
-ζ((z^2) ^ (1/2)) + h₄
+ζ((z^2) ^ (1/2)) + h(2, 4)
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + h₄
+ζ((z^2) ^ (1/2)) + h(2, 4)
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 zeta function
