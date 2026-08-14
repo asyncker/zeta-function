@@ -429,8 +429,8 @@
             if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + (hypercomplexindex == 0 ? zoomSpeed : zoomSpeed * 0.1); } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 23 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 23 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 6 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 6 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['u'] && currentTime - lastChangeTime > 200) { ismandel = ismandel == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['f'] && currentTime - lastChangeTime > 800) { inverse = inverse == 1.0 ? 0.0 : 1.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['+'] && currentTime - lastChangeTime > 200) { isburning = isburning == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
@@ -438,8 +438,6 @@
             if (keysPressed['z']) { range *= 1.0 / 1.125; keypress = true; }
             if (keysPressed['-'] && currentTime - lastChangeTime > 400) { iteration -= 1; if (iteration <= 0) { iteration = 1; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 12) { iteration = 12; } lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed / 2.0; rotationSpeed = rotationSpeed / 2.0; movespeedx = movespeedx / 2.0; movespeedy = movespeedy / 2.0; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; rotationSpeed = rotationSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['0'] && currentTime - lastChangeTime > 500) { if (isRecording) { stopRecording(); } else { startRecording(); } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['[']) { power -= 1.0 / 128.0; keypress = true; } // if (keysPressed['[']) { power *= 1.0 - 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; } // if (keysPressed[']']) { power *= 1.0 + 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
@@ -457,7 +455,6 @@
             if (keysPressed['arrowdown']) { rotx += rotationSpeed * 0.1; keypress = true; }
             if (keysPressed['arrowleft']) { rotz += rotationSpeed * 0.1; keypress = true; }
             if (keysPressed['arrowright']) { rotz -= rotationSpeed * 0.1; keypress = true; }
-            if (keysPressed['m'] && currentTime - lastChangeTime > 200) { colorschemeindex = colorschemeindex == 0 ? 1 : 0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['o']) { scaleval -= 0.01; keypress = true; }
             if (keysPressed['p']) { scaleval += 0.01; keypress = true; }
             if (keypress || keyinit) {
