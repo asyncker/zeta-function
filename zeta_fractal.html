@@ -76,7 +76,7 @@
                 <button class="control-btn" onclick="iteration = 24; updateControls(true);">24</button>
                 <button class="control-btn" onclick="iteration = 60; updateControls(true);">60</button>
                 <button class="control-btn" onclick="iteration = 96; updateControls(true);">96</button>
-                <button class="control-btn" onclick="iteration = 110; updateControls(true);">110</button>
+                <button class="control-btn" onclick="iteration = 120; updateControls(true);">120</button>
             </div>
         </div>
         <div class="control-group">
@@ -100,7 +100,6 @@
             numpad 4568 - move mandel for julia<br>
         </div>
     </div>
-
 
     <canvas id="canvas"></canvas>
     <script>
@@ -151,11 +150,9 @@
             uniform float inverse;
             uniform float afterpower;
             uniform float multlight;
-            uniform float scaleval;
             uniform int fractalindex;
             uniform int ismandel;
             uniform int isburning;
-            uniform int colorschemeindex;
             uniform int iteration;
             #define PI 3.14159265359
             #define EULER_GAMMA 0.5772156649015329
@@ -199,7 +196,7 @@
                 float cutoff = sqrt(z.y * 0.159154943092) + 100.0 * step(z.y, 120.0);
                 vec4 res = vec4(0.0, 0.0, 0.0, 0.0);
                 for (int row = 0; row < 4; row++) {
-                    vec4 mags = exp(z.x*bases[row]);
+                    vec4 mags = exp(z.x * bases[row]);
                     vec4 cutoffv = clamp(0.884*(cutoff-ns[row] + 0.5), 0.0, 1.0);
                     vec4 mags2 = cutoffv/(ns[row] * mags);
                     mags *= cutoffv;
@@ -303,14 +300,11 @@
                 const int maxiter = 110;
                 int iter = maxiter > iteration ? iteration : maxiter;
                 float znorm = 0.0;
-                int n = 0, maxn = (fractalindex >= 18 || fractalindex == 15) && iter >= 100 ? 100 : iter;
-                vec2 p = vec2(-0.5, 0.0);
-                vec2 z2 = vec2(0.0, 0.0);
-                vec2 z0 = z, ztmp = z;
+                int n = iter, maxn = (fractalindex >= 18 || fractalindex == 15) && iter >= 100 ? 100 : iter;
+                vec2 z0 = z;
                 for (int i = 0; i < 110; i++) {
                     znorm = cabs_sq(z);
                     if (znorm > range) { n = i; break; }
-                    ztmp = z;
                     if (isburning == 1) {
                         z.x = abs(z.x);
                         z.y = -abs(z.y);
@@ -322,8 +316,7 @@
                     else if (fractalindex == 4) { z = czeta(z); }
                     //z = cpow(z, afterpower);
                     z = z + c;
-                    n += 1;
-                    if (n >= maxn) { n = iter; break; }
+                    if (i >= maxn) { n = iter; break; }
                 }
                 float hue = (atan(z.y, z.x) * 0.159154943092 + 0.5);
                 vec3 color1 = vec3(0.0, 0.0, 0.0);
@@ -384,11 +377,9 @@
         const afterpowerLocation = gl.getUniformLocation(program, 'afterpower');
         const inverseLocation = gl.getUniformLocation(program, 'inverse');
         const multlightLocation = gl.getUniformLocation(program, 'multlight');
-        const scalevalLocation = gl.getUniformLocation(program, 'scaleval');
         const ismandelLocation = gl.getUniformLocation(program, 'ismandel');
         const isburningLocation = gl.getUniformLocation(program, 'isburning');
         const fractalindexLocation = gl.getUniformLocation(program, 'fractalindex');
-        const colorschemeindexLocation = gl.getUniformLocation(program, 'colorschemeindex');
         const iterationLocation = gl.getUniformLocation(program, 'iteration');
 
         let cxval = 0.0;
@@ -406,17 +397,13 @@
         let isburning = 0;
         let fractalindex = 4;
         let multlight = 1.0;
-        let rotx = 0.0;
-        let rotz = 0.0; // -3.14159 * 0.5
         let rotationSpeed = 0.05;
         let iteration = 90;
         let hypercomplexindex = 0;
-        let colorschemeindex = 1;
         let movespeedx = 0.025;
         let movespeedy = 0.025 * 0.5;
         let isRecording = 0;
         let zoomSpeed = 0.07;
-        let scaleval = 0.0;
         const keysPressed = {};
         window.addEventListener('keydown', (event) => { keysPressed[event.key.toLowerCase()] = true; });
         window.addEventListener('keyup', (event) => { keysPressed[event.key.toLowerCase()] = false; });
@@ -447,24 +434,18 @@
             if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; } // if (keysPressed[']']) { power *= 1.0 + 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed['j']) { multlight *= 1.0 - (1.0 / 128.0); keypress = true; }
             if (keysPressed['k']) { multlight *= 1.0 + (1.0 / 128.0); keypress = true; }
-            if (keysPressed['h'] && currentTime - lastChangeTime > 200) { range = 120.0; rotx = 0.0; rotz = 0.0; if (ismandel) { zoomMandel = 3.0; cxval = 0.0; cyval = 0.0; } else { zoomJulia = 3.0; zxval = 0.0; zyval = 0.0; } lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['l'] && currentTime - lastChangeTime > 200) { range = 120.0; rotx = 0.0; rotz = 0.0; if (ismandel) { zoomMandel = 60.0; cxval = 0.0; cyval = 0.0; } else { zoomJulia = 60.0; zxval = 0.0; zyval = 0.0; } lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['h'] && currentTime - lastChangeTime > 200) { range = 120.0; if (ismandel) { zoomMandel = 3.0; cxval = 0.0; cyval = 0.0; } else { zoomJulia = 3.0; zxval = 0.0; zyval = 0.0; } lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['l'] && currentTime - lastChangeTime > 200) { range = 120.0; if (ismandel) { zoomMandel = 60.0; cxval = 0.0; cyval = 0.0; } else { zoomJulia = 60.0; zxval = 0.0; zyval = 0.0; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['9']) { zoomMandel /= 1.0 + zoomSpeed; keypress = true; }
             if (keysPressed['7']) { zoomMandel *= 1.0 + zoomSpeed; keypress = true; }
             if (keysPressed['8']) { cyval = cyval + zoomMandel * movespeedy * 0.1; keypress = true; }
             if (keysPressed['5']) { cyval = cyval - zoomMandel * movespeedy * 0.1; keypress = true; }
             if (keysPressed['4']) { cxval = cxval - zoomMandel * movespeedx * 0.1; keypress = true; }
             if (keysPressed['6']) { cxval = cxval + zoomMandel * movespeedx * 0.1; keypress = true; }
-            if (keysPressed['arrowup']) { rotx -= rotationSpeed * 0.1; keypress = true; }
-            if (keysPressed['arrowdown']) { rotx += rotationSpeed * 0.1; keypress = true; }
-            if (keysPressed['arrowleft']) { rotz += rotationSpeed * 0.1; keypress = true; }
-            if (keysPressed['arrowright']) { rotz -= rotationSpeed * 0.1; keypress = true; }
-            if (keysPressed['o']) { scaleval -= 0.01; keypress = true; }
-            if (keysPressed['p']) { scaleval += 0.01; keypress = true; }
             if (keypress || keyinit) {
                 let rangecalc = range;
-                if (power < 0 && hypercomplexindex == 0) { rangecalc = range * 8.0; }
-                if ((fractalindex == 0 || fractalindex == 1 || fractalindex == 2) && iteration <= 3 && hypercomplexindex == 0) { rangecalc = range * 1000.0; }
+                if (power < 0) { rangecalc = range * 8.0; }
+                if ((fractalindex == 0 || fractalindex == 1 || fractalindex == 2) && iteration <= 3) { rangecalc = range * 1000.0; }
                 if (fractalindex >= 1) { rangecalc = range * 1000.0; }
                 gl.uniform1i(fractalindexLocation, fractalindex);
                 gl.uniform1i(ismandelLocation, ismandel);
@@ -479,9 +460,7 @@
                 gl.uniform1f(afterpowerLocation, afterpower);
                 gl.uniform1f(inverseLocation, inverse);
                 gl.uniform1f(multlightLocation, multlight);
-                gl.uniform1f(scalevalLocation, scaleval);
                 gl.uniform1f(rangeLocation, rangecalc);
-                gl.uniform1i(colorschemeindexLocation, colorschemeindex);
                 gl.uniform1i(iterationLocation, iteration);
             }
         }
