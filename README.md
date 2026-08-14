@@ -107,7 +107,7 @@ See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
 h₂-const:
 ```
-h₂ = -2 * ln(2)
+h₄ = -2 * ln(sqrt(4))
 ```
 
 ζ((z^2) ^ (1/2)) + h₂
