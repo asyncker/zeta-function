@@ -105,15 +105,19 @@ t = 1/2 - 0.00001
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
-h₂-const:
+define h-function:
 ```
-h₄ = -2 * ln(sqrt(4))
+h(z, w) = z/2 * ln(1/w) = -z * ln(sqrt(w))
 ```
 
-ζ((z^2) ^ (1/2)) + h₄
+```
+-4/2 * ln(1/w)
+```
+
+ζ((z^2) ^ (1/2)) + h(4, 2)
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + h₄
+ζ((z^2) ^ (1/2)) + h(4, 2)
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 zeta function
