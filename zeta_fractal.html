@@ -40,6 +40,17 @@
                 <button class="control-btn" onclick="power = 3; updateControls(true);">3</button>
             </div>
         </div>
+        <div class="control-group" style="display: none;">
+            <label>After Power:</label>
+            <div class="control-buttons">
+                <button class="control-btn" onclick="afterpower = -3; updateControls(true);">-3</button>
+                <button class="control-btn" onclick="afterpower = -2; updateControls(true);">-2</button>
+                <button class="control-btn" onclick="afterpower = -1; updateControls(true);">-1</button>
+                <button class="control-btn" onclick="afterpower = 1; updateControls(true);">1</button>
+                <button class="control-btn" onclick="afterpower = 2; updateControls(true);">2</button>
+                <button class="control-btn" onclick="afterpower = 3; updateControls(true);">3</button>
+            </div>
+        </div>
         <div class="control-group">
             <label>Fractal Type:</label>
             <div class="control-buttons">
@@ -138,8 +149,7 @@
             uniform float range;
             uniform float power;
             uniform float inverse;
-            uniform float zwval;
-            uniform float cwval;
+            uniform float afterpower;
             uniform float multlight;
             uniform float scaleval;
             uniform int fractalindex;
@@ -151,16 +161,13 @@
             #define EULER_GAMMA 0.5772156649015329
 
             float cabs_sq(vec2 z) { return dot(z, z); }
-            float cabs(vec2 z) { return sqrt(z.x * z.x + z.y * z.y); }
-            float cabs_invsq(vec2 z) { return 1.0 / (z.x * z.x + z.y * z.y); }
             float carg(vec2 z) { return atan(z.y, z.x); }
             vec2 cmul_i(vec2 z) { return vec2(-z.y, z.x); }
             vec2 conj(vec2 z) { return vec2(z.x, -z.y); }
-            vec2 cinv(vec2 z) { return cabs_invsq(z) * vec2(z.x, -z.y); }
+            vec2 cinv(vec2 z) { return vec2(z.x, -z.y) / dot(z, z); }
             vec2 cexp(vec2 z) { return exp(z.x) * vec2(cos(z.y), sin(z.y)); }
             vec2 clog(vec2 z) { return vec2(log(length(z)), carg(z)); }
             vec2 cmul(vec2 z, vec2 w) { return vec2(z.x * w.x - z.y * w.y, z.x * w.y + z.y * w.x); }
-            vec2 cdiv(vec2 z, vec2 w) { return cmul(z, cinv(w)); }
             vec2 cpow(vec2 z, float w) { 
                 if (w == 1.0) return z;
                 if (w == 2.0) return cmul(z, z);
@@ -280,8 +287,6 @@
             vec2 czcosh(vec2 z, vec2 t) { return (czeta(z + t) + czeta(t - z)) * 0.5; }
             vec2 cdzeta(vec2 z) { vec2 dz = vec2(0.0, 0.001); return cmul(czeta(z + dz) - czeta(z - dz), cinv(2.0 * dz)); }
             vec2 cdzsinh(vec2 z, vec2 t) { vec2 dz = vec2(0.0, 0.001); return cmul(czsinh(z + dz, t) - czsinh(z - dz, t), cinv(2.0 * dz)); }
-            vec2 cdzcosh(vec2 z, vec2 t) { vec2 dz = vec2(0.0, 0.001); return cmul(czcosh(z + dz, t) - czcosh(z - dz, t), cinv(2.0 * dz)); }
-            vec2 cinvmix(vec2 z, float s) { return mix(z, cinv(z), s); } // return cinv(z) * s + z * (1.0 - s);
 
             vec3 hsv2rgb(vec3 c) {
                 vec4 K = vec4(1.0, 0.666666666667, 0.333333333333, 3.0);
@@ -293,9 +298,9 @@
                 vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
                 uv = ismandel == 1 ? uv * zoommandel + vec2(cxval, cyval) : uv * zoomjulia + vec2(zxval, zyval);
                 vec2 c = vec2(ismandel == 1 ? uv.x : cxval, ismandel == 1 ? uv.y : cyval);
-                if (inverse != 0.0) { c = cinvmix(c, inverse); }
+                if (inverse != 0.0) { c = cinv(c); }
                 vec2 z = vec2(ismandel == 1 ? c.x : uv.x, ismandel == 1 ? c.y : uv.y);
-                const int maxiter = 180;
+                const int maxiter = 110;
                 int iter = maxiter > iteration ? iteration : maxiter;
                 float znorm = 0.0;
                 int n = 0, maxn = (fractalindex >= 18 || fractalindex == 15) && iter >= 100 ? 100 : iter;
@@ -306,19 +311,16 @@
                     znorm = cabs_sq(z);
                     if (znorm > range) { n = i; break; }
                     ztmp = z;
-                    //z = cinv(z);
                     if (isburning == 1) {
                         z.x = abs(z.x);
-                        z.y = abs(z.y);
-                        z = conj(z);
+                        z.y = -abs(z.y);
                     }
-                    if (1 == 0) { z = conj(z); }
                     z = cpow(z, power);
-                    
                     if (fractalindex == 1) { z = cexp(z); }
                     else if (fractalindex == 2) { z = csin(z); }
                     else if (fractalindex == 3) { z = cgamma(z); }
                     else if (fractalindex == 4) { z = czeta(z); }
+                    //z = cpow(z, afterpower);
                     z = z + c;
                     n += 1;
                     if (n >= maxn) { n = iter; break; }
@@ -374,13 +376,12 @@
         const cxvalLocation = gl.getUniformLocation(program, 'cxval');
         const cyvalLocation = gl.getUniformLocation(program, 'cyval');
         const zoommandelLocation = gl.getUniformLocation(program, 'zoommandel');
-        const cwvalLocation = gl.getUniformLocation(program, 'cwval');
         const zxvalLocation = gl.getUniformLocation(program, 'zxval');
         const zyvalLocation = gl.getUniformLocation(program, 'zyval');
         const zoomjuliaLocation = gl.getUniformLocation(program, 'zoomjulia');
-        const zwvalLocation = gl.getUniformLocation(program, 'zwval');
         const rangeLocation = gl.getUniformLocation(program, 'range');
         const powerLocation = gl.getUniformLocation(program, 'power');
+        const afterpowerLocation = gl.getUniformLocation(program, 'afterpower');
         const inverseLocation = gl.getUniformLocation(program, 'inverse');
         const multlightLocation = gl.getUniformLocation(program, 'multlight');
         const scalevalLocation = gl.getUniformLocation(program, 'scaleval');
@@ -393,12 +394,11 @@
         let cxval = 0.0;
         let cyval = 0.0;
         let zoomMandel = 12.0;
-        let cwval = 0.0;
         let zxval = 0.0;
         let zyval = 0.0;
         let zoomJulia = 12.0;
-        let zwval = 0.0;
         let power = 1.0;
+        let afterpower = 1.0;
         let range = 6.0;
         let inverse = 0.0;
         let lastChangeTime = 0;
@@ -472,12 +472,11 @@
                 gl.uniform1f(cxvalLocation, cxval);
                 gl.uniform1f(cyvalLocation, cyval);
                 gl.uniform1f(zoommandelLocation, zoomMandel);
-                gl.uniform1f(cwvalLocation, cwval);
                 gl.uniform1f(zxvalLocation, zxval);
                 gl.uniform1f(zyvalLocation, zyval);
                 gl.uniform1f(zoomjuliaLocation, zoomJulia);
-                gl.uniform1f(zwvalLocation, zwval);
                 gl.uniform1f(powerLocation, power);
+                gl.uniform1f(afterpowerLocation, afterpower);
                 gl.uniform1f(inverseLocation, inverse);
                 gl.uniform1f(multlightLocation, multlight);
                 gl.uniform1f(scalevalLocation, scaleval);
