@@ -110,10 +110,10 @@ h₂-const:
 h₄ = -2 * ln(sqrt(4))
 ```
 
-ζ((z^2) ^ (1/2)) + h₂
+ζ((z^2) ^ (1/2)) + h₄
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + h₂
+ζ((z^2) ^ (1/2)) + h₄
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 zeta function
