@@ -107,7 +107,7 @@ See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
 define h-function:
 ```
-h(z, w) = w/2 * ln(1/z) = -w * ln(sqrt(z)) = -w/2 * ln(z)
+h(z, w) = ln(z^(-w/2)) = w/2 * ln(1/z) = -w * ln(sqrt(z)) = -w/2 * ln(z)
 ```
 
 Lambert W/Boltzmann's entropy connection:
