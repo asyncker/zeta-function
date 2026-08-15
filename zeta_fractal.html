@@ -133,8 +133,6 @@
             gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
         }
 
-
-        
         const shaderCode = `
             precision highp float;
             uniform vec2 iResolution;
@@ -280,10 +278,7 @@
             }
 
             vec2 czeta(vec2 z) { return cmul(ceta(z), cinv(vec2(1.0, 0.0) - cexp(0.69314718056 * (vec2(1.0, 0.0) - z)))); }
-            vec2 czsinh(vec2 z, vec2 t) { return (czeta(z + t) - czeta(t - z)) * 0.5; }
-            vec2 czcosh(vec2 z, vec2 t) { return (czeta(z + t) + czeta(t - z)) * 0.5; }
-            vec2 cdzeta(vec2 z) { vec2 dz = vec2(0.0, 0.001); return cmul(czeta(z + dz) - czeta(z - dz), cinv(2.0 * dz)); }
-            vec2 cdzsinh(vec2 z, vec2 t) { vec2 dz = vec2(0.0, 0.001); return cmul(czsinh(z + dz, t) - czsinh(z - dz, t), cinv(2.0 * dz)); }
+            //vec2 czsinh(vec2 z, vec2 t) { return (czeta(z + t) - czeta(t - z)) * 0.5; }
 
             vec3 hsv2rgb(vec3 c) {
                 vec4 K = vec4(1.0, 0.666666666667, 0.333333333333, 3.0);
@@ -318,7 +313,7 @@
                     z = z + c;
                     if (i >= maxn) { n = iter; break; }
                 }
-                float hue = (atan(z.y, z.x) * 0.159154943092 + 0.5);
+                float hue = atan(z.y, z.x) * 0.159154943092 + 0.5;
                 vec3 color1 = vec3(0.0, 0.0, 0.0);
                 if (hue != 0.0) {
                     float value = log(znorm + 1.0) * 0.5;
@@ -397,9 +392,7 @@
         let isburning = 0;
         let fractalindex = 4;
         let multlight = 1.0;
-        let rotationSpeed = 0.05;
-        let iteration = 90;
-        let hypercomplexindex = 0;
+        let iteration = 48;
         let movespeedx = 0.025;
         let movespeedy = 0.025 * 0.5;
         let isRecording = 0;
@@ -410,12 +403,12 @@
         function updateControls(keyinit = false) {
             let keypress = false;
             const currentTime = Date.now();
-            if (keysPressed['w']) { if (ismandel) { cyval = cyval + zoomMandel * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } else { zyval = zyval + zoomJulia * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } keypress = true; }
-            if (keysPressed['s']) { if (ismandel) { cyval = cyval - zoomMandel * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } else { zyval = zyval - zoomJulia * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } keypress = true; }
-            if (keysPressed['d']) { if (ismandel) { cxval = cxval + zoomMandel * (hypercomplexindex == 0 ? movespeedx : movespeedy * 0.1); } else { zxval = zxval + zoomJulia * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } keypress = true; }
-            if (keysPressed['a']) { if (ismandel) { cxval = cxval - zoomMandel * (hypercomplexindex == 0 ? movespeedx : movespeedy * 0.1); } else { zxval = zxval - zoomJulia * (hypercomplexindex == 0 ? movespeedy : movespeedy * 0.1); } keypress = true; }
-            if (keysPressed['e']) { if (ismandel) { zoomMandel /= 1.0 + (hypercomplexindex == 0 ? zoomSpeed : zoomSpeed * 0.1); } else { zoomJulia /= 1.0 + zoomSpeed; } keypress = true; }
-            if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + (hypercomplexindex == 0 ? zoomSpeed : zoomSpeed * 0.1); } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
+            if (keysPressed['w']) { if (ismandel) { cyval = cyval + zoomMandel * movespeedy; } else { zyval = zyval + zoomJulia * movespeedy; } keypress = true; }
+            if (keysPressed['s']) { if (ismandel) { cyval = cyval - zoomMandel * movespeedy; } else { zyval = zyval - zoomJulia * movespeedy; } keypress = true; }
+            if (keysPressed['d']) { if (ismandel) { cxval = cxval + zoomMandel * movespeedx; } else { zxval = zxval + zoomJulia * movespeedy; } keypress = true; }
+            if (keysPressed['a']) { if (ismandel) { cxval = cxval - zoomMandel * movespeedx; } else { zxval = zxval - zoomJulia * movespeedy; } keypress = true; }
+            if (keysPressed['e']) { if (ismandel) { zoomMandel /= 1.0 + zoomSpeed; } else { zoomJulia /= 1.0 + zoomSpeed; } keypress = true; }
+            if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + zoomSpeed; } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 6 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
@@ -428,8 +421,8 @@
             if (keysPressed['-'] && currentTime - lastChangeTime > 400) { iteration -= 1; if (iteration <= 0) { iteration = 1; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 12) { iteration = 12; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['0'] && currentTime - lastChangeTime > 500) { if (isRecording) { stopRecording(); } else { startRecording(); } lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed / 2.0; rotationSpeed = rotationSpeed / 2.0; movespeedx = movespeedx / 2.0; movespeedy = movespeedy / 2.0; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; rotationSpeed = rotationSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed / 2.0; movespeedx = movespeedx / 2.0; movespeedy = movespeedy / 2.0; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['[']) { power -= 1.0 / 128.0; keypress = true; } // if (keysPressed['[']) { power *= 1.0 - 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; } // if (keysPressed[']']) { power *= 1.0 + 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
             if (keysPressed['j']) { multlight *= 1.0 - (1.0 / 128.0); keypress = true; }
