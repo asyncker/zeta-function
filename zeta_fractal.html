@@ -161,7 +161,7 @@
             vec2 conj(vec2 z) { return vec2(z.x, -z.y); }
             vec2 cinv(vec2 z) { return vec2(z.x, -z.y) / dot(z, z); }
             vec2 cexp(vec2 z) { return exp(z.x) * vec2(cos(z.y), sin(z.y)); }
-            vec2 clog(vec2 z) { return vec2(log(length(z)), carg(z)); }
+            vec2 clog(vec2 z) { return vec2(log(length(z)), atan(z.y, z.x)); }
             vec2 cmul(vec2 z, vec2 w) { return vec2(z.x * w.x - z.y * w.y, z.x * w.y + z.y * w.x); }
             vec2 cpow(vec2 z, float w) { 
                 if (w == 1.0) return z;
@@ -238,7 +238,7 @@
                 return res;
             }
 
-            vec2 ceta_strip(vec2 z) { return cmul((vec2(1.0, 0.0) - cexp(0.69314718056 * (vec2(1.0, 0.0) - z))), czeta_strip(z)); }
+            vec2 ceta_strip(vec2 z) { return cmul(vec2(1.0, 0.0) - cexp(0.69314718056 * (vec2(1.0, 0.0) - z)), czeta_strip(z)); }
             vec2 ceta_right(vec2 z) {
                 if (z.x < 3.0 && z.y > 54.0) { return ceta_strip(z); }
                 vec2 result = vec2(1.0, 0.0);
@@ -265,9 +265,9 @@
                     component_a = cmul(cgamma(z), csin(z * 1.57079632679));
                 }
                 vec2 zadd1 = z + vec2(1.0, 0.0);
+                vec2 two_neg_z = cexp(-0.69314718056 * z);
+                vec2 multiplier = cmul(cexp(-1.14472988585 * zadd1), cmul(vec2(1.0, 0.0) - 0.5 * two_neg_z, cinv(vec2(1.0, 0.0) - two_neg_z)));
                 vec2 component_b = cmul(z, ceta_right(zadd1));
-                vec2 multiplier_b = cmul(vec2(1.0, 0.0) - cexp(-0.69314718056 * zadd1), cinv(vec2(1.0, 0.0) - cexp(-0.69314718056 * z)));
-                vec2 multiplier = cmul(cexp(-1.14472988585 * zadd1), multiplier_b);
                 return 2.0 * conj(cmul(cmul(component_a, component_b), multiplier));
             }
 
@@ -392,7 +392,7 @@
         let isburning = 0;
         let fractalindex = 4;
         let multlight = 1.0;
-        let iteration = 48;
+        let iteration = 12;
         let movespeedx = 0.025;
         let movespeedy = 0.025 * 0.5;
         let isRecording = 0;
@@ -421,10 +421,10 @@
             if (keysPressed['-'] && currentTime - lastChangeTime > 400) { iteration -= 1; if (iteration <= 0) { iteration = 1; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 12) { iteration = 12; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['0'] && currentTime - lastChangeTime > 500) { if (isRecording) { stopRecording(); } else { startRecording(); } lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed / 2.0; movespeedx = movespeedx / 2.0; movespeedy = movespeedy / 2.0; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 0.5; movespeedx = movespeedx * 0.5; movespeedy = movespeedy * 0.5; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['[']) { power -= 1.0 / 128.0; keypress = true; } // if (keysPressed['[']) { power *= 1.0 - 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
-            if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; } // if (keysPressed[']']) { power *= 1.0 + 1.0 / 256.0; keypress = true; } // newton fractal interes near zero!
+            if (keysPressed['[']) { power -= 1.0 / 128.0; keypress = true; }
+            if (keysPressed[']']) { power += 1.0 / 128.0; keypress = true; }
             if (keysPressed['j']) { multlight *= 1.0 - (1.0 / 128.0); keypress = true; }
             if (keysPressed['k']) { multlight *= 1.0 + (1.0 / 128.0); keypress = true; }
             if (keysPressed['h'] && currentTime - lastChangeTime > 200) { range = 120.0; if (ismandel) { zoomMandel = 3.0; cxval = 0.0; cyval = 0.0; } else { zoomJulia = 3.0; zxval = 0.0; zyval = 0.0; } lastChangeTime = currentTime; keypress = true; }
