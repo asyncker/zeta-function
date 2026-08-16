@@ -54,10 +54,10 @@
         <div class="control-group">
             <label>Fractal Type:</label>
             <div class="control-buttons">
-                <button class="control-btn" onclick="fractalindex = 1; updateControls(true);">Exp</button>
-                <button class="control-btn" onclick="fractalindex = 2; updateControls(true);">Sin</button>
-                <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Gamma</button>
-                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">Zeta</button>
+                <button class="control-btn" onclick="fractalindex = 0; updateControls(true);">Exp</button>
+                <button class="control-btn" onclick="fractalindex = 1; updateControls(true);">Sin</button>
+                <button class="control-btn" onclick="fractalindex = 2; updateControls(true);">Gamma</button>
+                <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Zeta</button>
             </div>
         </div>
         <div class="control-group">
@@ -291,27 +291,21 @@
                 uv = ismandel == 1 ? uv * zoommandel + vec2(cxval, cyval) : uv * zoomjulia + vec2(zxval, zyval);
                 vec2 c = vec2(ismandel == 1 ? uv.x : cxval, ismandel == 1 ? uv.y : cyval);
                 if (inverse != 0.0) { c = cinv(c); }
-                vec2 z = vec2(ismandel == 1 ? c.x : uv.x, ismandel == 1 ? c.y : uv.y);
+                vec2 z = vec2(ismandel == 1 ? c.x : uv.x, ismandel == 1 ? c.y : uv.y); //vec2 z0 = z;
                 const int maxiter = 110;
-                int iter = maxiter > iteration ? iteration : maxiter;
-                float znorm = 0.0;
-                int n = iter, maxn = (fractalindex >= 18 || fractalindex == 15) && iter >= 100 ? 100 : iter;
-                vec2 z0 = z;
-                for (int i = 0; i < 110; i++) {
+                int n = 0, iter = maxiter > iteration ? iteration : maxiter;
+                float znorm = 0.0; 
+                for (int i = 0; i < maxiter; i++) {
                     znorm = cabs_sq(z);
-                    if (znorm > range) { n = i; break; }
-                    if (isburning == 1) {
-                        z.x = abs(z.x);
-                        z.y = -abs(z.y);
-                    }
+                    if (i >= iter || znorm > range) { n = i; break; }
+                    if (isburning == 1) { z.x = abs(z.x); z.y = -abs(z.y); }
                     z = cpow(z, power);
-                    if (fractalindex == 1) { z = cexp(z); }
-                    else if (fractalindex == 2) { z = csin(z); }
-                    else if (fractalindex == 3) { z = cgamma(z); }
-                    else if (fractalindex == 4) { z = czeta(z); }
+                    if (fractalindex == 3) { z = czeta(z); }
+                    else if (fractalindex == 2) { z = cgamma(z); }
+                    else if (fractalindex == 1) { z = csin(z); }
+                    else if (fractalindex == 0) { z = cexp(z); }
                     //z = cpow(z, afterpower);
                     z = z + c;
-                    if (i >= maxn) { n = iter; break; }
                 }
                 float hue = atan(z.y, z.x) * 0.159154943092 + 0.5;
                 vec3 color1 = vec3(0.0, 0.0, 0.0);
@@ -390,7 +384,7 @@
         let lastChangeTime = 0;
         let ismandel = 0;
         let isburning = 0;
-        let fractalindex = 4;
+        let fractalindex = 3;
         let multlight = 1.0;
         let iteration = 12;
         let movespeedx = 0.025;
@@ -411,15 +405,15 @@
             if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + zoomSpeed; } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 6 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 6 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 3 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 3 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['u'] && currentTime - lastChangeTime > 200) { ismandel = ismandel == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['f'] && currentTime - lastChangeTime > 800) { inverse = inverse == 1.0 ? 0.0 : 1.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['+'] && currentTime - lastChangeTime > 200) { isburning = isburning == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['x']) { range *= 2.0; keypress = true; }
             if (keysPressed['z']) { range *= 1.0 / 1.125; keypress = true; }
             if (keysPressed['-'] && currentTime - lastChangeTime > 400) { iteration -= 1; if (iteration <= 0) { iteration = 1; } lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 12) { iteration = 12; } lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['='] && currentTime - lastChangeTime > 400) { iteration += 1; if (iteration >= 120) { iteration = 120; } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['0'] && currentTime - lastChangeTime > 500) { if (isRecording) { stopRecording(); } else { startRecording(); } lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['2'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 0.5; movespeedx = movespeedx * 0.5; movespeedy = movespeedy * 0.5; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['3'] && currentTime - lastChangeTime > 200) { zoomSpeed = zoomSpeed * 2.0; movespeedx = movespeedx * 2.0; movespeedy = movespeedy * 2.0; lastChangeTime = currentTime; keypress = true; }
@@ -436,10 +430,8 @@
             if (keysPressed['4']) { cxval = cxval - zoomMandel * movespeedx * 0.1; keypress = true; }
             if (keysPressed['6']) { cxval = cxval + zoomMandel * movespeedx * 0.1; keypress = true; }
             if (keypress || keyinit) {
-                let rangecalc = range;
+                let rangecalc = range * 1000.0;
                 if (power < 0) { rangecalc = range * 8.0; }
-                if ((fractalindex == 0 || fractalindex == 1 || fractalindex == 2) && iteration <= 3) { rangecalc = range * 1000.0; }
-                if (fractalindex >= 1) { rangecalc = range * 1000.0; }
                 gl.uniform1i(fractalindexLocation, fractalindex);
                 gl.uniform1i(ismandelLocation, ismandel);
                 gl.uniform1i(isburningLocation, isburning);
