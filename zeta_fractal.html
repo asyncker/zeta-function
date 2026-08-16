@@ -297,7 +297,7 @@
                 float znorm = 0.0; 
                 for (int i = 0; i < maxiter; i++) {
                     znorm = cabs_sq(z);
-                    if (i >= iter || znorm > range) { n = i; break; }
+                    if (znorm > range || (iter == 1 && i == 1)) { n = i; break; }
                     if (isburning == 1) { z.x = abs(z.x); z.y = -abs(z.y); }
                     z = cpow(z, power);
                     if (fractalindex == 3) { z = czeta(z); }
@@ -306,6 +306,7 @@
                     else if (fractalindex == 0) { z = cexp(z); }
                     //z = cpow(z, afterpower);
                     z = z + c;
+                    if (i >= iter) { n = i; break; }
                 }
                 float hue = atan(z.y, z.x) * 0.159154943092 + 0.5;
                 vec3 color1 = vec3(0.0, 0.0, 0.0);
