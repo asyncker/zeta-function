@@ -205,7 +205,7 @@
                 return res;
             }
 
-            vec2 cgammaphi(vec2 z) { vec2 zconj = vec2(1.0, 0.0) - 2.0 * z; return cexp(cmul(z, vec2(-2.38629436112, 1.57079632679) + clog(zconj)) + 0.5 * (vec2(1.69314718056, 0) - clog(z)) + 0.572364942925 * zconj); }
+            vec2 cgammaphi(vec2 z) { return cexp(cmul(z, vec2(-3.53102424697, 1.57079632679) + clog(vec2(1.0, 0.0) - 2.0 * z)) - 0.5 * clog(z) + vec2(1.4189385332, 0.0)); }
 
             vec2 czeta_strip(vec2 z) {
                 vec4 zeta_est = vec4(1.0, 0, 1.0, 0);
