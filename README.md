@@ -160,8 +160,9 @@ function
 2 * exp(ln(1/2) * z)
 ```
 
+define tau-function:
 ```
-er(z) = 1 - exp(1/2 - z)
+τ(z) = 1 - exp(1/2 - z)
 ```
 
 test coff:
