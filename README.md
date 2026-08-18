@@ -128,7 +128,7 @@ h(2, 4) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = ln(1/4) = -2 * ln(2)
 
 zeta function
 ```
-zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(-z + 1) * zeta(-z + 1)
+zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
 ```
 
 zeta function if use exp and gamma
@@ -147,6 +147,22 @@ inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
 ```
 
+function
+```
+1 - conj(z)
+```
+
+```
+1 - z = -z + 1
+```
+
+```
+2 * exp(ln(1/2) * z)
+```
+
+```
+er(z) = 1 - exp(1/2 - z)
+```
 
 test coff:
 ```
