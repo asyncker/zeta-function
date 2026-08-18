@@ -215,3 +215,7 @@ zsin(20.930100613681927365612187289676853134924003353665) <br />
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
 29399999
+
+```
+gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
+```
