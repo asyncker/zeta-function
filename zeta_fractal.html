@@ -13,7 +13,7 @@
         #fractal-controls { position: fixed; top: 12px; right: 6px; background: rgba(0, 0, 0, 0.7); padding: 14px; border-radius: 8px; font-family: Arial, sans-serif; font-size: 14px; z-index: 1000; min-width: 200px; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
         #fractal-controls h3 { margin: 0 0 7px 0; color: #4fc3f7; font-size: 16px; display: flex; justify-content: space-between; align-items: center; }
         .control-group { margin-bottom: 10px; }
-        .control-group label { display: block; color: #bbbbbb; font-size: 12px; }
+        .control-group label { display: block; color: #bbb; font-size: 12px; }
         .control-buttons { display: flex; gap: 5px; margin-top: 5px; }
         .control-btn { flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 5px 6px; border-radius: 4px; cursor: pointer; font-size: 12px; text-align: center; transition: all 0.2s; white-space: nowrap; }
         .control-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
@@ -54,10 +54,11 @@
         <div class="control-group">
             <label>Fractal Type:</label>
             <div class="control-buttons">
-                <button class="control-btn" onclick="fractalindex = 0; updateControls(true);">Exp</button>
-                <button class="control-btn" onclick="fractalindex = 1; updateControls(true);">Sin</button>
-                <button class="control-btn" onclick="fractalindex = 2; updateControls(true);">Gamma</button>
-                <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Zeta</button>
+                <button class="control-btn" onclick="fractalindex = 0; updateControls(true);">1-exp(1/2-z)</button>
+                <button class="control-btn" onclick="fractalindex = 1; updateControls(true);">Exp</button>
+                <button class="control-btn" onclick="fractalindex = 2; updateControls(true);">Sin</button>
+                <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Gamma</button>
+                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">Zeta</button>
             </div>
         </div>
         <div class="control-group">
@@ -87,6 +88,7 @@
             </div>
         </div>
         <div class="shortcuts">
+            V/C - switch fractal<br>
             H/L - goto (0, 0)<br>
             V/C - next/prev fractal<br>
             U - switch mandel/julia<br>
@@ -161,6 +163,7 @@
             vec2 conj(vec2 z) { return vec2(z.x, -z.y); }
             vec2 cinv(vec2 z) { return vec2(z.x, -z.y) / dot(z, z); }
             vec2 cexp(vec2 z) { return exp(z.x) * vec2(cos(z.y), sin(z.y)); }
+            vec2 ctau(vec2 z) { return vec2(1.0, 0.0) - cexp(vec2(0.5, 0.0) - z); }
             vec2 clog(vec2 z) { return vec2(log(length(z)), atan(z.y, z.x)); }
             vec2 cmul(vec2 z, vec2 w) { return vec2(z.x * w.x - z.y * w.y, z.x * w.y + z.y * w.x); }
             vec2 cpow(vec2 z, float w) { 
@@ -300,10 +303,11 @@
                     if (znorm > range || (iter == 1 && i == 1)) { n = i; break; }
                     if (isburning == 1) { z.x = abs(z.x); z.y = -abs(z.y); }
                     z = cpow(z, power);
-                    if (fractalindex == 3) { z = czeta(z); }
-                    else if (fractalindex == 2) { z = cgamma(z); }
-                    else if (fractalindex == 1) { z = csin(z); }
-                    else if (fractalindex == 0) { z = cexp(z); }
+                    if (fractalindex == 4) { z = czeta(z); }
+                    else if (fractalindex == 3) { z = cgamma(z); }
+                    else if (fractalindex == 2) { z = csin(z); }
+                    else if (fractalindex == 1) { z = cexp(z); }
+                    else if (fractalindex == 0) { z = ctau(z); }
                     //z = cpow(z, afterpower);
                     z = z + c;
                     if (i >= iter) { n = i; break; }
@@ -326,7 +330,7 @@
 
         function startRecording() {
             const stream = canvas.captureStream(30);
-            const options = { mimeType: 'video/webm; codecs=vp9', videoBitsPerSecond: 65000000 };
+            const options = { mimeType: 'video/webm; codecs=vp9', videoBitsPerSecond: 85000000 };
             recordedChunks = [];
             mediaRecorder = new MediaRecorder(stream, options);
             mediaRecorder.ondataavailable = (event) => { if (event.data.size > 0) { recordedChunks.push(event.data); } };
@@ -385,7 +389,7 @@
         let lastChangeTime = 0;
         let ismandel = 0;
         let isburning = 0;
-        let fractalindex = 3;
+        let fractalindex = 4;
         let multlight = 1.0;
         let iteration = 12;
         let movespeedx = 0.025;
@@ -406,8 +410,8 @@
             if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + zoomSpeed; } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 3 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 3 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 4 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 4 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['u'] && currentTime - lastChangeTime > 200) { ismandel = ismandel == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['f'] && currentTime - lastChangeTime > 800) { inverse = inverse == 1.0 ? 0.0 : 1.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['+'] && currentTime - lastChangeTime > 200) { isburning = isburning == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
