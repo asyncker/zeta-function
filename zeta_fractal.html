@@ -74,6 +74,7 @@
                 <button class="control-btn" onclick="iteration = 1; updateControls(true);">1</button>
                 <button class="control-btn" onclick="iteration = 2; updateControls(true);">2</button>
                 <button class="control-btn" onclick="iteration = 6; updateControls(true);">6</button>
+                <button class="control-btn" onclick="iteration = 12; updateControls(true);">12</button>
                 <button class="control-btn" onclick="iteration = 24; updateControls(true);">24</button>
                 <button class="control-btn" onclick="iteration = 60; updateControls(true);">60</button>
                 <button class="control-btn" onclick="iteration = 96; updateControls(true);">96</button>
@@ -260,13 +261,12 @@
             vec2 ceta_left(vec2 z) {
                 z.x = -z.x;
                 vec2 component_a;
-                const float SQ2PI2 = 1.2533141373155001;
                 float log_r = log(length(z));
                 if (z.y > 200.0) {
-                    component_a = SQ2PI2 * cmul_i(cexp(vec2(z.x, 0.0) + (log_r - 1.0) * z - vec2(log_r * 0.5, 0.785398163397)));
+                    component_a = 1.2533141373155 * cmul_i(cexp(vec2(z.x, 0.0) + (log_r - 1.0) * z - vec2(log_r * 0.5, 0.785398163397)));
                 } else if (z.y > 20.0) {
                     float theta = atan(z.y, z.x);
-                    component_a = SQ2PI2 * cmul_i(cexp((theta - 1.57079632679) * cmul_i(z) + (log_r - 1.0) * z - 0.5 * vec2(log_r, theta)));
+                    component_a = 1.2533141373155 * cmul_i(cexp((theta - 1.57079632679) * cmul_i(z) + (log_r - 1.0) * z - 0.5 * vec2(log_r, theta)));
                 } else {
                     component_a = cmul(cgamma(z), csin(z * 1.57079632679));
                 }
@@ -310,7 +310,7 @@
                     else if (fractalindex == 3) { z = cgamma(z); }
                     else if (fractalindex == 2) { z = csin(z); }
                     else if (fractalindex == 1) { z = cexp(z); }
-                    else if (fractalindex == 0) { z = ctau(z); }
+                    else if (fractalindex == 0) { z = ctau(vec2(2.718281828459, 0.0), z); }
                     //z = cpow(z, afterpower);
                     z = z + c;
                     if (i >= iter) { n = i; break; }
