@@ -180,6 +180,7 @@ define tau-function:
 ```
 τ(z) * τ(-z) = 1 + e - sqrt(e) * 2 * cosh(z)
 τ(z) * τ(-z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
+τ(iθ) * τ(−iθ) = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
 τ(z) - τ(1 - z) = 2 * sinh(z - 1/2)
 τ(z) + τ(1 - z) = 2 - 2 * cosh(z - 1/2)
 ```
