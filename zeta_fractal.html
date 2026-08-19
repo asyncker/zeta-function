@@ -435,7 +435,7 @@
             if (keysPressed['4']) { cxval = cxval - zoomMandel * movespeedx * 0.1; keypress = true; }
             if (keysPressed['6']) { cxval = cxval + zoomMandel * movespeedx * 0.1; keypress = true; }
             if (keypress || keyinit) {
-                let rangecalc = range * 1000.0;
+                let rangecalc = range * 100000.0;
                 if (power < 0) { rangecalc = range * 8.0; }
                 gl.uniform1i(fractalindexLocation, fractalindex);
                 gl.uniform1i(ismandelLocation, ismandel);
