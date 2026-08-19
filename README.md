@@ -165,6 +165,25 @@ define tau-function:
 τ(z) = 1 - exp(1/2 - z)
 ```
 
+```
+τ'(z) = exp(1/2 - z)
+```
+
+```
+τ'(z) + τ(z) = 1
+```
+
+```
+τ'(z) / τ(z) = 1 / (exp(z - 1/2) - 1)
+```
+
+```
+τ(z) * τ(-z) = 1 + e - sqrt(e) * 2 * cosh(z)
+τ(z) * τ(-z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
+τ(z) - τ(1 - z) = 2 * sinh(z - 1/2)
+τ(z) + τ(1 - z) = 2 - 2 * cosh(z - 1/2)
+```
+
 test coff:
 ```
 (4 * pi^2) ^ (s - 1) * zeta(s)
