@@ -137,7 +137,7 @@ Bose-Einstein:
 
 Fermi-Dirac:
 ```
-τ'(w, t)⁺ / τ(w, t)⁺ = 1 / (e^(w - t) + 1)
+τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
 ```
 
 ```
