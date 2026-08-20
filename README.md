@@ -148,9 +148,18 @@ define h-function
 h(z, w) = -w/2 * ln(z)
 ```
 
-Lambert W/Boltzmann's entropy connection:
 ```
-h(z, -4) = -4/2 * ln(1/z)
+h(z, w) + h(z, −w) = 0
+```
+
+Lambert W/Boltzmann's entropy connection:
+
+```
+h(z, w)'[w] = -1/2 * ln(z)
+```
+
+```
+h(z, w)'[z] = -w / 2z
 ```
 
 it's supersymmetry value
