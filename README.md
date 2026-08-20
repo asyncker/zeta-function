@@ -143,7 +143,7 @@ hau(z, w, t) = (t - w) * ln(z)
 τ₂(w) = 1 - 2^(1/2 - w)
 ```
 
-define h-function
+define h-function (with Lambert W/Boltzmann's entropy connection)
 ```
 h(z, w) = -w/2 * ln(z)
 ```
@@ -152,13 +152,16 @@ h(z, w) = -w/2 * ln(z)
 h(z, w) + h(z, −w) = 0
 ```
 
-Lambert W/Boltzmann's entropy connection:
 ```
 h(z, w)'[w] = -1/2 * ln(z)
 ```
 
 ```
 h(z, w)'[z] = -w / 2z
+```
+
+```
+h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 ```
 
 ```
