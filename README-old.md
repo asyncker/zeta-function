@@ -214,6 +214,23 @@ zsin(20.930100613681927365612187289676853134924003353665) <br />
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
+
+If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
+
+<br />12-adic numbers<br />
+
+```math
+\zeta(-1) = -\frac{1}{12} = -0.1_{12}
+```
+
+```math
+\zeta(0) = -\frac{1}{2} = -0.6_{12}
+```
+
+```math
+\zeta(2) = \frac{\pi^2}{6} = \pi^2 \cdot 0.2_{12}
+```
+
 29399999
 
 ```
