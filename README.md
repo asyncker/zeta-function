@@ -175,13 +175,13 @@ e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 
 it's supersymmetry value
 ```
-h(2, 4) = ln(1/4) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = -2 * ln(2)
+h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ```
 
-ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = ln(1/4))
+ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = ln(1/4))
+ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 zeta function
