@@ -270,26 +270,10 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 ```
 
 <br /> Non-Newton with Multiplicative calculus
-```math
+```
 F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
 F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
 F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
-```
-
-If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
-
-<br />12-adic numbers<br />
-
-```math
-\zeta(-1) = -\frac{1}{12} = -0.1_{12}
-```
-
-```math
-\zeta(0) = -\frac{1}{2} = -0.6_{12}
-```
-
-```math
-\zeta(2) = \frac{\pi^2}{6} = \pi^2 \cdot 0.2_{12}
 ```
 
 <br />Non-Archimedean + Hyperreal + p-adic + Laurent Ring<br />
