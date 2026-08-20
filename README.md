@@ -269,7 +269,7 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 (re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
 ```
 
-<br /> Non-Newton with Multiplicative calculus
+It's convenient to do something like this
 ```
 F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
 F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
