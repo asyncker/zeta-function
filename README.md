@@ -232,7 +232,7 @@ invert function:
 1 - z = -z + 1
 ```
 
-define mpow:
+define mpow (currently only works on natural numbers):
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 ```
