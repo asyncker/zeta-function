@@ -105,9 +105,19 @@ t = 1/2 - 0.00001
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
+define folds
+```
+fold(z, k) = (z ^ k) ^ 1/k
+folds(z, k) = roots(z ^ k, k)
+```
+
+```
+folds(z, 2) = ±z
+```
+
 define tau-function and hau-function:
 ```
-tau(z, w, t) = 1 - z^(t - w)
+tau(z, w, t)⁺⁻ = 1 ± z^(t - w)
 ```
 
 ```
@@ -115,32 +125,42 @@ hau(z, w, t) = (t - w) * ln(z)
 ```
 
 ```
-τ(w) = 1 - e^(1/2 - w)
+τ(w)⁺⁻ = 1 ± e^(1/2 - w)
+```
+
+Bose-Einstein:
+```
+τ'(w, t)⁻ / τ(w, t)⁻ = 1 / (exp(w - t) - 1)
+```
+
+Fermi-Dirac:
+```
+τ'(w, t)⁺ / τ(w, t)⁺ = 1 / (exp(w - t) + 1)
 ```
 
 ```
-τ'(w) = exp(1/2 - w)
+τ'(w)⁻ = exp(1/2 - w)
 ```
 
 ```
-τ'(w) + τ(w) = 1
+τ'(w)⁻ + τ(w) = 1
 ```
 
 ```
-τ'(w, t) / τ(w, t) = 1 / (exp(w - t) - 1)
--1 / τ(w)
+-1 / τ(w)⁻
 ```
 
 ```
-τ(w) * τ(-w) = 1 + e - sqrt(e) * 2 * cosh(w)
-τ(w) * τ(-w) = (sqrt(e) - exp(w)) * (sqrt(e) - exp(-w))
-τ(iθ) * τ(−iθ) = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-τ(w) - τ(1 - w) = 2 * sinh(w - 1/2)
-τ(w) + τ(1 - w) = 2 - 2 * cosh(w - 1/2)
+τ(w)⁻ * τ(-w)⁻ = 1 + e - sqrt(e) * 2 * cosh(w)
+τ(w)⁻ * τ(-w)⁻ = (sqrt(e) - exp(w)) * (sqrt(e) - exp(-w))
+τ(iθ)⁻ * τ(−iθ)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
+τ(w)⁻ - τ(1 - w)⁻ = 2 * sinh(w - 1/2)
+τ(w)⁻ + τ(1 - w)⁻ = 2 - 2 * cosh(w - 1/2)
 ```
 
 ```
-τ₂(w) = 1 - 2^(1/2 - w)
+τ₂(w)⁻ = 1 - 2^(1/2 - w)
+τ₂(w)⁺ = 1 + 2^(1/2 - w)
 ```
 
 define h-function (with Lambert W/Boltzmann's entropy connection)
@@ -258,16 +278,6 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 (re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
 roots(z^2, 2)= +-z
 roots(z̄^2, 2) = +-z̄
-```
-
-define fold
-```
-fold(z, k) = (z ^ k) ^ 1/k
-folds(z, k) = roots(z ^ k, k)
-```
-
-```
-folds(z, 2) = +-z
 ```
 
 <br /> Non-Newton with Multiplicative calculus
