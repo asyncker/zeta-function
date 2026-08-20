@@ -232,11 +232,6 @@ invert function:
 1 - z = -z + 1
 ```
 
-test coff:
-```
-(4 * pi^2) ^ (s - 1) * zeta(s)
-```
-
 define mpow:
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
