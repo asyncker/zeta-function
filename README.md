@@ -153,13 +153,24 @@ h(z, w) + h(z, −w) = 0
 ```
 
 Lambert W/Boltzmann's entropy connection:
-
 ```
 h(z, w)'[w] = -1/2 * ln(z)
 ```
 
 ```
 h(z, w)'[z] = -w / 2z
+```
+
+```
+exp(hau(z, w, w/2)) = z^(-w/2)
+```
+
+```
+e^(-w/2 * ln(z)) + e^(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
+```
+
+```
+e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 ```
 
 it's supersymmetry value
