@@ -231,8 +231,10 @@ If we take the derivative of zsinh using exp, then the function becomes non-clos
 \zeta(2) = \frac{\pi^2}{6} = \pi^2 \cdot 0.2_{12}
 ```
 
-29399999
+29399999 - prime
 
 ```
 gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
 ```
+
+I did not mention 3 ideas: Non-Newton with Multiplicative calculus, elliptic curves, arcgamma.
