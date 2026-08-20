@@ -238,3 +238,8 @@ gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
 ```
 
 I did not mention 3 ideas: Non-Newton with Multiplicative calculus, elliptic curves, arcgamma.
+
+test coff:
+```
+(4 * pi^2) ^ (s - 1) * zeta(s)
+```
