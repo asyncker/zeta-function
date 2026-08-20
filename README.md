@@ -126,9 +126,6 @@ hau(z, w, t) = (t - w) * ln(z)
 
 ```
 τ(w)⁺⁻ = 1 ± e^(1/2 - w)
-```
-
-```
 τ(w, t)⁺⁻ = 1 ± e^(t - w)
 ```
 
@@ -163,8 +160,7 @@ Fermi-Dirac:
 ```
 
 ```
-τ₂(w)⁻ = 1 - 2^(1/2 - w)
-τ₂(w)⁺ = 1 + 2^(1/2 - w)
+τ₂(w)⁺⁻ = 1 ± 2^(1/2 - w)
 ```
 
 define h-function (with Lambert W/Boltzmann's entropy connection)
@@ -182,14 +178,7 @@ D¹[w](h(z, w)) = -1/2 * ln(z)
 
 ```
 D¹[z](h(z, w)) = -w / 2z
-```
-
-```
 D¹[z](h(z, w)) / h(z, w) = 1 / (z * ln(z))
-```
-
-```
-exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
 ```
@@ -198,6 +187,10 @@ e^(-w/2 * ln(z)) + e^(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
 
 ```
 e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
+```
+
+```
+exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
 it's supersymmetry value
