@@ -346,6 +346,9 @@ ln(w^w) = -w * ln(eps)
 ln(eps * w) = 0
 ln(w) / ln(eps) = -1
 
+eps - exp(ln(eps)) = 0
+w - exp(ln(w)) = 0
+
 roots(eps^2, 2) = +-eps
 roots(w^2, 2) = +-w
 
