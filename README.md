@@ -105,9 +105,47 @@ t = 1/2 - 0.00001
 
 See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
-define h-function:
+define tau-function and hau-function:
 ```
-h(z, w) = ln(z^(-w/2)) = w/2 * ln(1/z) = -w * ln(sqrt(z)) = -w/2 * ln(z)
+tau(z, w, t) = 1 - z^(t - w)
+```
+
+```
+hau(z, w, t) = (t - w) * ln(z)
+```
+
+```
+τ(w) = 1 - e^(1/2 - w)
+```
+
+```
+τ'(w) = exp(1/2 - w)
+```
+
+```
+τ'(w) + τ(w) = 1
+```
+
+```
+τ'(w) / τ(w) = 1 / (exp(w - 1/2) - 1)
+τ'(w) / τ(w) = -1 / τ(w)
+```
+
+```
+τ(w) * τ(-w) = 1 + e - sqrt(e) * 2 * cosh(w)
+τ(w) * τ(-w) = (sqrt(e) - exp(w)) * (sqrt(e) - exp(-w))
+τ(iθ) * τ(−iθ) = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
+τ(w) - τ(1 - w) = 2 * sinh(w - 1/2)
+τ(w) + τ(1 - w) = 2 - 2 * cosh(w - 1/2)
+```
+
+```
+τ₂(w) = 1 - 2^(1/2 - w)
+```
+
+define h-function
+```
+h(z, w) = -w/2 * ln(z)
 ```
 
 Lambert W/Boltzmann's entropy connection:
@@ -115,9 +153,9 @@ Lambert W/Boltzmann's entropy connection:
 h(z, -4) = -4/2 * ln(1/z)
 ```
 
-h₄ = h(2, 4) it's supersymmetry value
+it's supersymmetry value
 ```
-h(2, 4) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = ln(1/4) = -2 * ln(2)
+h(2, 4) = ln(1/4) = 2 * ln(1/2) = -4 * ln(sqrt(2)) = -2 * ln(2)
 ```
 
 ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = ln(1/4))
@@ -158,40 +196,6 @@ function
 
 ```
 2 * exp(ln(1/2) * z)
-```
-
-define tau-function:
-```
-τₓ(z) = 1 - x^(1/2 - z)
-```
-
-```
-τₑ(z) = 1 - e^(1/2 - z)
-```
-
-```
-τ'(z) = exp(1/2 - z)
-```
-
-```
-τ'(z) + τ(z) = 1
-```
-
-```
-τ'(z) / τ(z) = 1 / (exp(z - 1/2) - 1)
-τ'(z) / τ(z) = -1 / τ(z)
-```
-
-```
-τ(z) * τ(-z) = 1 + e - sqrt(e) * 2 * cosh(z)
-τ(z) * τ(-z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
-τ(iθ) * τ(−iθ) = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-τ(z) - τ(1 - z) = 2 * sinh(z - 1/2)
-τ(z) + τ(1 - z) = 2 - 2 * cosh(z - 1/2)
-```
-
-```
-τ₂(z) = 1 - 2^(1/2 - z)
 ```
 
 test coff:
