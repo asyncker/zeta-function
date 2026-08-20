@@ -113,6 +113,7 @@ folds(z, k) = roots(z ^ k, k)
 
 ```
 folds(z, 2) = ±z
+folds(z̄, 2) = ±z̄
 ```
 
 define tau-function and hau-function:
@@ -225,17 +226,10 @@ inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
 ```
 
-function
+invert function:
 ```
-1 - conj(z)
-```
-
-```
+1 - z̄ = -z̄ + 1
 1 - z = -z + 1
-```
-
-```
-2 * exp(ln(1/2) * z)
 ```
 
 test coff:
@@ -273,16 +267,16 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 
 ```
 (re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
-roots(z^2, 2)= +-z
-roots(z̄^2, 2) = +-z̄
 ```
 
 <br /> Non-Newton with Multiplicative calculus
-If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
-
 ```math
-L(z) =  \frac{\zeta'(z)}{\zeta(z)}
+F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
+F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
+F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
+
+If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
 
 <br />12-adic numbers<br />
 
