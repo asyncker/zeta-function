@@ -103,7 +103,7 @@ t = 1/2 - 0.00001
 43.993543569869915147558964285592053160826471283816
 ```
 
-See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
+See graphics on https://asyncker.github.io/zeta-function/index.html
 
 define folds
 ```
