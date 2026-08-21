@@ -351,5 +351,4 @@ a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
 
 Scale plane (x-asis it's mult y-asis it's power (example x * eps^y)):<br />
 The x-axis is the multiplied coefficient for eps or w  <br />
-<img src="https://github.com/asyncker/zeta-function/blob/main/img/scale_plane_algebra.png">
-<br />
+<img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
