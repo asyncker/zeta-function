@@ -105,6 +105,8 @@ t = 1/2 - 0.00001
 
 See graphics on https://asyncker.github.io/zeta-function/index_graphic.html
 
+Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
+
 define folds
 ```
 fold(z, k) = (z ^ k) ^ 1/k
