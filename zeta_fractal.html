@@ -261,7 +261,7 @@
             vec2 ceta_left(vec2 z) {
                 z.x = -z.x;
                 vec2 component_a;
-                float log_r = log(length(z));
+                float log_r = log(dot(z, z)) * 0.5;
                 if (z.y > 200.0) {
                     component_a = 1.2533141373155 * cmul_i(cexp(vec2(z.x, 0.0) + (log_r - 1.0) * z - vec2(log_r * 0.5, 0.785398163397)));
                 } else if (z.y > 20.0) {
