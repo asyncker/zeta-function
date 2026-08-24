@@ -187,6 +187,9 @@ eta-function factor:
 prime-function factor:
 ```
 τₚ(w, 0)⁺⁻ = 1 ± p^(0 - w)
+
+re: ∏(1 + p^-s) = zeta(s) / zeta(2s)
+im: ∏(1 - p^-s) = 1 / zeta(s)
 ```
 
 define h-function (with Lambert W/Boltzmann's entropy connection)
