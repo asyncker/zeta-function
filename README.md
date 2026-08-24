@@ -181,7 +181,7 @@ u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 
 eta-function factor:
 ```
-τ₂(w, 1)⁺⁻ = 1 ± 2^(1 - w)
+τ₂(w, 1)⁻ = 1 - 2^(1 - w)
 ```
 
 prime-function factor:
