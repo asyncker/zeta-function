@@ -120,7 +120,7 @@ folds(z̄, 2) = ±z̄
 
 define tau-function and hau-function:
 ```
-tau(z, w, t)⁺⁻ = 1 ± z^(t - w)
+tau(z, w, t, a)⁺⁻ = a ± z^(t - w)
 ```
 
 ```
@@ -128,7 +128,6 @@ hau(z, w, t) = (t - w) * ln(z)
 ```
 
 ```
-τ(w)⁺⁻ = 1 ± e^(1/2 - w)
 τ(w, t)⁺⁻ = 1 ± e^(t - w)
 ```
 
@@ -158,7 +157,7 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
 </table>
 
 ```
-τ'(w)⁻ = exp(1/2 - w)
+τ'(w, t)⁻ = exp(t - w)
 ```
 
 ```
@@ -180,8 +179,14 @@ u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 τ(w)⁻ + τ(1 - w)⁻ = 2 - 2 * cosh(w - 1/2)
 ```
 
+eta-function factor:
 ```
-τ₂(w)⁺⁻ = 1 ± 2^(1/2 - w)
+τ₂(w, 1)⁺⁻ = 1 ± 2^(1 - w)
+```
+
+prime-function factor:
+```
+τₚ(w, 0)⁺⁻ = 1 ± p^(0 - w)
 ```
 
 define h-function (with Lambert W/Boltzmann's entropy connection)
