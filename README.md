@@ -158,9 +158,6 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
 
 ```
 τ'(w, t)⁻ = exp(t - w)
-```
-
-```
 -1 / τ(w)⁻
 (w / τ(w))'
 (τ(w) / w)'
@@ -232,6 +229,14 @@ h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 
 ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
+
+Quasicrystal use fractal:
+```
+τ(|Re(w)| + |Im(w)| * i, 1/2)
+```
+
+1 - exp(1/2 - (|Re(z)| + |Im(z)| * i))
+<img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
 zeta function
 ```
