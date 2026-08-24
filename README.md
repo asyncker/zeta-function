@@ -142,6 +142,21 @@ Fermi-Dirac:
 τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
 ```
 
+Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
+
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/1-exp(0.5-z).png" alt="1 - exp(1/2 - z)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeta(z).png" alt="zeta(z)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/1+exp(0.5-z).png" alt="1 + exp(1/2 - z)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>1 - exp(1/2 - z)</code></td>
+    <td align="center"><code>zeta(z)</code></td>
+    <td align="center"><code>1 + exp(1/2 - z)</code></td>
+  </tr>
+</table>
+
 ```
 τ'(w)⁻ = exp(1/2 - w)
 ```
@@ -150,8 +165,6 @@ Fermi-Dirac:
 -1 / τ(w)⁻
 (w / τ(w))'
 (τ(w) / w)'
-
-
 
 
 u(z, t) = e^(z - t) - 1
