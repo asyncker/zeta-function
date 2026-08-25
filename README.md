@@ -268,14 +268,14 @@ invert function:
 define clip (im, re)
 ```
 clip⁺(x) = max(x, 0)
-y1 = +clip(log(x^3 - 2x + 2))
-y2 = -clip(log(x^3 - 2x + 2))
+y1 = +clip⁺(log(x^3 - 2x + 2))
+y2 = -clip⁺(log(x^3 - 2x + 2))
 ```
 
 ```
 clip⁻(x) = min(x, 0)
-y1 = +clip(log(x^3 - 2x + 2))
-y2 = -clip(log(x^3 - 2x + 2))
+y1 = +clip⁻(log(x^3 - 2x + 2))
+y2 = -clip⁻(log(x^3 - 2x + 2))
 ```
 
 ```
