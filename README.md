@@ -284,6 +284,23 @@ clip⁺(z) - clip⁻(z) = ?
 clip⁻(z) - clip⁺(z) = ?
 ```
 
+<br/>
+
+<br/>Any function can be given its re and im parts.
+<br/>
+<br/>The re-part is the function's growth rate.
+<br/>
+<br/>The im-part is the wave function.
+<br/>
+<br/>A function can be given its cosine (re) and sinus (im) decompositions.
+```
+re(gamma(x + 1i)) its cos-grow
+im(gamma(x + 1i)) its sin-grow
+re(gamma(1 + xi)) it's cos-wave
+im(gamma(1 + xi)) it's sin-wave
+```
+
+
 define mpow (w ∈ ℕ):
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
