@@ -265,6 +265,13 @@ invert function:
 1 - z = -z + 1
 ```
 
+define clip
+```
+clip(x) = max(0, x)
+y1 = +clip(log(x^3 - 2x + 2))
+y2 = -clip(log(x^3 - 2x + 2))
+```
+
 define mpow (w ∈ ℕ):
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
