@@ -248,3 +248,5 @@ test coff:
 ```
 1 / (zeta(2) / zeta(2 * 2)) = pi^2 / 15 
 ```
+
+We need to come up with a randomness test, and then we can quickly say whether a number is prime or composite. Perhaps we need to check ln(n) and find statistical deviations in it, just like in prime numbers, by looking at numbers close to it. Or we need to specifically condition prime numbers so that they show that they break the pattern, and we detect them.
