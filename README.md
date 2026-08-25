@@ -265,11 +265,23 @@ invert function:
 1 - z = -z + 1
 ```
 
-define clip
+define clip (im, re)
 ```
-clip(x) = max(0, x)
+clip⁺(x) = max(x, 0)
 y1 = +clip(log(x^3 - 2x + 2))
 y2 = -clip(log(x^3 - 2x + 2))
+```
+
+```
+clip⁻(x) = min(x, 0)
+y1 = +clip(log(x^3 - 2x + 2))
+y2 = -clip(log(x^3 - 2x + 2))
+```
+
+```
+clip⁺(z) + clip⁻(z) = ?
+clip⁺(z) - clip⁻(z) = ?
+clip⁻(z) - clip⁺(z) = ?
 ```
 
 define mpow (w ∈ ℕ):
