@@ -377,7 +377,7 @@ gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
 
 Hypothesis: all zeros of the gammapsi(z) with Re(z) > 0 lie on the critical line Re(z) = 1/2
 
-gammapsi on 1/2 im zeros:
+im(gammapsi(1/2 + ik)) zeros:
 ```
 1.0293
 5.5865
@@ -401,7 +401,7 @@ gammapsi on 1/2 im zeros:
 40.6
 ```
 
-gammapsi on 1/2 re zeros:
+re(gammapsi(1/2 + ik)) zeros:
 ```
 8.25
 10.00
