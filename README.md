@@ -358,7 +358,7 @@ gammasi on 1/2 re zeros:
 16.241947079737530036762580714713980547544356247169
 ```
 
-define pgammap, gammapsi
+define pgamma, gammapsi
 ```math
 \frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
 ```
@@ -375,7 +375,55 @@ pgamma(z) = Γₚ(z)
 gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
 ```
 
+Hypothesis: all non-trivial zero of the gammapsi(z) lies on the critical line re(z) = 1/2
 
+gammapsi on 1/2 im zeros:
+```
+1.0293
+5.5865
+9.13
+11.79
+14.13
+16.29
+18.34
+20.29
+22.18
+24.01
+25.8
+27.55
+29.26
+30.95
+32.61
+34.24
+35.86
+37.45
+39.03
+40.6
+```
+
+gammapsi on 1/2 re zeros:
+```
+8.25
+10.00
+13.38
+14.88
+17.64
+19.03
+21.51
+22.84
+25.15
+26.44
+28.63
+29.89
+31.99
+33.22
+35.25
+36.46
+38.44
+39.63
+41.55
+42.73
+```
 
 define mpow (w ∈ ℕ):
 ```
