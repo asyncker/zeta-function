@@ -429,7 +429,7 @@ re(gammapsi(1/2 + ik)) zeros:
 
 define 3-symetryics of f(z):
 ```
-opErmitor: f1(f(z), conj(f2(f(w))))
+opErmitor: f1(f(z), f2(f(w̄)))
 opSymetri: 1 - f1(f(1 - z), f2(f(w)))
 opDerivit: f1(f'(z), f2(f(w)))
 ```
