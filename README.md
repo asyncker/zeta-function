@@ -425,6 +425,12 @@ re(gammapsi(1/2 + ik)) zeros:
 42.73
 ```
 
+define two symetryics f:
+```
+ermitor: f1(z, conj(f2(w)))
+symetri: 1 - f(1 - z) / f(z)
+```
+
 define mpow (w ∈ ℕ):
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
