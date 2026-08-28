@@ -358,6 +358,24 @@ gammasi on 1/2 re zeros:
 16.241947079737530036762580714713980547544356247169
 ```
 
+define pgammap, gammapsi
+```math
+\frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+```
+
+```math
+\frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-s}
+```
+
+```
+pgamma(z) = Γₚ(z)
+```
+
+```
+gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
+```
+
+
 
 define mpow (w ∈ ℕ):
 ```
