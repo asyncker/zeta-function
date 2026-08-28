@@ -270,23 +270,26 @@ invert function:
 1 - z = -z + 1
 ```
 
-define clip (im, re)
+</br> Relu-curve ai:
+
+define relumax, relumin: (re, im)
 ```
-clip⁺(x) = max(x, 0)
-y1 = +clip⁺(log(x^3 - 2x + 2))
-y2 = -clip⁺(log(x^3 - 2x + 2))
+relumax(x) = max(x, 0)
+y1 = +relumax(log(x^3 - 2x + 2))
+y2 = -relumax(log(x^3 - 2x + 2))
 ```
 
 ```
-clip⁻(x) = min(x, 0)
-y1 = +clip⁻(log(x^3 - 2x + 2))
-y2 = -clip⁻(log(x^3 - 2x + 2))
+relumin(x) = min(x, 0)
+y1 = +relumin(log(x^3 - 2x + 2))
+y2 = -relumin(log(x^3 - 2x + 2))
 ```
 
 ```
-clip⁺(z) + clip⁻(z) = ?
-clip⁺(z) - clip⁻(z) = ?
-clip⁻(z) - clip⁺(z) = ?
+relumax(z) + relumin(z) = ?
+relumax(z) - relumin(z) = ?
+relumin(z) + relumax(z) = ?
+relumin(z) - relumax(z) = ?
 ```
 
 <br/>
