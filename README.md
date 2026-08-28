@@ -375,7 +375,7 @@ pgamma(z) = Γₚ(z)
 gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
 ```
 
-Hypothesis: all non-trivial zero of the gammapsi(z) lies on the critical line re(z) = 1/2
+Hypothesis: all zeros of the gammapsi(z) with Re(z) > 0 lie on the critical line Re(z) = 1/2
 
 gammapsi on 1/2 im zeros:
 ```
