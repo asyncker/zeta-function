@@ -427,10 +427,11 @@ re(gammapsi(1/2 + ik)) zeros:
 42.73
 ```
 
-define two symetryics f:
+define 3-symetryics of f(z):
 ```
-ermitor: f1(z, conj(f2(w)))
-symetri: 1 - f(1 - z) / f(z)
+opErmitor: f1(f(z), conj(f2(f(w))))
+opSymetri: 1 - f1(f(1 - z), f2(f(w)))
+opDerivit: f1(f'(z), f2(f(w)))
 ```
 
 define mpow (w ∈ ℕ):
