@@ -230,7 +230,7 @@ h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
-Quasicrystal use fractal:
+Like quasicrystal with fractal:
 ```
 τ(|Re(w)| + |Im(w)| * i, 1/2)
 ```
@@ -272,7 +272,7 @@ invert function:
 
 </br> Relu-curve ai:
 
-define relumax, relumin: (re, im)
+define relumax, relumin:
 ```
 relumax(x) = max(x, 0)
 y1 = +relumax(log(x^3 - 2x + 2))
@@ -294,16 +294,13 @@ relumin(z) - relumax(z) = ?
 
 <br/>
 
-<br/>Any function can be given its re and im parts.
-<br/>
-<br/>The re-part is the function's growth rate.
-<br/>
-<br/>The im-part is the wave function.
-<br/>
+<br/>Any function can be given its re and im parts.<br/>
+<br/>The re-part is the function's growth rate.<br/>
+<br/>The im-part is the wave function.<br/>
 <br/>A function can be given its cosine (re) and sinus (im) decompositions.
 ```
-re(gamma(x + 1i)) its cos-grow
-im(gamma(x + 1i)) its sin-grow
+re(gamma(x + 1i)) it's cos-grow
+im(gamma(x + 1i)) it's sin-grow
 re(gamma(1 + xi)) it's cos-wave
 im(gamma(1 + xi)) it's sin-wave
 ```
@@ -384,50 +381,12 @@ If Re(z) >= 1 infinity zeros and Re(z) <= 0 infinity zeros
 
 im(gammapsi(1/2 + ik)) zeros:
 ```
-1.0293
-5.5865
-9.13
-11.79
-14.13
-16.29
-18.34
-20.29
-22.18
-24.01
-25.8
-27.55
-29.26
-30.95
-32.61
-34.24
-35.86
-37.45
-39.03
-40.6
+1.0293, 5.5865, 9.13, 11.79, 14.13, 16.29, 18.34, 20.29, 22.18, 24.01, 25.89, 27.55, 29.26, 30.95, 32.61, 34.24, 35.86, 37.45, 39.03, 40.6
 ```
 
 re(gammapsi(1/2 + ik)) zeros:
 ```
-8.25
-10.00
-13.38
-14.88
-17.64
-19.03
-21.51
-22.84
-25.15
-26.44
-28.63
-29.89
-31.99
-33.22
-35.25
-36.46
-38.44
-39.63
-41.55
-42.73
+8.25, 10.00, 13.38, 14.88, 17.64, 19.03, 21.51, 22.84, 25.15, 26.44, 28.63, 29.89, 31.99, 33.22, 35.25, 36.46, 38.44, 39.63, 41.55, 42.73
 ```
 
 define 3-symetryics of f(z):
