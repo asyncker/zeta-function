@@ -156,6 +156,12 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
   </tr>
 </table>
 
+
+The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
+```
+τₓ(w, 1/2)⁺⁻ = 1 ± x^(1/2 - w)
+```
+
 ```
 τ'(w, t)⁻ = exp(t - w)
 -1 / τ(w)⁻
