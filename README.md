@@ -447,6 +447,17 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 (re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
 ```
 
+define sop function:
+```
+sop(z, w) = z / w̄
+soplog(z, w, k) = log(z * w̄) * k
+soppow(z, w, k) = exp(log(z * w̄) * k)
+```
+
+```
+
+```
+
 It's convenient to do something like this
 ```
 F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
