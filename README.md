@@ -466,9 +466,13 @@ F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
 
 <br />Non-Archimedean + Hyperreal + p-adic + Laurent Ring<br />
-w^-1 = eps <br />
+```
+eps = 1 - 0.999999...
+eps ≠ 0
 eps^-1 = w <br />
+w^-1 = eps <br />
 w * eps = 1 <br />
+```
 
 eps and w is the solution of the equation:
 1 - eps = 0.999999...
