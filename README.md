@@ -287,9 +287,10 @@ sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
 ```
 
 ```
-k = 1
-1 - exp(k * t - z * t) / exp(z * t) = 1 - exp(k * t - z * t * 2)
-1 - gamma(k * t - z * t) / gamma(z * t)
+t = 1/2
+f = 1/2
+1 - gamma(t * 2f - z * f) / gamma(z * f)
+1 - exp(t * 2f - z * f) / exp(z * f) = 1 - exp(t * 2f - z * 2f)
 ```
 
 add mirror-function madd, msub:
