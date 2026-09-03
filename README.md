@@ -289,6 +289,12 @@ sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
 ```
 gamma(1 + z) = (z * pi / sin(pi * z)) / gamma(1 - z)
 gamma(1 - z) = (z * pi / sin(pi * z)) / gamma(1 + z)
+gamma(1/2 + z) = (pi / cos(pi * z)) / gamma(1/2 - z)
+gamma(1/2 - z) = (pi / cos(pi * z)) / gamma(1/2 + z)
+gamma(0 + z) =  (-pi / (z * sin(pi * z))) / gamma(0 - z)
+gamma(0 - z) =  (-pi / (z * sin(pi * z))) / gamma(0 + z)
+
+gamma(2 + z) = (1+z) * gamma(1+z)
 ```
 
 ```
@@ -296,6 +302,10 @@ t = 1/2
 f = 1/2
 1 - gamma(t * 2f - z * f) / gamma(z * f)
 1 - exp(t * 2f - z * f) / exp(z * f) = 1 - exp(t * 2f - z * 2f)
+```
+
+```
+1 - gamma(1/2 - z/2) / gamma(z/2)
 ```
 
 add mirror-function madd, msub:
