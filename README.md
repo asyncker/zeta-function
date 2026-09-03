@@ -118,9 +118,19 @@ folds(z, 2) = ±z
 folds(z̄, 2) = ±z̄
 ```
 
-define tau-function and hau-function:
+define tau-function, gau-function and hau/hal/har-function:
 ```
 tau(z, w, t, v, a)⁺⁻ = a ± z^(t * 2v - w * v) / z^(w * v)
+```
+
+```
+gau(w, t, v, a)⁺⁻ = a ± gamma(t * 2v - w * v) / gamma(w * v)
+```
+
+```
+hau(z, w, t) = (t - w) * ln(z)
+hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
+har(z, w, v) = (w * v) * ln(z)
 ```
 
 ```
@@ -129,10 +139,6 @@ t = shift (default = 1/2)
 a = even/odd coff (default = 1)
 z = base-power function (default = e)
 w = exponent-power function (default = w)
-```
-
-```
-hau(z, w, t, f) = (t * 2f - w * f) * ln(z)
 ```
 
 ```
