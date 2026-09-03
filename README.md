@@ -287,6 +287,11 @@ sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
 ```
 
 ```
+gamma(1 + z) = (z * pi / sin(pi * z)) / gamma(1 - z)
+gamma(1 - z) = (z * pi / sin(pi * z)) / gamma(1 + z)
+```
+
+```
 t = 1/2
 f = 1/2
 1 - gamma(t * 2f - z * f) / gamma(z * f)
