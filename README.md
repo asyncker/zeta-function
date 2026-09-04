@@ -147,7 +147,7 @@ w = exponent-power function (default = w)
 
 Bose-Einstein:
 ```
-τ'(w, t)⁻ / τ(w, t)⁻ = 1 / (e^(w - t) - 1)
+τ'(w, t)⁻ / τ(w, t)⁻ = +1 / (e^(w - t) - 1)
 ```
 
 Fermi-Dirac:
@@ -217,7 +217,7 @@ h(z, w) = -w/2 * ln(z)
 h(z, w) + h(z, −w) = 0
 h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
-h(z, w)' / h(z, w) = 1 / (z * ln(z))
+h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
@@ -231,13 +231,13 @@ it's supersymmetry value
 h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ```
 
-ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
+ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + c (c = h(2, 4) = -ln(4))
+ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
-Like quasicrystal with fractal:
+Like quasicrystal fractal:
 ```
 τ(|Re(w)| + |Im(w)| * i, 1/2)
 ```
@@ -253,9 +253,6 @@ zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
 zeta function if use exp and gamma:
 ```
 phase = i*pi/2
-```
-
-```
 zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phase)) * gamma(1 - z) * zeta(1 - z)
 ```
 
@@ -307,9 +304,7 @@ t = 1/2
 f = 1/2
 1 - gamma(t * 2f - z * f) / gamma(z * f)
 1 - exp(t * 2f - z * f) / exp(z * f) = 1 - exp(t * 2f - z * 2f)
-```
 
-```
 1 - gamma(1/2 - z/2) / gamma(z/2)
 ```
 
@@ -319,9 +314,7 @@ M⁺(z) = 1 + z
 M⁻(z) = 1 - z
 ```
 
-</br> Relu-curve ai:
-
-define relumax, relumin:
+define relumax, relumin, relu-curve ai:
 ```
 relumax(x) = max(x, 0)
 relumin(x) = min(x, 0)
@@ -329,20 +322,17 @@ y1 = +relumax(log(x^3 - 2x + 2))
 y2 = -relumax(log(x^3 - 2x + 2))
 y1 = -relumax(log(x^3 - 2x + 2))
 y2 = -relumin(log(x^3 - 2x + 2))
-```
-
-```
 relumax(z) + relumin(z) = ?
 relumax(z) - relumin(z) = ?
 relumin(z) + relumax(z) = ?
 relumin(z) - relumax(z) = ?
 ```
 
-<br /> Empty for relu-curve:
+Empty for relu-curve:
 We can choose values, and instead of 0, we can assign any value, so we use the ◇ sign. It means that there is no function value at the point. Interestingly, even in complex numbers, you can indicate the absence of a number with ◇, but any interaction will immediately assign any value.
 ```
-relumaxU(z) = z >= 0 ? z : ◇
-relumimU(z) = z <= 0 ? z : ◇
+relumaxU(z) = z >= +0 ? z : ◇
+reluminU(z) = z <= -0 ? z : ◇
 ```
 
 ```
@@ -358,12 +348,7 @@ cmin(cmax(zeta(z), -w), w) ~= re(zeta(z))
 cmin(cmax(zeta(z) * -i, -w), w) ~= im(zeta(z))
 ```
 
-<br/>
-
-<br/>Any function can be given its re and im parts.<br/>
-<br/>The re-part is the function's growth rate.<br/>
-<br/>The im-part is the wave function.<br/>
-<br/>A function can be given its cosine (re) and sinus (im) decompositions.
+A function can be given its cosine (re) and sinus (im) decompositions
 ```
 re(gamma(x + 1i)) it's cos-grow
 im(gamma(x + 1i)) it's sin-grow
