@@ -367,6 +367,13 @@ float x; // x = ◇
 x = 2 // x = 2
 ```
 
+```
+cmin(z, w) = min(z.x, w.x) + min(z.i, w.i) * i
+cmax(z, w) = max(z.x, w.x) + max(z.i, w.i) * i
+w = 1 / eps
+cmin(cmax(zeta(z), -w), w) ~= re(zeta(z))
+cmin(cmax(zeta(z) * -i, -w), w) ~= im(zeta(z))
+```
 
 <br/>
 
