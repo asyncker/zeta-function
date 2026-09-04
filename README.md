@@ -274,12 +274,12 @@ zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phas
 
 zeta function if use gamma:
 ```
-zeta(z) =  ((2pi)^z / (gamma(z/2) * gamma(1 - z/2))) * gamma(1 - z) * zeta(1 - z)
+zeta(z) = ((2pi)^z / (gamma(z/2) * gamma(1 - z/2))) * gamma(1 - z) * zeta(1 - z)
 ```
 
 zeta function:
 ```
-zeta(z) = ((gamma((1-z)/2) / gamma(z/2)) * pi^(z - 1/2)) * zeta(1 - z)
+zeta(z) = gamma((1 - z)/2) / gamma(z/2) * pi^(z - 1/2) * zeta(1 - z)
 ```
 
 zeta function:
