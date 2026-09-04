@@ -356,9 +356,22 @@ re(gamma(1 + xi)) it's cos-wave
 im(gamma(1 + xi)) it's sin-wave
 ```
 
-define gammasi:
+define pgamma, gammapsi
+```math
+\frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+```
+
+```math
+\frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-s}
+```
+
+```
+pgamma(z) = Γₚ(z)
+```
+
 ```
 gammasi(z) = 1 - gamma(1-z) / gamma(z)
+gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
 ```
 
 gammasi on 1/2 im zeros:
@@ -407,23 +420,6 @@ gammasi on 1/2 re zeros:
 15.099495547210964222342991084700884362589658161808
 15.697692206127357477759196043378950636930065150003
 16.241947079737530036762580714713980547544356247169
-```
-
-define pgamma, gammapsi
-```math
-\frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
-```
-
-```math
-\frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-s}
-```
-
-```
-pgamma(z) = Γₚ(z)
-```
-
-```
-gammapsi(z) = 1 - pgamma(1-z) / pgamma(z)
 ```
 
 Hypothesis: all zeros of the gammapsi(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
@@ -486,10 +482,6 @@ soplog(z, w, k) = log(z * w̄) * k
 soppow(z, w, k) = exp(log(z * w̄) * k)
 ```
 
-```
-
-```
-
 It's convenient to do something like this
 ```
 F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
@@ -499,8 +491,7 @@ F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 
 <br />Non-Archimedean + Hyperreal + p-adic + Laurent Ring<br />
 ```
-eps = 1 - 0.999999...
-eps ≠ 0
+eps = 1 - 0.999999... (eps ≠ 0)
 eps^-1 = w
 w^-1 = eps
 w * eps = 1
@@ -518,9 +509,14 @@ x1 = +w * (7 * w) ^ (1/2)
 x2 = -w * (7 * w) ^ (1/2)
 ```
 
+all non-periodic fractions for the 10-adic
+```
+a = 2^n * 5^m
+```
+
 define Φ₆ complex:
 ```
-Φ₆(z, s) = (z^s - 1) * z^s + 1
+Φ₆(z, s) = 1 + (z^s - 1) * z^s
 ```
 
 ```
@@ -548,7 +544,6 @@ ln(w) = -ln(eps)
 
 ln(w^eps) = -eps * ln(eps)
 ln(eps^w) = -w * ln(w)
-
 ln(eps^eps) = -eps * ln(w)
 ln(w^w) = -w * ln(eps)
 
@@ -563,8 +558,6 @@ roots(w^2, 2) = +-w
 
 ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
-
-a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
 
 (w - 1) * w + 1 = 999999... 000000... 001.0
 
