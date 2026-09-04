@@ -182,7 +182,6 @@ The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
 (w / τ(w))'
 (τ(w) / w)'
 
-
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 ```
@@ -209,34 +208,22 @@ re: ∏(1 + p^-s) = zeta(s) / zeta(2s)
 im: ∏(1 - p^-s) = 1 / zeta(s)
 ```
 
-define h-function (with Lambert W/Boltzmann's entropy connection)
+define h-function
 ```
 h(z, w) = -w/2 * ln(z)
 ```
 
 ```
 h(z, w) + h(z, −w) = 0
-```
-
-```
-D¹[w](h(z, w)) = -1/2 * ln(z)
-```
-
-```
-D¹[z](h(z, w)) = -w / 2z
-D¹[z](h(z, w)) / h(z, w) = 1 / (z * ln(z))
+h(z, w)'[w] = -1/2 * ln(z)
+h(z, w)'[z] = -w / 2z
+h(z, w)' / h(z, w) = 1 / (z * ln(z))
+exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
 ```
 e^(-w/2 * ln(z)) + e^(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
-```
-
-```
 e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
-```
-
-```
-exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
 it's supersymmetry value
@@ -258,12 +245,12 @@ Like quasicrystal with fractal:
 1 - exp(1/2 - (|Re(z)| + |Im(z)| * i))
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
-zeta function
+zeta function:
 ```
 zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
 ```
 
-zeta function if use exp and gamma
+zeta function if use exp and gamma:
 ```
 phase = i*pi/2
 ```
@@ -312,7 +299,6 @@ gamma(1/2 + z) = (pi / cos(pi * z)) / gamma(1/2 - z)
 gamma(1/2 - z) = (pi / cos(pi * z)) / gamma(1/2 + z)
 gamma(0 + z) =  (-pi / (z * sin(pi * z))) / gamma(0 - z)
 gamma(0 - z) =  (-pi / (z * sin(pi * z))) / gamma(0 + z)
-
 gamma(2 + z) = (1+z) * gamma(1+z)
 ```
 
@@ -338,13 +324,10 @@ M⁻(z) = 1 - z
 define relumax, relumin:
 ```
 relumax(x) = max(x, 0)
+relumin(x) = min(x, 0)
 y1 = +relumax(log(x^3 - 2x + 2))
 y2 = -relumax(log(x^3 - 2x + 2))
-```
-
-```
-relumin(x) = min(x, 0)
-y1 = +relumin(log(x^3 - 2x + 2))
+y1 = -relumax(log(x^3 - 2x + 2))
 y2 = -relumin(log(x^3 - 2x + 2))
 ```
 
@@ -363,8 +346,8 @@ relumimU(z) = z <= 0 ? z : ◇
 ```
 
 ```
-float x; // x = ◇
-x = 2 // x = 2
+x = ◇ //float x;
+x = 2
 ```
 
 ```
@@ -533,13 +516,12 @@ F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
 eps = 1 - 0.999999...
 eps ≠ 0
-eps^-1 = w <br />
-w^-1 = eps <br />
-w * eps = 1 <br />
+eps^-1 = w
+w^-1 = eps
+w * eps = 1
 ```
 
 eps and w is the solution of the equation:
-1 - eps = 0.999999...
 ```
 (x - 1) * 1/x = 1 - eps 
 x = w
