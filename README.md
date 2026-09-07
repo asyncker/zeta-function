@@ -141,8 +141,14 @@ z = base-power function (default = e)
 w = exponent-power function (default = w)
 ```
 
+tau(e, w, t, 1/2, 1)⁺⁻
 ```
 τ(w, t)⁺⁻ = 1 ± e^(t - w)
+```
+
+gau(w, t, 1/2, 1)⁺⁻ 
+```
+g(w, t)⁺⁻ = 1 ± gamma(t - w/2) / gamma(w/2)
 ```
 
 Bose-Einstein:
