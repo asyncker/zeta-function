@@ -363,7 +363,7 @@ relumin(z) - relumax(z) = ?
 ```
 
 Empty for relu-curve:
-We can choose values, and instead of 0, we can assign any value, so we use the ◇ sign. It means that there is no function value at the point. Interestingly, even in complex numbers, you can indicate the absence of a number with ◇, but any interaction will immediately assign any value.
+◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. You can write x = ◇
 ```
 relumaxU(z) = z >= +0 ? z : ◇
 reluminU(z) = z <= -0 ? z : ◇
