@@ -141,6 +141,16 @@ z = base-power function (default = e)
 w = exponent-power function (default = w)
 ```
 
+tau(e, w, t, 1/2, 0)
+```
+τ(w, t) = e^(t - w)
+```
+
+gau(w, t, 1/2, 0)
+```
+g(w, t) = gamma(t - w/2) / gamma(w/2)
+```
+
 tau(e, w, t, 1/2, 1)⁺⁻
 ```
 τ(w, t)⁺⁻ = 1 ± e^(t - w)
@@ -176,6 +186,9 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
   </tr>
 </table>
 
+```
+G(w, t)' / G(w, t) = 
+```
 
 The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
 ```
@@ -185,8 +198,8 @@ The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
 ```
 τ'(w, t)⁻ = exp(t - w)
 -1 / τ(w)⁻
-(w / τ(w))'
-(τ(w) / w)'
+(w / τ(w)⁻)'
+(τ(w)⁻ / w)'
 
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
