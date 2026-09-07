@@ -257,3 +257,10 @@ symetry:
 f(z) = ((1 - p^z) / (1 + p^z)) * 0.5
 f'(z) / f(z) = ln(p) / (sinh(z * ln(p))
 ```
+
+It's convenient to do something like this
+```
+F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
+F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
+F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
+```
