@@ -171,9 +171,14 @@ Fermi-Dirac (+1):
 τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
 ```
 
+Maxwell–Boltzmann (-0):
+```
+τ'[t](w, t) / τ(w, t) = +1
+```
+
 Maxwell–Boltzmann (+0):
 ```
-τ'(w, t) / τ(w, t) = -1
+τ'[w](w, t) / τ(w, t) = -1
 ```
 
 Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
