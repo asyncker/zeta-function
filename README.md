@@ -512,8 +512,8 @@ log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
 define sop function:
 ```
 sop(z, w) = z / w̄
-soplog(z, w, k) = log(z * w̄) * k
-soppow(z, w, k) = exp(log(z * w̄) * k)
+soplog(z, w, k) = log(z / w̄) * k
+soppow(z, w, k) = exp(log(z / w̄) * k)
 ```
 
 It's convenient to do something like this
