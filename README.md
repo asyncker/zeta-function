@@ -187,7 +187,7 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
 </table>
 
 ```
-G(w, t)' / G(w, t) = 
+g'(w, t)⁻ / g(w, t)⁺ = 
 ```
 
 The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
