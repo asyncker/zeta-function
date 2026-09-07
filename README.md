@@ -516,12 +516,16 @@ soplog(z, w, k) = log(z / w̄) * k
 soppow(z, w, k) = exp(log(z / w̄) * k)
 ```
 
-It's convenient to do something like this
-```
-F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
-F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
-F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
-```
+<br /> Zeta Bicomplex 4d
+
+<br />Use idempotent function:
+
+biidleft(z) = (z.x - z.w) + (z.y + z.z) * i
+biidright(z) = (z.x + z.w) + (z.y - z.z) * i
+bifromid(z, w) = 0.5 * vec4(w.x + z.x, z.y + w.y, z.y - w.y, w.x - z.x)
+bizeta(z) = bifromid(zeta(biidleft(z)), zeta(biidright(z)))
+
+<img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
 
 <br />Non-Archimedean + Hyperreal + p-adic + Laurent Ring<br />
 ```
