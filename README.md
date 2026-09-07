@@ -161,14 +161,19 @@ gau(w, t, 1/2, 1)⁺⁻
 g(w, t)⁺⁻ = 1 ± gamma(t - w/2) / gamma(w/2)
 ```
 
-Bose-Einstein:
+Bose-Einstein (-1):
 ```
 τ'(w, t)⁻ / τ(w, t)⁻ = +1 / (e^(w - t) - 1)
 ```
 
-Fermi-Dirac:
+Fermi-Dirac (+1):
 ```
 τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
+```
+
+Maxwell–Boltzmann (+0):
+```
+τ'(w, t) / τ(w, t) = -1
 ```
 
 Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
