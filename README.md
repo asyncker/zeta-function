@@ -548,6 +548,35 @@ x1 = +w * (7 * w) ^ (1/2)
 x2 = -w * (7 * w) ^ (1/2)
 ```
 
+All real numbers form a ring and two points ±0 and ±inf any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.
+
+<br />Starting point and shift
+
+```
+                ±0 (0)
+          -1 (0)    +1 (0)
+        -2 (0)        +2 (0)
+         .             .
+        -2 (∞)        +2 (∞)
+          -1 (∞)    +1 (∞)
+                ±0 (∞)
+```
+
+Standart start with 0 and shift
+```
+-3 (0), -2 (0), -1 (0), 0 (0), +1 (0), +2 (0), +3 (0)
+```
+
+Invert start with ∞ and shift
+```
+-3 (∞), -2 (∞), -1 (∞), 0 (∞), +1 (∞), +2 (∞), +3 (∞)
+```
+
+```
+2 + ∞ = 2 (∞)
+2 + 0 = 2 (0)
+```
+
 all non-periodic fractions for the 10-adic
 ```
 a = 2^n * 5^m
