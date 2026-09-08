@@ -8,9 +8,10 @@
     input { font-size: 1.1em; width: 26em; }
     button { font-size: 1.1em; }
     #out { font-size: 1.2em; margin-top: 1em; }
-    .mode-selector { margin-bottom: 0.8em; display: flex; gap: 1.5em; align-items: center; }
+    .mode-selector { margin-bottom: 0.8em; display: flex; flex-wrap: wrap; gap: 1.5em; align-items: center; }
     .mode-selector label { font-size: 1.1em; display: flex; align-items: center; gap: 0.3em; cursor: pointer; }
     .mode-selector input[type="radio"] { width: 1.1em; height: 1.1em; cursor: pointer; }
+    #out { white-space: pre-wrap; }
   </style>
 </head>
 <body>
@@ -19,8 +20,17 @@
   <div class="mode-selector">
     <label><input type="radio" name="mode" value="factor" checked> Factorize</label>
     <label><input type="radio" name="mode" value="prime"> Prime / Composite</label>
+    <label><input type="radio" name="mode" value="formula"> Search primes in formula</label>
   </div>
-  <input id="num" value="9999999900000001" oninput="run()">
+
+  <div id="factorInputs">
+    <input id="num" value="9999999900000001" oninput="run()">
+  </div>
+  <div id="formulaInputs" style="display:none;" class="formula-inputs">
+    <label>Formula (use n): <input type="text" id="formulaExpr" value="2^n - 1" oninput="runFormula()"></label>
+    <label>nmax: <input type="number" id="nmax" value="400" step="1" oninput="runFormula()"></label>
+  </div>
+
   <div id="out"></div>
 
   <script>
@@ -252,10 +262,17 @@
       return [...map.entries()];
     }
 
+    function toggleInputs() {
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+      document.getElementById("factorInputs").style.display = (mode === "factor" || mode === "prime") ? "block" : "none";
+      document.getElementById("formulaInputs").style.display = (mode === "formula") ? "flex" : "none";
+    }
+
     function run() {
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+      if (mode === "formula") { runFormula(); return; }
       const out = document.getElementById("out");
       const raw = document.getElementById("num").value;
-      const mode = document.querySelector('input[name="mode"]:checked').value;
       if (!raw) { out.textContent = "Enter an integer"; return; }
       try {
         const n = evalExpr(raw); // const n = BigInt(raw);
@@ -271,10 +288,38 @@
       }
     }
 
+    function runFormula() {
+      const out = document.getElementById("out");
+      const expr = document.getElementById("formulaExpr").value.trim();
+      const nmax = parseInt(document.getElementById("nmax").value, 10);
+      if (!expr) { out.textContent = "Enter a formula (use n)"; return; }
+      if (isNaN(nmax) || nmax < 1) { out.textContent = "nmax must be >= 1"; return; }
+      const results = [];
+      for (let n = 0; n <= nmax; n++) {
+        try {
+          const val = evalExpr(expr.replace(/n/g, String(n)));
+          if (val === null) continue;
+          if (val < 2n) continue;
+          if (isPrime(val)) {
+            results.push({ n, value: val });
+          }
+        } catch (_) { }
+      }
+
+      if (results.length === 0) {
+        out.textContent = `No primes found for n = 1..${nmax}`;
+      } else {
+        let text = `Primes found (n = 1..${nmax}):\n`;
+        text += results.map(({n, value}) => `n=${n}: ${value}`).join("\n");
+        out.textContent = text;
+      }
+    }
+
     document.querySelectorAll('input[name="mode"]').forEach(el => {
-      el.addEventListener("change", run);
+      el.addEventListener("change", () => { toggleInputs(); run(); });
     });
 
+    toggleInputs();
     run();
   </script>
 </body>
