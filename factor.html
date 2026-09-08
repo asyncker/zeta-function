@@ -16,7 +16,7 @@
 </head>
 <body>
   <h2>Prime factorization</h2>
-  <p style="color: #555;">Bigint number is used.</p>
+  <p style="color: #555;">BigInt number is used.</p>
   <div class="mode-selector">
     <label><input type="radio" name="mode" value="factor" checked> Factorize</label>
     <label><input type="radio" name="mode" value="prime"> Prime / Composite</label>
@@ -27,7 +27,7 @@
     <input id="num" value="9999999900000001" oninput="run()">
   </div>
   <div id="formulaInputs" style="display:none;" class="formula-inputs">
-    <label>Formula (use n): <input type="text" id="formulaExpr" value="2^n - 1" oninput="runFormula()"></label>
+    <label><input type="text" id="formulaExpr" value="1 * 2^n - 1" oninput="runFormula()"></label>
     <label>nmax: <input type="number" id="nmax" value="400" step="1" oninput="runFormula()"></label>
   </div>
 
@@ -254,6 +254,9 @@
     }
 
     function factorize(n) {
+      if (n == 0n) return [[0n, -1]];
+      if (n == 1n) return [[1n, 0]];
+      if (n < 2n) return [];
       const list = factorList(n).sort((a, b) => (a < b ? -1 : 1));
       const map = new Map();
       for (const p of list) {
@@ -295,6 +298,7 @@
       if (!expr) { out.textContent = "Enter a formula (use n)"; return; }
       if (isNaN(nmax) || nmax < 1) { out.textContent = "nmax must be >= 1"; return; }
       const results = [];
+      const nprimes = [];
       for (let n = 0; n <= nmax; n++) {
         try {
           const val = evalExpr(expr.replace(/n/g, String(n)));
@@ -302,6 +306,7 @@
           if (val < 2n) continue;
           if (isPrime(val)) {
             results.push({ n, value: val });
+            nprimes.push(BigInt(n));
           }
         } catch (_) { }
       }
@@ -311,7 +316,15 @@
       } else {
         let text = `Primes found (n = 1..${nmax}):\n`;
         text += results.map(({n, value}) => `n=${n}: ${value}`).join("\n");
-        out.textContent = text;
+        text += "\n\nFactorize n get primes:\n"
+        for (let i = 0; i < nprimes.length; i++) {
+          const n = nprimes[i];
+          const factors = factorize(n);
+          const expression = factors.map(([p, e]) => String(p) + (e > 1 ? "<sup>" + e + "</sup>" : "")).join(" × ");
+          const primeNote = factors.length === 1 && factors[0][1] === 1 ? " is prime." : "";
+          text += String(n) + " = " + expression + primeNote + "\n";
+        }
+        out.innerHTML = text;
       }
     }
 
