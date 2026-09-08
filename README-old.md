@@ -264,3 +264,30 @@ F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
 F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
 F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
+
+
+
+Find primes<br />
+```
+Top formula find primes
+2^n * 24 - 25
+4^n * 398 - 81
+2^n * 21 - 5
+
+Top low find primes
+4^n * 355 - 39
+2^n * 15 - 49
+2^n * 305 + 157
+2^n * 9 - 55
+3^n * 60 - 77
+2^(2 * n) - 3
+4^n * 228 - 55
+
+Maybe mersenne like
+2^n * 7 - 61
+2^n * 254 + 19
+2^n * 109 + 77
+
+Clickbate mersenne:
+2^n * 11-95
+```
