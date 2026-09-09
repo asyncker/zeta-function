@@ -274,6 +274,10 @@ Top formula find primes
 4^n * 398 - 81
 2^n * 21 - 5
 
+(n*n - 2)
+(n*n - 2) + n + 1
+(n*n - 2) + n + 3
+
 Top low find primes
 4^n * 355 - 39
 2^n * 15 - 49
