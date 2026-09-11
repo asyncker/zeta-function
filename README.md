@@ -118,13 +118,19 @@ folds(z, 2) = ±z
 folds(z̄, 2) = ±z̄
 ```
 
+to denote 1 - z and 1 + z:
+```
+exp(z)⁻ = 1 - exp(z)
+exp(z)⁺ = 1 + exp(z)
+```
+
 define tau-function, gau-function and hau/hal/har-function:
 ```
-tau(z, w, t, v, a)⁺⁻ = a ± z^(t * 2v - w * v) / z^(w * v)
+tau(z, w, t, v) = z^(t * 2v - w * v) / z^(w * v)
 ```
 
 ```
-gau(w, t, v, a)⁺⁻ = a ± gamma(t * 2v - w * v) / gamma(w * v)
+gau(w, t, v) = gamma(t * 2v - w * v) / gamma(w * v)
 ```
 
 ```
@@ -141,23 +147,15 @@ z = base-power function (default = e)
 w = exponent-power function (default = w)
 ```
 
-tau(e, w, t, 1/2, 0)
+tau(e, w, t, 1/2) and tau(e, w, t, 1/2)⁺⁻
 ```
 τ(w, t) = e^(t - w)
-```
-
-gau(w, t, 1/2, 0)
-```
-g(w, t) = gamma(t - w/2) / gamma(w/2)
-```
-
-tau(e, w, t, 1/2, 1)⁺⁻
-```
 τ(w, t)⁺⁻ = 1 ± e^(t - w)
 ```
 
-gau(w, t, 1/2, 1)⁺⁻ 
+gau(w, t, 1/2) and gau(w, t, 1/2)⁺⁻
 ```
+g(w, t) = gamma(t - w/2) / gamma(w/2)
 g(w, t)⁺⁻ = 1 ± gamma(t - w/2) / gamma(w/2)
 ```
 
