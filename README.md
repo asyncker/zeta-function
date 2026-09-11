@@ -150,7 +150,7 @@ w = exponent-power function (default = w)
 tau(e, w, t, 1/2) and tau(e, w, t, 1/2)⁺⁻
 ```
 τ(w, t) = e^(t - w)
-τ(w, t)⁺⁻ = 1 ± e^(t - w)
+τₓ(w, t)⁺⁻ = 1 ± x^(t - w)
 ```
 
 gau(w, t, 1/2) and gau(w, t, 1/2)⁺⁻
