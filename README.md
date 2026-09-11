@@ -255,7 +255,7 @@ e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 
 a = +0 or -0
 ```
-f(z, u, t)⁺⁻ = 1 ± u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
+f(z, u, t, a) = a ± u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 ```
 
 it's supersymmetry value
