@@ -624,6 +624,14 @@ ln(w^w) = -w * ln(eps)
 ln(eps * w) = 0
 ln(w) / ln(eps) = -1
 
+sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
+sig(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
+
+(|gamma(-2.0 - eps)| + |gamma(-2.0 + eps)|) / 2 = -+x
+(|gamma(-1.0 - eps)| + |gamma(-1.0 + eps)|) / 2 = +-x
+(|gamma(-0.0 - eps)| + |gamma(-0.0 + eps)|) / 2 = -+x
+(|1/(-0.0 - eps)| + |1/(-0.0 + eps)|) / 2 = -+x
+
 eps - exp(ln(eps)) = 0
 w - exp(ln(w)) = 0
 
