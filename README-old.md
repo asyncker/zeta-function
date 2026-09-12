@@ -287,6 +287,9 @@ Top low find primes
 2^(2 * n) - 3
 4^n * 228 - 55
 
+all primes it's 2^k * factorization (othen divide by 4)
+2*2^n -6*n - 1
+
 Maybe mersenne like
 2^n * 7 - 61
 2^n * 254 + 19
