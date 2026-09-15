@@ -27,8 +27,8 @@ fis(f, z, t, v) = f(t * 2v - z * v) - f(z * v)
 
 define tau-function, gau-function and hau/hal/har-function:
 ```
-tauₓ(w, t, v) = x^(t * 2v - w * v) / x^(w * v)
-gau(w, t, v)  = Γ(t * 2v - w * v) / Γ(w * v)
+tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v)
+gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
 ```
 
 ```
@@ -235,10 +235,9 @@ gamma(2 + z) = (1+z) * gamma(1+z)
 
 ```
 t = 1/2
-f = 1/2
-1 - gamma(t * 2f - z * f) / gamma(z * f)
-1 - exp(t * 2f - z * f) / exp(z * f) = 1 - exp(t * 2f - z * 2f)
-
+v = 1/2
+1 - gamma(t * 2v - z * v) / gamma(z * v)
+1 - exp(t * 2v - z * v) / exp(z * v) = 1 - exp(t * 2v - z * 2v)
 1 - gamma(1/2 - z/2) / gamma(z/2)
 ```
 
