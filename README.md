@@ -13,7 +13,7 @@ folds(z, 2) = ±z
 folds(z̄, 2) = ±z̄
 ```
 
-to denote 1 - z and 1 + z (or over name: msub(z) = 1 - z, madd(z) = 1 + z):
+define 1 - z = msub(z) and 1 + z = madd(z):
 ```
 f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
@@ -46,30 +46,27 @@ tau(e, w, t, 1/2) and tau(e, w, t, 1/2)⁺⁻
 τₓ(w, t)⁺⁻ = 1 ± x^(t - w)
 ```
 
-gau(w, t, 1/2) and gau(w, t, 1/2)⁺⁻
-```
-g(w, t) = gamma(t - w/2) / gamma(w/2)
-g(w, t)⁺⁻ = 1 ± gamma(t - w/2) / gamma(w/2)
-```
-
-Bose-Einstein (-1):
+Bose-Einstein (-1) and Fermi-Dirac (+1):
 ```
 τ'(w, t)⁻ / τ(w, t)⁻ = +1 / (e^(w - t) - 1)
-```
-
-Fermi-Dirac (+1):
-```
 τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
 ```
 
-Maxwell–Boltzmann (-0):
+Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
 ```
 τ'[t](w, t) / τ(w, t) = +1
+τ'[w](w, t) / τ(w, t) = -1
 ```
 
-Maxwell–Boltzmann (+0):
+gau(w, t, 1/2) and gau(w, t, 1/2)⁺⁻
 ```
-τ'[w](w, t) / τ(w, t) = -1
+g(w, t) = Γ(t - w/2) / Γ(w/2)
+g(w, t)⁺⁻ = 1 ± Γ(t - w/2) / Γ(w/2)
+```
+
+```
+g(w, t)⁺ = 1 + Γ(t − w/2)/Γ(w/2)
+g(w, t)⁻ = 1 − Γ(t − w/2)/Γ(w/2)
 ```
 
 <br /> any-adic numbers:
