@@ -1,110 +1,5 @@
 # Zeta Based Functions
 
-Define zeta‑based functions as symmetric combinations of ζ
-
-```math
-\text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
-```
-
-```math
-\text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
-```
-
-<br />
-
-```math
-zsinh(-z, t) = −zsinh(z, t)
-```
-
-```math
-zcosh(-z, t) = zcosh(z, t)
-```
-
-<br />
-
-```math
-zeta(0) = zcosh(0, 0) = -1/2
-```
-
-<br />
-
-```math
-\zeta(t + z) = zcosh(z, t) + zsinh(z, t)
-```
-
-```math
-\zeta(t - z) = zcosh(z, t) - zsinh(z, t)
-```
-
-<br />
-
-```math
-\zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
-```
-
-Graphics zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png">
-
-Graphics subtract zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png">
-
-The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
-The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
-The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
-
-Hypothesis:
-The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
-
-A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
-
-<br />
-
-```js
-for (let i = 1; i < 30001; i++) {
-    console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
-}
-```
-
-t = 1/2 - 0.00001
-```
-3.4362140094042727618286113340360934506738787548597
-0.81955124399808421306572241644739516686114223957193
-9.6669102627117306193907187588664936887949596215645
-14.134662337801231264783053269158275738710128737448
-14.134726733724055751480138987456071685484173664554
-14.517983356066677772850986295374471471504560789106
-17.845599703811184951957455484942204619177185074612
-20.653999217749134085058454969275268894937808726164
-21.02203739654834299714967714165155496392643807671
-21.022084231457519055805725702330275768340332172454
-23.170282111202890685442669367056156070470219974683
-25.010828789004412269219485233798903561212641473613
-25.010861053186551215744803766770051137486731602211
-25.491538678213580294714236283761598679995916554608
-27.670182561361602782851655303702441139160483133524
-29.73849079144066595737146108224554545677766612479
-30.424870166682584655140590167156737977280411006862
-30.424892906016094362582098054973313769120166261422
-31.717979610591542422557982339162944429686986670321
-32.935046125421386611939970592960966749639178172335
-32.935068054817277516882556456005962651681505304866
-33.623811361978644055405727771675330758287407611779
-35.467183845236152462050553677145271567623651763461
-37.256707430406954377867175959115064714845313075613
-37.58617513205913039355349678786077986646323345893
-37.586211193540447475725879238644740485553842623415
-38.999211750755936474251225763996381489068026232462
-40.699954330943242482880179099883335971831730455691
-40.918716937025009960905850723200193925507298193954
-40.918767190672526549033451184587165342387577520953
-42.363547225073666641078295652543590243704687852681
-43.327060016392470396194201535206695150214060963441
-43.327080819506881636510075116474719722187763198857
-43.993543569869915147558964285592053160826471283816
-```
-
-See graphics on https://asyncker.github.io/zeta-function/index_graphic.html
-
 Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
 define folds
@@ -118,19 +13,17 @@ folds(z, 2) = ±z
 folds(z̄, 2) = ±z̄
 ```
 
-to denote 1 - z and 1 + z:
+to denote 1 - z and 1 + z (or over name: msub(z) = 1 - z, madd(z) = 1 + z):
 ```
-exp(z)⁻ = 1 - exp(z)
-exp(z)⁺ = 1 + exp(z)
+f(z)⁻ = 1 - f(z)
+f(z)⁺ = 1 + f(z)
 ```
 
 define tau-function, gau-function and hau/hal/har-function:
 ```
-tau(z, w, t, v) = z^(t * 2v - w * v) / z^(w * v)
-```
-
-```
-gau(w, t, v) = gamma(t * 2v - w * v) / gamma(w * v)
+fau(f, w, t, v) = f(t * 2v - w * v) / f(w * v)
+tauₓ(w, t, v) = x^(t * 2v - w * v) / x^(w * v)
+gau(w, t, v)  = Γ(t * 2v - w * v) / Γ(w * v)
 ```
 
 ```
@@ -177,6 +70,18 @@ Maxwell–Boltzmann (-0):
 Maxwell–Boltzmann (+0):
 ```
 τ'[w](w, t) / τ(w, t) = -1
+```
+
+<br /> any-adic numbers:
+
+family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime numbers or fibonachi numbers or 2, 4, 8, 16, 32... or random numbers or any sequance)
+```
+Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
+```
+
+family of exp functions (period 2pi * prime or fibonachi numbers or 2, 4, 8, 16, 32... or random numbers or any sequance)
+```
+e(z, s = {2, 3, 5, 7...}) = 
 ```
 
 Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
@@ -338,12 +243,6 @@ f = 1/2
 1 - exp(t * 2f - z * f) / exp(z * f) = 1 - exp(t * 2f - z * 2f)
 
 1 - gamma(1/2 - z/2) / gamma(z/2)
-```
-
-add mirror-function madd, msub:
-```
-M⁺(z) = 1 + z
-M⁻(z) = 1 - z
 ```
 
 define relumax, relumin, relu-curve ai:
@@ -513,6 +412,111 @@ sop(z, w) = z / w̄
 soplog(z, w, k) = log(z / w̄) * k
 soppow(z, w, k) = exp(log(z / w̄) * k)
 ```
+
+Define zeta‑based functions as symmetric combinations of ζ
+
+```math
+\text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
+```
+
+```math
+\text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
+```
+
+<br />
+
+```math
+zsinh(-z, t) = −zsinh(z, t)
+```
+
+```math
+zcosh(-z, t) = zcosh(z, t)
+```
+
+<br />
+
+```math
+zeta(0) = zcosh(0, 0) = -1/2
+```
+
+<br />
+
+```math
+\zeta(t + z) = zcosh(z, t) + zsinh(z, t)
+```
+
+```math
+\zeta(t - z) = zcosh(z, t) - zsinh(z, t)
+```
+
+<br />
+
+```math
+\zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
+```
+
+Graphics zeros zsinh (green), zcosh (blue), t = 0
+<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png">
+
+Graphics subtract zeros zsinh (green), zcosh (blue), t = 0
+<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png">
+
+The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
+The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
+The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
+
+Hypothesis:
+The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
+
+A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
+
+<br />
+
+```js
+for (let i = 1; i < 30001; i++) {
+    console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
+}
+```
+
+t = 1/2 - 0.00001
+```
+3.4362140094042727618286113340360934506738787548597
+0.81955124399808421306572241644739516686114223957193
+9.6669102627117306193907187588664936887949596215645
+14.134662337801231264783053269158275738710128737448
+14.134726733724055751480138987456071685484173664554
+14.517983356066677772850986295374471471504560789106
+17.845599703811184951957455484942204619177185074612
+20.653999217749134085058454969275268894937808726164
+21.02203739654834299714967714165155496392643807671
+21.022084231457519055805725702330275768340332172454
+23.170282111202890685442669367056156070470219974683
+25.010828789004412269219485233798903561212641473613
+25.010861053186551215744803766770051137486731602211
+25.491538678213580294714236283761598679995916554608
+27.670182561361602782851655303702441139160483133524
+29.73849079144066595737146108224554545677766612479
+30.424870166682584655140590167156737977280411006862
+30.424892906016094362582098054973313769120166261422
+31.717979610591542422557982339162944429686986670321
+32.935046125421386611939970592960966749639178172335
+32.935068054817277516882556456005962651681505304866
+33.623811361978644055405727771675330758287407611779
+35.467183845236152462050553677145271567623651763461
+37.256707430406954377867175959115064714845313075613
+37.58617513205913039355349678786077986646323345893
+37.586211193540447475725879238644740485553842623415
+38.999211750755936474251225763996381489068026232462
+40.699954330943242482880179099883335971831730455691
+40.918716937025009960905850723200193925507298193954
+40.918767190672526549033451184587165342387577520953
+42.363547225073666641078295652543590243704687852681
+43.327060016392470396194201535206695150214060963441
+43.327080819506881636510075116474719722187763198857
+43.993543569869915147558964285592053160826471283816
+```
+
+See graphics on https://asyncker.github.io/zeta-function/index_graphic.html
 
 <br /> Zeta Bicomplex 4d
 
