@@ -305,4 +305,6 @@ Clickbate mersenne:
 ```
 
 
-need algebraic-physic
+algebraic-physic
+
+Is it possible to create ln-prime to get a function x^z on prime period that will give the period of prime numbers?
