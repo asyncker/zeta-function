@@ -19,9 +19,14 @@ f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
 ```
 
+define fau and fis:
+```
+fau(f, z, t, v) = f(t * 2v - z * v) / f(z * v)
+fis(f, z, t, v) = f(t * 2v - z * v) - f(z * v)
+```
+
 define tau-function, gau-function and hau/hal/har-function:
 ```
-fau(f, w, t, v) = f(t * 2v - w * v) / f(w * v)
 tauₓ(w, t, v) = x^(t * 2v - w * v) / x^(w * v)
 gau(w, t, v)  = Γ(t * 2v - w * v) / Γ(w * v)
 ```
@@ -36,7 +41,7 @@ har(z, w, v) = (w * v) * ln(z)
 v = freq (default = 1/2)
 t = shift (default = 1/2)
 a = even/odd coff (default = 1)
-z = base-power function (default = e)
+x = base-power function (default = e)
 w = exponent-power function (default = w)
 ```
 
@@ -64,12 +69,7 @@ g(w, t) = Γ(t - w/2) / Γ(w/2)
 g(w, t)⁺⁻ = 1 ± Γ(t - w/2) / Γ(w/2)
 ```
 
-```
-g(w, t)⁺ = 1 + Γ(t − w/2)/Γ(w/2)
-g(w, t)⁻ = 1 − Γ(t − w/2)/Γ(w/2)
-```
-
-<br /> any-adic numbers:
+Any-adic numbers:
 
 family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime numbers or fibonachi numbers or 2, 4, 8, 16, 32... or random numbers or any sequance)
 ```
