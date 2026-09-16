@@ -126,6 +126,31 @@
       return evalStack[0];
     }
 
+    function fib(n) {
+      n = BigInt(n);
+      if (n === 0n) return 0n;
+      let a = 0n;
+      let b = 1n;
+      let bit = 1n;
+      while (bit <= n) {
+        bit <<= 1n;
+      }
+      bit >>= 1n;
+      while (bit > 0n) {
+        const c = a * ((b << 1n) - a);
+        const d = a * a + b * b;
+        if ((n & bit) !== 0n) {
+          a = d;
+          b = c + d;
+        } else {
+          a = c;
+          b = d;
+        }
+        bit >>= 1n;
+      }
+      return a;
+    }
+
     function gcd(a, b) {
       a = a < 0n ? -a : a;
       b = b < 0n ? -b : b;
