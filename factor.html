@@ -39,20 +39,19 @@
     function evalExpr(expr) {
       expr = expr.replace(/\s/g, '');
       if (!expr) return null;
-      if (!/^[\d()+\-*/^]+$/.test(expr)) {
+      if (!/^[\d()+\-*/^!#]+$/.test(expr)) {
         return null;
       }
       const tokens = [];
       let i = 0;
       while (i < expr.length) {
-        if (expr[i] === '(' || expr[i] === ')' || expr[i] === '+' ||
-            expr[i] === '-' || expr[i] === '*' || expr[i] === '/') {
-          tokens.push(expr[i]);
+        const ch = expr[i];
+        if (ch === '(' || ch === ')' || ch === '+' ||
+            ch === '-' || ch === '*' || ch === '/' ||
+            ch === '^' || ch === '!' || ch === '#') {
+          tokens.push(ch);
           i++;
-        } else if (expr[i] === '^') {
-          tokens.push('^');
-          i++;
-        } else if (/\d/.test(expr[i])) {
+        } else if (/\d/.test(ch)) {
           let num = '';
           while (i < expr.length && /\d/.test(expr[i])) {
             num += expr[i];
@@ -65,7 +64,7 @@
       }
       const output = [];
       const stack = [];
-      const precedence = { '+': 1, '-': 1, '*': 2, '/': 2, '^': 3 };
+      const precedence = { '+': 1, '-': 1, '*': 2, '/': 2, '^': 3, '!': 4, '#': 4 };
       for (const token of tokens) {
         if (/^\d+$/.test(token)) {
           output.push(token);
@@ -80,6 +79,8 @@
           } else {
             return null;
           }
+        } else if (token === '!' || token === '#') {
+          output.push(token);
         } else {
           while (stack.length && stack[stack.length - 1] !== '(' && precedence[stack[stack.length - 1]] >= precedence[token]) {
             output.push(stack.pop());
@@ -96,6 +97,12 @@
       for (const token of output) {
         if (/^\d+$/.test(token)) {
           evalStack.push(BigInt(token));
+        } else if (token === '!' || token === '#') {
+          if (evalStack.length < 1) return null;
+          const a = evalStack.pop();
+          const result = token === '!' ? factorial(a) : primorial(a);
+          if (result === null) return null;
+          evalStack.push(result);
         } else {
           if (evalStack.length < 2) return null;
           const b = evalStack.pop();
@@ -166,6 +173,20 @@
       let r = 1n;
       for (let i = 0; i < arr.length; i++) { r *= arr[i] * x + c; }
       return r;
+    }
+
+    function primes(count) {
+      const result = [];
+      let num = 2n;
+      while (result.length < count) {
+        if (isPrime(num)) { result.push(num); }
+        num++;
+      }
+      return result;
+    }
+
+    function primorial(n) { // primefactorial
+      return seqmul(primes(n));
     }
 
     function seqadd(arr, x = 1n, c = 1n) {
@@ -240,7 +261,7 @@
       let d = n - 1n;
       let s = 0n;
       while ((d & 1n) === 0n) {
-        d >>= 1n; // d /= 2n
+        d >>= 1n;  // d /= 2n
         s++;
       }
       const witnesses = [2n, 325n, 9375n, 28178n, 450775n, 9780504n, 1795265022n];
@@ -364,6 +385,52 @@
       }
     }
 
+    function getBruteForceExp(x, umax = 200, kmax = 200) {
+      let res = [];
+      for (let u = -umax; u < umax; u++) {
+        for (let k = 1; k < kmax; k++) {
+          if (u >= 0) {
+            res.push(String(x) + "^n * " + String(k) + " + " + String(u));
+          } else {
+            res.push(String(x) + "^n * " + String(k) + String(u));
+          }
+        }
+      }
+      return res;
+    }
+
+    function testBruteForceExp(x, umax = 200, kmax = 400, nmax = 550) {
+      const exprs = getBruteForceExp(x, umax, kmax);
+      for (let i = 0; i < exprs.length; i++) {
+        const expr = exprs[i];
+        const results = [];
+        const nprimes = [];
+        let countPrime = 0;
+        let startprimeslen = 0;
+        let isprimestart = 1;
+        for (let n = 0; n <= nmax; n++) {
+          try {
+            const val = evalExpr(expr.replace(/n/g, String(n)));
+            if (val === null) continue;
+            if (val < 2n) continue;
+            if (isPrime(val)) {
+              results.push({ n, value: val });
+              nprimes.push(BigInt(n));
+              if (isPrime(BigInt(n))) {
+                countPrime += 1;
+                if (isprimestart == 1) { startprimeslen = 1; }
+              } else {
+                 isprimestart = 0;
+              }
+            }
+          } catch (_) { }
+        }
+        if (nprimes.length >= 2 && countPrime >= nprimes.length) {
+          console.log(expr + " ~ " + String(nprimes.length));
+        }
+      }
+    }
+
     function runFormula() {
       const out = document.getElementById("out");
       const expr = document.getElementById("formulaExpr").value.trim();
@@ -397,6 +464,7 @@
           const primeNote = factors.length === 1 && factors[0][1] === 1 ? " is prime." : "";
           text += String(n) + " = " + expression + primeNote + "\n";
         }
+        text += "\n {" + nprimes.map(x => x).join(", ") + "}";
         out.innerHTML = text;
       }
     }
