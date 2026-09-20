@@ -126,6 +126,54 @@
       return evalStack[0];
     }
 
+    function mul(x, n) {
+      let r = 0n;
+      for (let i = 0; i < n; i++) { r += x; }
+      return r;
+    }
+
+    function pow(x, n) {
+      let r = 1n;
+      for (let i = 0n; i < n; i++) { r *= x; }
+      return r;
+    }
+
+    function trianrial(n) {
+      let r = 0n;
+      for (let i = 0n; i <= n; i++) { r += i; }
+      return r;
+    }
+
+    function factorial(n) {
+      let r = 1n;
+      for (let i = 2n; i <= n; i++) { r *= i; }
+      return r;
+    }
+
+    function trianrials(n, x) {
+      let r = 0n;
+      for (let i = 1n; i <= n; i++) { r += i * x - 1n; }
+      return r;
+    }
+
+    function factorials(n, x, c = 0n) {
+      let r = 1n;
+      for (let i = 2n; i <= n; i++) { r *= i * x + c; }
+      return r;
+    }
+
+    function seqmul(arr, x = 1n, c = 0n) { // n!,n#,x^y
+      let r = 1n;
+      for (let i = 0; i < arr.length; i++) { r *= arr[i] * x + c; }
+      return r;
+    }
+
+    function seqadd(arr, x = 1n, c = 1n) {
+      let r = 0n;
+      for (let i = 0; i < arr.length; i++) { r += arr[i] * x + c; }
+      return r;
+    }
+
     function fib(n) {
       n = BigInt(n);
       if (n === 0n) return 0n;
