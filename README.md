@@ -40,33 +40,37 @@ har(z, w, v) = (w * v) * ln(z)
 ```
 v = freq (default = 1/2)
 t = shift (default = 1/2)
-a = even/odd coff (default = 1)
 x = base-power function (default = e)
-w = exponent-power function (default = w)
+z = exponent-power function (default = z)
 ```
 
-tau(e, w, t, 1/2) and tau(e, w, t, 1/2)⁺⁻
+tauₑ(w, t, 1/2) and tauₑ(w, t, 1/2)⁺⁻
 ```
-τ(w, t) = e^(t - w)
-τₓ(w, t)⁺⁻ = 1 ± x^(t - w)
+τ(z, t) = e^(t - z)
+τₓ(z, t)⁺⁻ = 1 ± x^(t - z)
 ```
 
 Bose-Einstein (-1) and Fermi-Dirac (+1):
 ```
-τ'(w, t)⁻ / τ(w, t)⁻ = +1 / (e^(w - t) - 1)
-τ'(w, t)⁺ / τ(w, t)⁺ = -1 / (e^(w - t) + 1)
+τ'(z, t)⁻ / τ(z, t)⁻ = +1 / (e^(z - t) - 1)
+τ'(z, t)⁺ / τ(z, t)⁺ = -1 / (e^(z - t) + 1)
 ```
 
 Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
 ```
-τ'[t](w, t) / τ(w, t) = +1
-τ'[w](w, t) / τ(w, t) = -1
+τ'[t](z, t) / τ(z, t) = +1
+τ'[z](z, t) / τ(z, t) = -1
 ```
 
-gau(w, t, 1/2) and gau(w, t, 1/2)⁺⁻
+gau(z, t, 1/2) and gau(z, t, 1/2)⁺⁻
 ```
-g(w, t) = Γ(t - w/2) / Γ(w/2)
-g(w, t)⁺⁻ = 1 ± Γ(t - w/2) / Γ(w/2)
+g(z, t) = Γ(t - z/2) / Γ(z/2)
+g(z, t)⁺⁻ = 1 ± Γ(t - z/2) / Γ(z/2)
+```
+
+```
+zeta(1 - z) / zeta(z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z))
+zeta(1 - z) / zeta(z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z)
 ```
 
 Any-adic numbers:
