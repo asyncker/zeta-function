@@ -85,7 +85,7 @@ family of exp functions (period 2pi * prime or fibonachi numbers or 2, 4, 8, 16,
 e(z, s = {2, 3, 5, 7...}) = 
 ```
 
-Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
+Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 
 <table>
   <tr>
@@ -101,16 +101,16 @@ Visual identity zeta(z) and τ(w, 1/2)⁺⁻:
 </table>
 
 ```
-g'(w, t)⁻ / g(w, t)⁺ = 
+g'(z, t)⁻ / g(z, t)⁺ = 
 ```
 
 The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
 ```
-τₓ(w, 1/2)⁺⁻ = 1 ± x^(1/2 - w)
+τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
 ```
 
 ```
-τ'(w, t)⁻ = exp(t - w)
+τ'(z, t)⁻ = exp(t - z)
 -1 / τ(w)⁻
 (w / τ(w)⁻)'
 (τ(w)⁻ / w)'
