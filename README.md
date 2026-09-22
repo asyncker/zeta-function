@@ -68,9 +68,23 @@ g(z, t) = Γ(t - z/2) / Γ(z/2)
 g(z, t)⁺⁻ = 1 ± Γ(t - z/2) / Γ(z/2)
 ```
 
+
+```
+gamma(1 - z) * gamma(z) = pi / sin(pi * z)
+
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
+zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
+```
+
 ```
 zeta(1 - z) / zeta(z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z))
+zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+
 zeta(1 - z) / zeta(z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z)
+zeta(z) / zeta(1 - z) = 1 / (gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z))
+
+zeta(1 - z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / zeta(z))
+zeta(z) = 1 / (gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) / zeta(1 - z))
 ```
 
 Any-adic numbers:
