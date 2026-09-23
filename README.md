@@ -223,6 +223,17 @@ eta function:
 eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
 ```
 
+zeta function if use eta:
+```
+zeta(z) = (((1 - 2^(1-z)) / (1 - 2 ^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)) / (1 - 2^(1 - z))
+
+zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * (1 / (1 - 2^z)) * eta(1 - z)
+
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * (1 / (1 - 2^z)) * eta(1 - z)
+
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(z - 1/2) / (1 - 2^z) * eta(1 - z)
+```
+
 ```
 sin(z * pi/2) * 2
 amplitude: +2, -2
