@@ -334,3 +334,4 @@ for find primes (test n = prime)
 
 prime end or not?
 6 * 2^n + 5 + n
+2 * 6^n + 5
