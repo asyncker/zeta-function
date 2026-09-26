@@ -456,7 +456,7 @@
       } else {
         let text = `Primes found (n = 1..${nmax}):\n`;
         text += results.map(({n, value}) => `n=${n}: ${value}`).join("\n");
-        text += "\n\nFactorize n get primes:\n"
+        text += "\n\nFactorize n get primes:\n";
         for (let i = 0; i < nprimes.length; i++) {
           const n = nprimes[i];
           const factors = factorize(n);
@@ -465,6 +465,7 @@
           text += String(n) + " = " + expression + primeNote + "\n";
         }
         text += "\n {" + nprimes.map(x => x).join(", ") + "}";
+        text += "\n {" + nprimes.filter(x => isPrime(x)).map(x => x).join(", ") + "}";
         out.innerHTML = text;
       }
     }
