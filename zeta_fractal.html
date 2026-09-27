@@ -60,9 +60,10 @@
                 <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Gamma</button>
             </div>
             <div class="control-buttons">
-                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">1 - hi(z)</button>
+                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">1-hi(z)</button>
                 <button class="control-btn" onclick="fractalindex = 5; updateControls(true);">Zeta</button>
-                <button class="control-btn" onclick="fractalindex = 6; updateControls(true);">pgamma</button>
+                <button class="control-btn" onclick="fractalindex = 6; updateControls(true);">Pgsi</button>
+                <button class="control-btn" onclick="fractalindex = 7; updateControls(true);">Pgamma</button>
             </div>
         </div>
         <div class="control-group">
@@ -70,6 +71,7 @@
             <div class="control-buttons">
                 <button class="control-btn" onclick="isburning = isburning == 1 ? 0 : 1; updateControls(true);">|re(z)| + |im(z)| * i</button>
                 <button class="control-btn" onclick="ismandel = ismandel == 1 ? 0 : 1; updateControls(true);">Mandel/Julia</button>
+                <button class="control-btn" onclick="isminusone = isminusone == 1 ? 0 : 1; updateControls(true);">1 - z</button>
             </div>
         </div>
         <div class="control-group">
@@ -160,6 +162,7 @@
             uniform int ismandel;
             uniform int isburning;
             uniform int iteration;
+            uniform int isminusone;
             #define PI 3.14159265359
             #define EULER_GAMMA 0.5772156649015329
 
@@ -336,9 +339,11 @@
                     znorm = dot(z, z);
                     if (znorm > range || (iter == 1 && i == 1)) { n = i; break; }
                     if (isburning == 1) { z.x = abs(z.x); z.y = -abs(z.y); }
+                    if (isminusone == 1) { z = vec2(1.0, 0.0) - z; }
                     z = cpow(z, power);
-                    if (fractalindex == 6) { z = cpgamma(z); }
-                    if (fractalindex == 5) { z = czeta(z); }
+                    if (fractalindex == 7) { z = cpgamma(z); }
+                    else if (fractalindex == 6) { z = vec2(1.0, 0.0) - cmul(cpgamma(vec2(0.5, 0.0) - z * 0.5), cinv(cpgamma(z * 0.5))); }
+                    else if (fractalindex == 5) { z = czeta(z); }
                     else if (fractalindex == 4) { z = vec2(1.0, 0.0) - chi(z); }
                     else if (fractalindex == 3) { z = cgamma(z); }
                     else if (fractalindex == 2) { z = csin(z); }
@@ -408,6 +413,7 @@
         const inverseLocation = gl.getUniformLocation(program, 'inverse');
         const multlightLocation = gl.getUniformLocation(program, 'multlight');
         const ismandelLocation = gl.getUniformLocation(program, 'ismandel');
+        const isminusoneLocation = gl.getUniformLocation(program, 'isminusone');
         const isburningLocation = gl.getUniformLocation(program, 'isburning');
         const fractalindexLocation = gl.getUniformLocation(program, 'fractalindex');
         const iterationLocation = gl.getUniformLocation(program, 'iteration');
@@ -425,6 +431,7 @@
         let lastChangeTime = 0;
         let ismandel = 0;
         let isburning = 0;
+        let isminusone = 0;
         let fractalindex = 5;
         let multlight = 1.0;
         let iteration = 12;
@@ -446,8 +453,8 @@
             if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + zoomSpeed; } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 6 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 6 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 7 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 7 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['u'] && currentTime - lastChangeTime > 200) { ismandel = ismandel == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['f'] && currentTime - lastChangeTime > 800) { inverse = inverse == 1.0 ? 0.0 : 1.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['+'] && currentTime - lastChangeTime > 200) { isburning = isburning == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
@@ -476,6 +483,7 @@
                 gl.uniform1i(fractalindexLocation, fractalindex);
                 gl.uniform1i(ismandelLocation, ismandel);
                 gl.uniform1i(isburningLocation, isburning);
+                gl.uniform1i(isminusoneLocation, isminusone);
                 gl.uniform1f(cxvalLocation, cxval);
                 gl.uniform1f(cyvalLocation, cyval);
                 gl.uniform1f(zoommandelLocation, zoomMandel);
