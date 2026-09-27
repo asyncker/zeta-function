@@ -58,7 +58,11 @@
                 <button class="control-btn" onclick="fractalindex = 1; updateControls(true);">Exp</button>
                 <button class="control-btn" onclick="fractalindex = 2; updateControls(true);">Sin</button>
                 <button class="control-btn" onclick="fractalindex = 3; updateControls(true);">Gamma</button>
-                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">Zeta</button>
+            </div>
+            <div class="control-buttons">
+                <button class="control-btn" onclick="fractalindex = 4; updateControls(true);">1 - hi(z)</button>
+                <button class="control-btn" onclick="fractalindex = 5; updateControls(true);">Zeta</button>
+                <button class="control-btn" onclick="fractalindex = 6; updateControls(true);">pgamma</button>
             </div>
         </div>
         <div class="control-group">
@@ -179,23 +183,50 @@
             vec2 ctau_e(vec2 z) { return vec2(1.0, 0.0) - cexp(vec2(0.5, 0.0) - z); }
             vec2 ctau(vec2 z, vec2 w) { return vec2(1.0, 0.0) - cexp(cmul(clog(z), vec2(0.5, 0.0) - w)); }
             vec2 csin(vec2 z) { float ey = exp(z.y); float ey_inv = 1.0 / ey; return vec2(sin(z.x) * (ey + ey_inv) * 0.5, cos(z.x) * (ey - ey_inv) * 0.5); }
-            vec2 cgamma_right(vec2 z) {
-                vec2 w = z - vec2(1.0, 0.0);
-                vec2 t = w + vec2(7.5, 0.0);
+            vec2 clanczos(vec2 z) {
                 vec2 x = vec2(0.99999999999980993, 0.0);
-                x += 676.5203681218851 * cinv(w + vec2(1.0, 0.0));
-                x -= 1259.1392167224028 * cinv(w + vec2(2.0, 0.0));
-                x += 771.32342877765313 * cinv(w + vec2(3.0, 0.0));
-                x -= 176.61502916214059 * cinv(w + vec2(4.0, 0.0));
-                x += 12.507343278686905 * cinv(w + vec2(5.0, 0.0));
-                x -= 0.13857109526572012 * cinv(w + vec2(6.0, 0.0));
-                x += 9.9843695780195716e-6 * cinv(w + vec2(7.0, 0.0));
-                x += 1.5056327351493116e-7 * cinv(w + vec2(8.0, 0.0));
-                return 2.50662827463 * cmul(x, cexp(cmul(clog(t), w + vec2(0.5, 0.0)) - t));
+                x += 676.5203681218851 * cinv(z);
+                x -= 1259.1392167224028 * cinv(z + vec2(1.0, 0.0));
+                x += 771.32342877765313 * cinv(z + vec2(2.0, 0.0));
+                x -= 176.61502916214059 * cinv(z + vec2(3.0, 0.0));
+                x += 12.507343278686905 * cinv(z + vec2(4.0, 0.0));
+                x -= 0.13857109526572012 * cinv(z + vec2(5.0, 0.0));
+                x += 9.9843695780195716e-6 * cinv(z + vec2(6.0, 0.0));
+                x += 1.5056327351493116e-7 * cinv(z + vec2(7.0, 0.0));
+                return x;
             }
+            vec2 cgamma_right(vec2 z) { vec2 t = z + vec2(6.5, 0.0); return 2.50662827463 * cmul(clanczos(z), cexp(cmul(clog(t), z - vec2(0.5, 0.0)) - t)); }
             vec2 cgamma_left(vec2 z) { return PI * cinv(cmul(csin(z * PI), cgamma_right(vec2(1.0, 0.0) - z))); }
             vec2 cgamma(vec2 z) { return z.x < 0.5 ? cgamma_left(z) : cgamma_right(z); }
-
+            vec2 cgammat_right(vec2 z) {
+                vec2 t = z + vec2(6.5, 0.0);
+                vec2 Q = cmul(z - vec2(0.5, 0.0), clog(t)) - t - (z - vec2(1.0, 0.0)) * 0.6931471805599453;
+                vec2 i_pi_z_2 = 1.5707963267948966 * vec2(-z.y, z.x);
+                return 1.4142135623730951 * cinv(cmul(clanczos(z), cexp(Q + i_pi_z_2) + cexp(Q - i_pi_z_2)));
+            }
+            vec2 cgammat_left(vec2 z) {
+                vec2 u = vec2(1.0, 0.0) - z;
+                vec2 t = u + vec2(6.5, 0.0);
+                vec2 P = (cmul(u - vec2(0.5, 0.0), clog(t)) - t) + z * 0.6931471805599453;
+                vec2 i_pi_z_2 = 1.5707963267948966 * vec2(-z.y, z.x);
+                return cmul(clanczos(u), -cmul_i(cexp(P + i_pi_z_2) - cexp(P - i_pi_z_2))) * 0.7071067811865475;
+            }
+            vec2 cgammat(vec2 z) { return z.x >= 0.5 ? cgammat_right(z) : cgammat_left(z); }
+            vec2 chi(vec2 z) { return cmul(cgammat(z), cexp(1.14472988585 * (vec2(-0.5, 0.0) + z))); }
+            vec2 cpgamma(vec2 z) {
+                vec2 result = cmul(z, cexp(EULER_GAMMA * z));
+                mat4 prime16 = mat4(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53);
+                mat4 prime32 = mat4(59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131);
+                for (int col = 0; col < 4; col++) {
+                    for (int row = 0; row < 4; row++) {
+                        float invn = 1.0 / prime16[row][col];
+                        result = cmul(result, cmul(vec2(1.0, 0.0) + z * invn, cexp(-z * invn)));
+                        invn = 1.0 / prime32[row][col];
+                        result = cmul(result, cmul(vec2(1.0, 0.0) + z * invn, cexp(-z * invn)));
+                    }
+                }
+                return cinv(result);
+            }
             vec4 czeta_helper_4(vec2 z, mat4 ns, mat4 bases) {
                 mat4 phases = z.y * bases;
                 float cutoff = sqrt(z.y * 0.159154943092) + 100.0 * step(z.y, 120.0);
@@ -306,7 +337,9 @@
                     if (znorm > range || (iter == 1 && i == 1)) { n = i; break; }
                     if (isburning == 1) { z.x = abs(z.x); z.y = -abs(z.y); }
                     z = cpow(z, power);
-                    if (fractalindex == 4) { z = czeta(z); }
+                    if (fractalindex == 6) { z = cpgamma(z); }
+                    if (fractalindex == 5) { z = czeta(z); }
+                    else if (fractalindex == 4) { z = vec2(1.0, 0.0) - chi(z); }
                     else if (fractalindex == 3) { z = cgamma(z); }
                     else if (fractalindex == 2) { z = csin(z); }
                     else if (fractalindex == 1) { z = cexp(z); }
@@ -392,7 +425,7 @@
         let lastChangeTime = 0;
         let ismandel = 0;
         let isburning = 0;
-        let fractalindex = 4;
+        let fractalindex = 5;
         let multlight = 1.0;
         let iteration = 12;
         let movespeedx = 0.025;
@@ -413,8 +446,8 @@
             if (keysPressed['q']) { if (ismandel) { zoomMandel *= 1.0 + zoomSpeed; } else { zoomJulia *= 1.0 + zoomSpeed; } keypress = true; }
             if (keysPressed['r'] && currentTime - lastChangeTime > 200) { power = Math.floor(power + 1); lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['t'] && currentTime - lastChangeTime > 200) { power = Math.ceil(power - 1); lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 4 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
-            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 4 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['v'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 6 ? 0 : fractalindex + 1; lastChangeTime = currentTime; keypress = true; }
+            if (keysPressed['c'] && currentTime - lastChangeTime > 200) { fractalindex = fractalindex == 0 ? 6 : fractalindex - 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['u'] && currentTime - lastChangeTime > 200) { ismandel = ismandel == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['f'] && currentTime - lastChangeTime > 800) { inverse = inverse == 1.0 ? 0.0 : 1.0; lastChangeTime = currentTime; keypress = true; }
             if (keysPressed['+'] && currentTime - lastChangeTime > 200) { isburning = isburning == 1 ? 0 : 1; lastChangeTime = currentTime; keypress = true; }
