@@ -794,9 +794,11 @@
     });
 
     document.getElementById('b_csv').addEventListener("click", function() {
-      let csvContent = "data:text/csv;charset=utf-8,Top,Formula,Unique Primes,Primes (n is prime)\n";
+      let csvContent = "data:text/csv;charset=utf-8,formula,primes,primesWhenNPrime\n";
       b_top.forEach((row, i) => {
-        csvContent += `${i+1},"${row.formula.replace(/"/g, '""')}",${row.primes},${row.primesWhenNPrime || 0}\n`;
+        if (i <= 16898) {
+          csvContent += `${row.formula.replace(/"/g, '""')},${row.primes},${row.primesWhenNPrime || 0}\n`;
+        }
       });
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
