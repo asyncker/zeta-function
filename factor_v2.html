@@ -38,7 +38,15 @@
   
   <div id="formulaInputs" style="display:none;" class="formula-inputs">
     <label><input type="text" id="formulaExpr" value="1 * 2^n - 1" oninput="runFormula()"></label>
-    <label>nmax: <input type="number" id="nmax" value="200" step="1" oninput="runFormula()" style="width:10em;"></label>
+    <div style="display:flex; align-items:center; gap:1.5em; flex-wrap:wrap;">
+      <label style="display:flex; align-items:center; gap:0.3em; width:auto; margin:0;">nmax:
+        <input type="number" id="nmax" value="200" step="1" oninput="runFormula()" style="width:10em;">
+      </label>
+      <label style="display:flex; align-items:center; gap:0.3em; width:auto; margin:0; font-size:1.1em; cursor:pointer;">
+        <input type="checkbox" id="nPrimeOnly" onchange="runFormula()" style="width:1.1em; height:1.1em; margin:0; cursor:pointer;">
+        n = prime
+      </label>
+    </div>
   </div>
 
   <div id="bruteInputs" style="display:none;" class="formula-inputs">
@@ -605,11 +613,13 @@
       const out = document.getElementById("out");
       const expr = document.getElementById("formulaExpr").value.trim();
       const nmax = parseInt(document.getElementById("nmax").value, 10);
+      const nPrimeOnly = document.getElementById("nPrimeOnly").checked;
       if (!expr) { out.textContent = "Enter a formula (use n)"; return; }
       if (isNaN(nmax) || nmax < 1) { out.textContent = "nmax must be >= 1"; return; }
       const results = [];
       const nprimes = [];
       for (let n = 0; n <= nmax; n++) {
+        if (nPrimeOnly && !isPrime(BigInt(n))) continue;
         try {
           const val = evalExpr(expr.replace(/n/g, String(n)));
           if (val === null) continue;
@@ -796,11 +806,11 @@
     document.getElementById('b_csv').addEventListener("click", function() {
       let csvContent = "data:text/csv;charset=utf-8,formula,primes,primesWhenNPrime\n";
       b_top.forEach((row, i) => {
-        if (i <= 16898) {
+        if (i <= 16005) {
           csvContent += `${row.formula.replace(/"/g, '""')},${row.primes},${row.primesWhenNPrime || 0}\n`;
         }
       });
-      const encodedUri = encodeURI(csvContent);
+      const encodedUri = encodeURI(csvContent.slice(0, -1));
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
       link.setAttribute("download", "prime_brute_top.csv");
