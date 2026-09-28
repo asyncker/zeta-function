@@ -271,6 +271,7 @@ Find primes<br />
 ```
 Top formula find primes
 2^n * 24 - 25
+2 * (2 * 3 * 11) * 2^n - 5 * 13
 2^n * 3 * 2 + 5
 2^n * 3 * 11 - 5 * 13
 2^n * 10209 - 1
