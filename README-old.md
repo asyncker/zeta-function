@@ -271,7 +271,14 @@ Find primes<br />
 ```
 Top formula find primes
 2^n * 24 - 25
+2^n * 3 * 2 + 5
+2^n * 3 * 11 - 5 * 13
+2^n * 10209 - 1
+
+Top middle find primes
+2^n * 3 * 2 * 11 * 2 - 13 * 5
 4^n * 398 - 81
+2^n * 33 - 65
 2^n * 21 - 5
 
 (n*n - 2)
@@ -280,6 +287,7 @@ Top formula find primes
 
 Top low find primes
 4^n * 355 - 39
+2^n * 6 * 642 - (847 * 5)
 2^n * 15 - 49
 2^n * 305 + 157
 2^n * 9 - 55
