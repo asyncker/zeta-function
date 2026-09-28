@@ -341,7 +341,9 @@ prime = 2 + 3 + 6 + 12 + 24 + 60 + 120 + 240 + 120 + 60 + 12 + 24 + 60 + 120 + 2
 ```
 
 for find primes (test n = prime)
+```
 6 * 2^n + 5
+```
 
 prime end or not?
 6 * 2^n + 5 + n
