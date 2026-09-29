@@ -270,12 +270,12 @@ F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 Find primes<br />
 ```
 Top formula find primes
-2^n + 5105
 2^n * 14388 - 12545
 2^n + 399 * 5
 2^n + 8151 * 5
 2^n + 15105 * 5
 2^n * 6 + 5
+2^n + 5105
 2^n * 114 - 35
 2^n * 33 - 65
 2^n * 24 - 25
