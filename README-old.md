@@ -335,9 +335,12 @@ ptlimp(2^n * 14388 - 12545) = {0, 1} | {2, 3, 7, 11, 29, 31, 41, 43, 61, 79, 83,
 
 asymptotic n ptlim:
 ```
-ptlim(2^n - 1) ~ floor(ln(n) * 2)
-ptlim(2^n * 33 - 65) ~ floor(ln(n) * 7)
-ptlim(2^n * 14388 - 12545) ~ floor(ln(n) * 7)
+count({2, 3, 5, 7, 11, 13, 17}) = {0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7}
+count({2, 3, 5, 7, 11, 13, 17...}) ~ ceil(x / (ln(x) - 1))
+
+count(ptlim(2^n - 1)) ~ floor(ln(n) * 2)
+count(ptlim(2^n * 33 - 65)) ~ floor(ln(n) * 7)
+count(ptlim(2^n * 14388 - 12545)) ~ floor(ln(n) * 7)
 ```
 
 algebraic-physic
