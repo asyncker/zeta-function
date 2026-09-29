@@ -320,6 +320,12 @@ Clickbate mersenne:
 ```
 
 
+```
+ptlim(2^n + 5105) | {0, 1} | {1, 3, 7, 13, 17, 19, 21, 41, 47, 61, 71, 79, 83, 97, 103, 137, 183, 199, 263, 271, 307, 313, 367, 503, 521, 571, 673, 921, 953, 1083, 1847, 2183, 2527, 3743, 3899, 4163, 4173, 4713, 4933}
+ptlimp(2^n + 5105) | {0, 1} | {3, 7, 13, 17, 19, 41, 47, 61, 71, 79, 83, 97, 103, 137, 199, 263, 271, 307, 313, 367, 503, 521, 571, 673, 953, 1847, 4933}
+```
+
+
 algebraic-physic
 
 Is it possible to create ln-prime to get a function x^z on prime period that will give the period of prime numbers?
