@@ -272,8 +272,8 @@ Find primes<br />
 Top formula find primes
 2^n * 14388 - 12545
 2^n * 10209 - 1
-2^n * 114 - 35
 2^n * 33 - 65
+2^n * 114 - 35
 2^n * 24 - 25
 2^n * 6 + 5
 
