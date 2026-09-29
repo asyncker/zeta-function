@@ -176,7 +176,16 @@
     }
 
     function isPrimeTest(n) {
-      if (n < 2n) return false;
+      if (n < 9007199254740991n) {
+        const num = Number(n);
+        if (num < 2) return false;
+        if (num % 2 === 0) return num === 2;
+        if (num % 3 === 0) return num === 3;
+        for (let i = 5; i * i <= num; i += 6) {
+          if (num % i === 0 || num % (i + 2) === 0) return false;
+        }
+        return true;
+      }
       const small = [2n, 3n, 5n, 7n, 11n, 13n, 17n, 19n, 23n, 29n, 31n, 37n, 41n, 43n, 47n, 53n, 59n, 61n, 67n, 71n, 73n, 79n, 83n, 89n, 97n];
       for (const p of small) {
         if (n % p === 0n) return n === p;
@@ -271,9 +280,9 @@
 
             let primesFound = new Set();
             let primesWhenNPrimeCount = 0;
-
+            let splitReplaced = replaced.split("n");
             for (let n = 0; n <= nmax; n++) {
-              let expr = replaced.split("n").join(String(n));
+              let expr = splitReplaced.join(String(n));
               try {
                 let res = evalExpr(expr);
                 if (res !== null && res >= 2n && isPrimeTest(res)) {
@@ -658,9 +667,9 @@
       const match = formula.replace(/n/g, '').match(/[a-zA-Z]/g);
       const uniqueVars = [...new Set(match || [])];
       const container = document.getElementById("b_vars_container");
-      container.innerHTML = "";
+      let htmlDom = "";
       uniqueVars.forEach(v => {
-        container.innerHTML += `
+        htmlDom += `
           <div class="var-row" data-var="${v}">
             <b>${v}:</b>
             <select class="v-type">
@@ -676,11 +685,11 @@
           </div>
         `;
       });
+      container.innerHTML = htmlDom;
     });
 
     let b_worker = null;
     let b_interval = null;
-    
     let b_top = JSON.parse(localStorage.getItem('b_top') || '[]').map(x => ({
       formula: x.f,
       primes: x.p,
@@ -784,7 +793,7 @@
       };
 
       if (b_interval) clearInterval(b_interval);
-      b_interval = setInterval(renderBTable, 1500);
+      b_interval = setInterval(renderBTable, 9000);
       b_worker.postMessage({ formula, nmax, varsObj });
     });
 
