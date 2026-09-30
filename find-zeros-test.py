@@ -1,7 +1,14 @@
 import mpmath
+import random
 from mpmath import zeta, findroot, mp, re, im
 
 mp.dps = 50
+
+def test():
+    n = 15
+    for i in range(30):
+        n *= 2
+        print(str(n * 10 + random.randrange(1, 100, 2)) + " - " + str(n * 16 + random.randrange(1, 100, 2)))
 
 def zsinh(x, t=0.5):
     z = x * 1j
