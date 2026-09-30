@@ -266,6 +266,12 @@ F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
 
 
+Between -0.313 и -0.323
+```
+z = +-z
+1 / zeta(1/z) - 1 / zeta(1 - 1/z) - 0.32
+```
+
 
 Find primes<br />
 ```
