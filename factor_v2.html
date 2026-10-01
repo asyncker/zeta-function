@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Prime factorization</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 1.5em; }
+    body { font-family: system-ui, sans-serif;  margin: 0; padding: 4px 24px; background-color: #121212; color: #fff; box-sizing: border-box; min-height: 100vh; width: 100%; }
+    input, select, button { background-color: #3B3B3B; border: 2px solid #444; }
     input { font-size: 1.1em; width: 26em; }
     button { font-size: 1.1em; cursor: pointer; padding: 0.3em 1em; }
     #out { font-size: 1.2em; margin-top: 1em; white-space: pre-wrap; }
@@ -813,19 +814,25 @@
     });
 
     document.getElementById('b_csv').addEventListener("click", function() {
-      let csvContent = "data:text/csv;charset=utf-8,formula,primes,primesWhenNPrime\n";
-      b_top.forEach((row, i) => {
-        if (i <= 16005) {
-          csvContent += `${row.formula.replace(/"/g, '""')},${row.primes},${row.primesWhenNPrime || 0}\n`;
+      let csvContent = "formula,primes,primesWhenNPrime\n";
+      const len = Math.min(b_top.length, 16006);
+      for (let i = 0; i < len; i++) {
+        const row = b_top[i];
+        let f = row.formula;
+        if (f.includes(',') || f.includes('"')) {
+          f = `"${f.replace(/"/g, '""')}"`;
         }
-      });
-      const encodedUri = encodeURI(csvContent.slice(0, -1));
+        csvContent += f + ',' + row.primes + ',' + (row.primesWhenNPrime || 0) + '\n';
+      }
+      const blob = new Blob([csvContent], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "prime_brute_top.csv");
+      link.href = url;
+      link.download = "prime_brute_top.csv";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     });
 
     document.getElementById("b_formula").dispatchEvent(new Event("input"));
