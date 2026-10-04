@@ -650,9 +650,9 @@ count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 
 <br />Prime function:
 ```
--11i, -7i, -5i, -2i, -1i, 0i, +1i, +2i, +3i, +5i, +7i, +11i
+-11i, -7i, -5i, -2i, 0i, +2i, +3i, +5i, +7i, +11i
 
--11, -7, -5, -3, -2, -1, 0, +1, +2, +3, +5, +7, +11
+-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11
 ```
 
 ```
@@ -661,6 +661,11 @@ y = sin(bspline(primes))
 y = cos(bspline(primes))
 ```
 
+visualize sin(p) when p = bspline(primes)
+<img src="https://asyncker.github.io/zeta-function/img/sinprimes.png" />
+
+visualize sin(x) when x = bspline(naturals)
+<img src="https://asyncker.github.io/zeta-function/img/sinnaturals.png" />
 
 ```
 ln(eps) = -ln(w)
