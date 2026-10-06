@@ -648,27 +648,42 @@ count(ptlim(2^n - 1)) ~ floor(ln(x) * 2)
 count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 ```
 
-<br />Prime function:
-```
--11i, -7i, -5i, -2i, 0i, +2i, +3i, +5i, +7i, +11i
+<br />Coordinate by sequence:
 
--11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11
+We use any set as initial coordinates (naturals, fibbonachi, squares, prime, random)
+```
+xₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
+
+Re(xₚ) = linear(xₚ) add rational and irrational numbers between primes
+
+for all Re(xₚ) create Re(xₚ) * i its Im(xₚ)
 ```
 
 ```
-y = exp(bspline(primes))
-y = sin(bspline(primes))
-y = cos(bspline(primes))
+y = exp(bspline(xₚ))
+y = sin(bspline(xₚ))
+y = cos(bspline(xₚ))
 ```
 
 <table>
   <tr>
-    <td><img src="https://asyncker.github.io/zeta-function/img/sinprimes.png" alt="sin(x)"></td>
-    <td><img src="https://asyncker.github.io/zeta-function/img/sinnaturals.png" alt="sin(x)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/sinprimes.png" alt="sin(xₚ)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/sinnaturals.png" alt="sin(xₙ)"></td>
   </tr>
   <tr>
-    <td align="center"><code>sin(p) | p = bspline(primes)</code></td>
-    <td align="center"><code>sin(x) | x = bspline(naturals)</code></td>
+    <td align="center"><code>sin(xₚ) | xₚ = bspline(primes)</code></td>
+    <td align="center"><code>sin(xₙ) | xₙ = bspline(naturals)</code></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/expprimecoords.png" alt="exp(zₚ)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/explinearcoords.png" alt="exp(zₙ)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>exp(zₚ)</code></td>
+    <td align="center"><code>exp(zₙ)</code></td>
   </tr>
 </table>
 
