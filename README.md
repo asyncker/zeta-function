@@ -687,6 +687,17 @@ y = cos(bspline(xₚ))
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/expprimecoordjulia.png" alt="exp(zₚ)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/explinearcoordjulia.png" alt="exp(zₙ)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>exp(zₚ) (scale 1:1)</code></td>
+    <td align="center"><code>exp(zₙ) (scale 1:1)</code></td>
+  </tr>
+</table>
+
 ```
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
