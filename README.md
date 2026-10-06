@@ -682,8 +682,8 @@ y = cos(bspline(xₚ))
     <td><img src="https://asyncker.github.io/zeta-function/img/explinearcoords.png" alt="exp(zₙ)"></td>
   </tr>
   <tr>
-    <td align="center"><code>exp(zₚ)</code></td>
-    <td align="center"><code>exp(zₙ)</code></td>
+    <td align="center"><code>exp(zₚ) + c</code></td>
+    <td align="center"><code>exp(zₙ) + c</code></td>
   </tr>
 </table>
 
