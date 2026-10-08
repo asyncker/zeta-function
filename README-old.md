@@ -392,6 +392,13 @@ prime end or not?
 6 * 2^n + 5 + n
 2 * 6^n + 5
 
+consts:
+```
+~2.5840884799577144 or 2.538
+~0.079
+
+zeta((z^2)^0.5) - 2.5840884799577144
+```
 
 
 Using a sequance coords is a good idea, but exists sequance function like sinₚ(z) then x is not periodic?
