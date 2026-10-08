@@ -408,5 +408,13 @@ zeta((z^2)^0.5) - 2
 zeta((z^2)^0.5) - 2 - eps
 ```
 
+```
+zeta((z^2)^0.5) - log(1)
+zeta((z^2)^0.5) - log(4)
+zeta((z^2)^0.5) - log(13)
+zeta((z^2)^0.5) - log(21)
+zeta((z^2)^0.5) - log(26)
+zeta((z^2)^0.5) - log(33)
+```
 
 Using a sequance coords is a good idea, but exists sequance function like sinₚ(z) then x is not periodic?
