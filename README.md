@@ -189,6 +189,8 @@ h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
+ln(4) = 2 * ln(2) which is also the natural-log entropy of two independent bits, I wonder whether this is merely a numerical coincidence or whether there is a genuine connection between the zeta function, the constant ln(4), and two-bit entropy.
+
 Like quasicrystal fractal:
 ```
 τ(|Re(w)| + |Im(w)| * i, 1/2)
