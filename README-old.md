@@ -400,5 +400,12 @@ consts:
 zeta((z^2)^0.5) - 2.5840884799577144
 ```
 
+So 2 it's center left and right:
+```
+zeta((z^2)^0.5) - 2 + eps
+zeta((z^2)^0.5) - 2
+zeta((z^2)^0.5) - 2 - eps
+```
+
 
 Using a sequance coords is a good idea, but exists sequance function like sinₚ(z) then x is not periodic?
