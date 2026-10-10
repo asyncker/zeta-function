@@ -422,6 +422,12 @@ consts:
 zeta((z^2)^0.5) - 2.5840884799577144
 ```
 
+```
+eta mul:
+even: 1 - (1/4^z + exp(i * pi))
+odd:  1 - (1/3^z)
+```
+
 So 2 it's center left and right:
 ```
 zeta((z^2)^0.5) - 2 + eps
