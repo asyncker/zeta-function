@@ -77,9 +77,39 @@
   <div id="out"></div>
 
   <script type="text/worker" id="workerCode">
+    function fib(n) {
+      n = BigInt(n);
+      if (n < 0n) return null;
+      let a = 0n, b = 1n;
+      function fibPair(k) {
+        if (k === 0n) return [0n, 1n];
+        const [a, b] = fibPair(k >> 1n);
+        const c = a * (b * 2n - a);
+        const d = a * a + b * b;
+        if (k & 1n) return [d, c + d];
+        return [c, d];
+      }
+      return fibPair(n)[0];
+    }
+
     function evalExpr(expr) {
       expr = expr.replace(/\s/g, '');
       if (!expr) return null;
+      const fibStack = [];
+      while (true) {
+        const m = expr.match(/F\(([^()]*)\)/);
+        if (!m) break;
+        const inner = m[1];
+        const innerVal = evalExpr(inner);
+        if (innerVal === null || innerVal < 0n) return null;
+        const fv = fib(innerVal);
+        if (fv === null) return null;
+        const placeholder = '__FIB' + fibStack.length + '__';
+        fibStack.push(fv.toString());
+        expr = expr.slice(0, m.index) + placeholder + expr.slice(m.index + m[0].length);
+      }
+      expr = expr.replace(/__FIB(\d+)__/g, (_, i) => fibStack[Number(i)]);
+
       if (!/^[\d()+\-*/^!#]+$/.test(expr)) return null;
       const tokens = [];
       let i = 0;
@@ -367,9 +397,35 @@
   <script>
     "use strict";
 
+    function fib(n) {
+      n = BigInt(n);
+      if (n < 0n) return null;
+      function fibPair(k) {
+        if (k === 0n) return [0n, 1n];
+        const [a, b] = fibPair(k >> 1n);
+        const c = a * (b * 2n - a);
+        const d = a * a + b * b;
+        if (k & 1n) return [d, c + d];
+        return [c, d];
+      }
+      return fibPair(n)[0];
+    }
+
     function evalExpr(expr) {
       expr = expr.replace(/\s/g, '');
       if (!expr) return null;
+      let guard = 0;
+      while (expr.includes('F(')) {
+        if (++guard > 100) return null;
+        const m = expr.match(/F\(([^()]*)\)/);
+        if (!m) return null;
+        const innerVal = evalExpr(m[1]);
+        if (innerVal === null || innerVal < 0n) return null;
+        const fv = fib(innerVal);
+        if (fv === null) return null;
+        expr = expr.slice(0, m.index) + '(' + fv.toString() + ')' + expr.slice(m.index + m[0].length);
+      }
+
       if (!/^[\d()+\-*/^!#]+$/.test(expr)) return null;
       const tokens = [];
       let i = 0;
@@ -665,7 +721,8 @@
 
     document.getElementById("b_formula").addEventListener("input", function() {
       const formula = this.value;
-      const match = formula.replace(/n/g, '').match(/[a-zA-Z]/g);
+      const cleaned = formula.replace(/F\([^()]*\)/g, '');
+      const match = cleaned.replace(/n/g, '').match(/[a-zA-Z]/g);
       const uniqueVars = [...new Set(match || [])];
       const container = document.getElementById("b_vars_container");
       let htmlDom = "";
