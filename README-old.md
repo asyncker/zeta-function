@@ -237,6 +237,21 @@ If we take the derivative of zsinh using exp, then the function becomes non-clos
 gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
 ```
 
+
+```
+140000000000002-1
+
+1400000000000000000000000000000001 = 3 × 466666666666666666666666666666667
+140000000000000000000001 = 3 × 46666666666666666666667
+140000000000001 = 3 × 46666666666667
+14000000000001 = 3 × 4666666666667
+140000000001 = 3 × 46666666667
+14000001 = 3 × 4666667
+1401 = 3 × 467
+141 = 3 × 47
+```
+
+
 I did not mention 3 ideas: Non-Newton with Multiplicative calculus, elliptic curves, arcgamma.
 
 test coff:
