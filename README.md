@@ -224,18 +224,7 @@ zeros: ...-6, -4, -2, 0, +2, +4, +6...
 ```
 
 ```
-gamma(1 + z) = (z * pi / sin(pi * z)) / gamma(1 - z)
-gamma(1 - z) = (z * pi / sin(pi * z)) / gamma(1 + z)
-gamma(1/2 + z) = (pi / cos(pi * z)) / gamma(1/2 - z)
-gamma(1/2 - z) = (pi / cos(pi * z)) / gamma(1/2 + z)
-gamma(0 + z) =  (-pi / (z * sin(pi * z))) / gamma(0 - z)
-gamma(0 - z) =  (-pi / (z * sin(pi * z))) / gamma(0 + z)
-gamma(2 + z) = (1+z) * gamma(1+z)
-```
-
-```
-t = 1/2
-v = 1/2
+t = 1/2 & v = 1/2
 1 - gamma(t * 2v - z * v) / gamma(z * v)
 1 - exp(t * 2v - z * v) / exp(z * v) = 1 - exp(t * 2v - z * 2v)
 1 - gamma(1/2 - z/2) / gamma(z/2)
@@ -279,6 +268,7 @@ re(gamma(x + 1i)) it's cos-grow
 im(gamma(x + 1i)) it's sin-grow
 re(gamma(1 + xi)) it's cos-wave
 im(gamma(1 + xi)) it's sin-wave
+gamma(w + z) = ??
 ```
 
 define Γₚ, pgamma, gsi, gsiₚ
