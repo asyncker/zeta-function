@@ -279,7 +279,18 @@ zeta(z) = 1 / (gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) / zeta(1 - z))
 
 ```
 zeta(z) = (((1 - 2^(1-z)) / (1 - 2 ^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)) / (1 - 2^(1 - z))
+```
+
+```
 gamma(1 - z) * gamma(z) = pi / sin(pi * z)
+
+gamma(1 + z) = (z * pi / sin(pi * z)) / gamma(1 - z)
+gamma(1 - z) = (z * pi / sin(pi * z)) / gamma(1 + z)
+gamma(1/2 + z) = (pi / cos(pi * z)) / gamma(1/2 - z)
+gamma(1/2 - z) = (pi / cos(pi * z)) / gamma(1/2 + z)
+gamma(0 + z) =  (-pi / (z * sin(pi * z))) / gamma(0 - z)
+gamma(0 - z) =  (-pi / (z * sin(pi * z))) / gamma(0 + z)
+gamma(2 + z) = (1+z) * gamma(1+z)
 ```
 
 ```
