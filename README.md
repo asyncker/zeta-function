@@ -29,9 +29,7 @@ define tau-function, gau-function and hau/hal/har-function:
 ```
 tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v)
 gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
-```
 
-```
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
@@ -68,17 +66,9 @@ g(z, t) = Γ(t - z/2) / Γ(z/2)
 g(z, t)⁺⁻ = 1 ± Γ(t - z/2) / Γ(z/2)
 ```
 
-
+The zeros lie on Re(w) = 1/2 for any x ∈ N except x = +1
 ```
-gamma(1 - z) * gamma(z) = pi / sin(pi * z)
-
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
-zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
-```
-
-```
-zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-zeta(1 - z) / zeta(z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z))
+τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
 ```
 
 Any-adic numbers:
@@ -109,19 +99,14 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 </table>
 
 ```
-g'(z, t)⁻ / g(z, t)⁺ = 
-```
-
-The zeros lie on Re(w) = 1/2 for any x ∈ R and x > 0 except +1
-```
-τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
+1 / τ(z, t)⁻ = 1 / (1 - e^(t - z))
 ```
 
 ```
 τ'(z, t)⁻ = exp(t - z)
--1 / τ(z)⁻
-(z / τ(z)⁻)'
-(τ(z)⁻ / z)'
+(z / τ(z, t)⁻)' =
+(τ(z)⁻ / z)' =
+g'(z, t)⁻ / g(z, t)⁺ = 
 
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
@@ -172,11 +157,6 @@ a = +0 or -0
 f(z, u, t, a) = a ± u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 ```
 
-it's supersymmetry value
-```
-h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
-```
-
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
@@ -185,12 +165,19 @@ h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 
 ln(4) = 2 * ln(2) which is also the natural-log entropy of two independent bits, I wonder whether this is merely a numerical coincidence or whether there is a genuine connection between the zeta function, the constant ln(4), and two-bit entropy.
 
+supersymmetry value:
+```
+h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
+```
+
 1 - exp(1/2 - (|Re(z)| + |Im(z)| * i)) | τ(|Re(w)| + |Im(w)| * i, 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
-zeta function:
+zeta(z) and zeta(1 - z) function:
 ```
 zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
+zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
 ```
 
 zeta function if use exp and gamma:
@@ -204,9 +191,11 @@ zeta function if use gamma:
 zeta(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z) * zeta(1 - z)
 ```
 
-zeta function:
+zeta function if use eta function:
 ```
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
+zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) / (1 - 2^z) * eta(1 - z)
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
+zeta(z) = eta(z) / (1 - 2^(1 - z))
 ```
 
 eta function:
@@ -214,11 +203,10 @@ eta function:
 eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
 ```
 
-zeta function if use eta:
+zeta function symetric:
 ```
-zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = eta(z) / (1 - 2^(1 - z))
+zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+zeta(1 - z) / zeta(z) = 1 / (zeta(z) / zeta(1 - z))
 ```
 
 ```
@@ -293,7 +281,7 @@ re(gamma(1 + xi)) it's cos-wave
 im(gamma(1 + xi)) it's sin-wave
 ```
 
-define pgamma, gammapsi
+define Γₚ, pgamma, gsi, gsiₚ
 ```math
 \frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
 ```
