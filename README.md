@@ -19,13 +19,22 @@ f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
 ```
 
-define fau and fis:
+define fau, fis, fic:
 ```
-fau(f, z, t, v) = f(t * 2v - z * v) / f(z * v)
-fis(f, z, t, v) = f(t * 2v - z * v) - f(z * v)
+fau(f, z, t, v, a) = (f(t * 2v - z * v) / f(z * v)) * a
+fis(f, z, t, v, a) = (f(t * 2v - z * v) - f(z * v)) * a
+fic(f, z, t, v, a) = (f(t * 2v - z * v) + f(z * v)) * a
 ```
 
-define tau-function, gau-function and hau/hal/har-function:
+```
+v = freq (default = 1/2)
+t = shift (default = 1/2 or 0)
+a = amp (default = 1/2)
+x = base-power function (default = e)
+z = exponent-power function (default = z)
+```
+
+define tau, gau and hau/hal/har:
 ```
 tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v)
 gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
@@ -33,13 +42,6 @@ gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
-```
-
-```
-v = freq (default = 1/2)
-t = shift (default = 1/2)
-x = base-power function (default = e)
-z = exponent-power function (default = z)
 ```
 
 tauₑ(w, t, 1/2) and tauₑ(w, t, 1/2)⁺⁻
