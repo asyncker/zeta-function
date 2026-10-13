@@ -300,38 +300,18 @@ define mpow (w ∈ ℕ):
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
 ```
 
-define dot, dotlog, dotpow:
+define dot, dotlog, dotpow, sop, soplog, soppow:
 ```
 dot(z, w) = z * w̄
 dotlog(z, w, k) = log(z * w̄) * k
 dotpow(z, w, k) = exp(log(z * w̄) * k)
-```
-
-```
-|z| = dotpow(z, z, 1/2)
-|z|^2 = dotpow(z, z, 1)
-|z|^(1/2) = dotpow(z, z, 1/4)
-1 / |z| = dotpow(z, z, -1/2)
-1 / |z|^2 = dotpow(z, z, -1)
-1 / |z|^(1/2) = dotpow(z, z, -1/4)
-
-log(|z|) = dotlog(z, z, 1/2)
-log(|z|^2) = dotlog(z, z, 1)
-log(|z|^(1/2)) = dotlog(z, z, 1/4)
-log(1 / |z|) = dotlog(z, z, -1/2)
-log(1 / |z|^2) = dotlog(z, z, -1)
-log(1 / |z|^(1/2)) = dotlog(z, z, -1/4)
-```
-
-```
-(re(z)^2)^0.5 + (im(z)^2)^0.5*i = |re(z)| + |im(z)|*i
-```
-
-define sop function:
-```
 sop(z, w) = z / w̄
 soplog(z, w, k) = log(z / w̄) * k
 soppow(z, w, k) = exp(log(z / w̄) * k)
+
+|z| = dotpow(z, z, 1/2)
+log(|z|) = dotlog(z, z, 1/2)
+1 / |z| = dotpow(z, z, -1/2)
 ```
 
 Define zeta‑based functions as symmetric combinations of ζ
