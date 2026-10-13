@@ -99,7 +99,6 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 (z / τ(z, t)⁻)' =
 (τ(z)⁻ / z)' =
 g'(z, t)⁻ / g(z, t)⁺ = 
-
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 ```
@@ -136,12 +135,12 @@ exp(hau(z, w, w/2)) = z^(-w/2)
 ```
 
 ```
-e^(-w/2 * ln(z)) + e^(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
-e^(-w/2 * ln(z)) - e^(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
+exp(-w/2 * ln(z)) + exp(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
+exp(-w/2 * ln(z)) - exp(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 ```
 
 ```
-f(z, u, t) = 0 ± (u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1)))
+±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 ```
 
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
@@ -159,11 +158,10 @@ h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 
 ```
 ζ(±z) - c
-
 interesting c equals {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2}
 ```
 
-1 - exp(1/2 - (|Re(z)| + |Im(z)| * i)) | τ(±z, 1/2)⁻
+τ(±z, 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
 zeta(z) and zeta(1 - z) function:
@@ -244,9 +242,8 @@ reluminU(z) = z <= -0 ? z : ◇
 ```
 cmin(z, w) = min(z.x, w.x) + min(z.i, w.i) * i
 cmax(z, w) = max(z.x, w.x) + max(z.i, w.i) * i
-w = 1 / eps
-cmin(cmax(zeta(z), -w), w) ~= re(zeta(z))
-cmin(cmax(zeta(z) * -i, -w), w) ~= im(zeta(z))
+cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
+cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
 ```
 
 A function can be given its cosine (re) and sinus (im) decompositions
@@ -273,17 +270,14 @@ gsiₚ(z) = Γₚ(1-z) / Γₚ(z)
 ```
 
 Hypothesis: all zeros of the gsiₚ(z)⁻ with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
-
 If Re(z) >= 1 infinity zeros and Re(z) <= 0 infinity zeros
 
-gsiₙ(z) zeros on 1/2 with natural numbers:
 ```
+gsiₙ(z) zeros on 1/2 with natural numbers:
 im(gsiₙ(1/2 + it)⁻) = 0 |t={2.7485719, 4.0333153, 5.0685937, 5.9864659, 6.8314286, 7.6251207, 8.3800571, 9.1042716, 9.8032975, 10.4811442, 11.1408316, 11.7847041, 12.4146264, 13.0321124, 13.6384114, 14.2345698, 14.8214748}
 re(gsiₙ(1/2 + it)⁻) = 0 |t={2.1497679, 3.3145783, 4.6410998, 5.4849802, 6.4581080, 7.1985308, 8.0367949, 8.7191070, 9.4801506, 10.1233064, 10.8325004, 11.4466874, 12.1178667, 12.7093569, 13.3510553, 13.9240575, 14.5419829}
-```
 
 gsiₚ(z) zeros on 1/2 with prime numbers:
-```
 im(gsiₚ(1/2 + it)⁻) = 0 t={1.0293, 5.5865, 9.13, 11.79, 14.13, 16.29, 18.34, 20.29, 22.18, 24.01, 25.89, 27.55, 29.26, 30.95, 32.61, 34.24, 35.86, 37.45, 39.03, 40.6}
 re(gsiₚ(1/2 + it)⁻) = 0 t={8.25, 10.00, 13.38, 14.88, 17.64, 19.03, 21.51, 22.84, 25.15, 26.44, 28.63, 29.89, 31.99, 33.22, 35.25, 36.46, 38.44, 39.63, 41.55, 42.73}
 ```
