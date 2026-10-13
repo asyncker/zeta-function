@@ -34,20 +34,16 @@ x = base-power function (default = e)
 z = exponent-power function (default = z)
 ```
 
-define tau, gau and hau/hal/har:
+define tau, gau, τ, g and hau/hal/har:
 ```
 tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v)
 gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
+τₓ(z, t) = x^(t - z)
+g(z, t) = Γ(t - z/2) / Γ(z/2)
 
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
-```
-
-tauₑ(w, t, 1/2) and tauₑ(w, t, 1/2)⁺⁻
-```
-τ(z, t) = e^(t - z)
-τₓ(z, t)⁺⁻ = 1 ± x^(t - z)
 ```
 
 Bose-Einstein (-1) and Fermi-Dirac (+1):
@@ -60,12 +56,6 @@ Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
 ```
 τ'[t](z, t) / τ(z, t) = +1
 τ'[z](z, t) / τ(z, t) = -1
-```
-
-gau(z, t, 1/2) and gau(z, t, 1/2)⁺⁻
-```
-g(z, t) = Γ(t - z/2) / Γ(z/2)
-g(z, t)⁺⁻ = 1 ± Γ(t - z/2) / Γ(z/2)
 ```
 
 The zeros lie on Re(w) = 1/2 for any x ∈ N except x = +1
@@ -280,11 +270,11 @@ define Γₚ, pgamma, gsi, gsiₚ
 ```
 
 ```
-gsi(z) = 1 - Γ(1-z) / Γ(z)
-gsiₚ(z) = 1 - Γₚ(1-z) / Γₚ(z)
+gsi(z) = Γ(1-z) / Γ(z)
+gsiₚ(z) = Γₚ(1-z) / Γₚ(z)
 ```
 
-gsi on 1/2 im zeros:
+gsi(z)⁻ on 1/2 im zeros:
 ```
 2.7485719473580194676830788732357662506292818994028
 4.0333153582981814452504488473440720760236022001631
@@ -305,7 +295,7 @@ gsi on 1/2 im zeros:
 14.821474847389860535748106724071228268830259750719
 ```
 
-gsi on 1/2 re zeros:
+gsi(z)⁻ on 1/2 re zeros:
 ```
 2.149767972757044487790458689919357792646779651259
 3.314578364469234397953999338334297571359771837915
@@ -326,16 +316,16 @@ gsi on 1/2 re zeros:
 14.541982980473780491122929897776325559162805114317
 ```
 
-Hypothesis: all zeros of the gsiₚ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Hypothesis: all zeros of the gsiₚ(z)⁻ with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 If Re(z) >= 1 infinity zeros and Re(z) <= 0 infinity zeros
 
-im(gsiₚ(1/2 + ik)) zeros:
+im(gsiₚ(1/2 + ik)⁻) zeros:
 ```
 1.0293, 5.5865, 9.13, 11.79, 14.13, 16.29, 18.34, 20.29, 22.18, 24.01, 25.89, 27.55, 29.26, 30.95, 32.61, 34.24, 35.86, 37.45, 39.03, 40.6
 ```
 
-re(gsiₚ(1/2 + ik)) zeros:
+re(gsiₚ(1/2 + ik)⁻) zeros:
 ```
 8.25, 10.00, 13.38, 14.88, 17.64, 19.03, 21.51, 22.84, 25.15, 26.44, 28.63, 29.89, 31.99, 33.22, 35.25, 36.46, 38.44, 39.63, 41.55, 42.73
 ```
@@ -406,13 +396,9 @@ zsinh(-z, t) = −zsinh(z, t)
 zcosh(-z, t) = zcosh(z, t)
 ```
 
-<br />
-
 ```math
 zeta(0) = zcosh(0, 0) = -1/2
 ```
-
-<br />
 
 ```math
 \zeta(t + z) = zcosh(z, t) + zsinh(z, t)
@@ -421,8 +407,6 @@ zeta(0) = zcosh(0, 0) = -1/2
 ```math
 \zeta(t - z) = zcosh(z, t) - zsinh(z, t)
 ```
-
-<br />
 
 ```math
 \zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
@@ -448,8 +432,6 @@ Hypothesis:
 The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
 
 A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
-
-<br />
 
 ```js
 for (let i = 1; i < 30001; i++) {
@@ -644,10 +626,10 @@ ln(w) / ln(eps) = -1
 sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
 sig(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
 
-(|gamma(-2.0 - eps)| + |gamma(-2.0 + eps)|) / 2 = -+x
-(|gamma(-1.0 - eps)| + |gamma(-1.0 + eps)|) / 2 = +-x
-(|gamma(-0.0 - eps)| + |gamma(-0.0 + eps)|) / 2 = -+x
-(|1/(-0.0 - eps)| + |1/(-0.0 + eps)|) / 2 = -+x
+(|gamma(-2.0 - eps)| + |gamma(-2.0 + eps)|) / 2 = {-, +}
+(|gamma(-1.0 - eps)| + |gamma(-1.0 + eps)|) / 2 = {+, -}
+(|gamma(-0.0 - eps)| + |gamma(-0.0 + eps)|) / 2 = {-, +}
+(|1/(-0.0 - eps)| + |1/(-0.0 + eps)|) / 2 = {-, +}
 
 roots(eps^2, 2) = +-eps
 roots(w^2, 2) = +-w
