@@ -237,7 +237,6 @@ If we take the derivative of zsinh using exp, then the function becomes non-clos
 gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
 ```
 
-
 ```
 (3 * 467 * n) - (n - 1)
 140000000000002-1
@@ -252,14 +251,12 @@ gamma(z) ~~= 0.5 * (2^(-z) + 3^(-z) + 5^(-z) + 7^(-z)) * exp(z * ln(z))
 141 = 3 × 47
 ```
 
-
 I did not mention 3 ideas: Non-Newton with Multiplicative calculus, elliptic curves, arcgamma.
 
 test coff:
 ```
 (4 * pi^2) ^ (s - 1) * zeta(s)
 ```
-
 
 ```
 1 / (zeta(2) / zeta(2 * 2)) = pi^2 / 15 
@@ -287,6 +284,11 @@ sin((z - 1) / (z + 1))
 
 We need to come up with a randomness test, and then we can quickly say whether a number is prime or composite. Perhaps we need to check ln(n) and find statistical deviations in it, just like in prime numbers, by looking at numbers close to it. Or we need to specifically condition prime numbers so that they show that they break the pattern, and we detect them.
 
+relu:
+```
+y2 = -relumax(log(x^3 - 2x + 2))
+y1 = -relumax(log(x^3 - 2x + 2))
+```
 
 symetry:
 ```
@@ -300,7 +302,6 @@ F(f1, f2, f3, z) =  f3(f1'(z), f2(f1(z)))
 F(gamma(z), /, *) = gamma'(z) * (1/gamma(z))
 F(gamma(z), -, +) = gamma'(z) + (-1*gamma(z))
 ```
-
 
 Between -0.313 и -0.323
 ```
@@ -376,6 +377,8 @@ ptlim(2^n * 33 - 65) = {0, 1} | {2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 2
 
 ptlim(2^n * 14388 - 12545) = {0, 1} | {1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 20, 29, 31, 34, 35, 41, 43, 50, 61, 74, 79, 82, 83, 89, 97, 113, 118, 125, 128, 130, 148, 173, 190, 202, 230, 257, 273, 295, 331, 339, 368, 373, 397, 419, 421, 497, 507, 513, 525, 541, 646, 869, 959, 1302, 1843, 2431, 3103, 3220, 3459, 3947, 4099, 4226, 5241, 5467, 5841, 6531, 6574, 6617, 6669, 6936, 8133, 11145, 12125, 12790, 13115, 15760, 16711, 21593, 27521, 27811, 28367, 29795, 31556, 38861, 39459...}
 ptlimp(2^n * 14388 - 12545) = {0, 1} | {2, 3, 7, 11, 29, 31, 41, 43, 61, 79, 83, 89, 97, 113, 173, 257, 331, 373, 397, 419, 421, 541, 3947, 4099, 38861}
+
+ptlim(2^(n + 1) * 114 - 35) = {0, 1, 2, 3, 4, 6, 10, 11, 12, 14, 16, 17, 19, 23, 25, 34, 39, 41, 47, 51, 56, 62, 65, 80, 83, 84, 89, 91, 95, 107, 110, 114, 122, 123, 133, 135, 137, 140, 171, 276, 329, 359, 575, 580, 612, 635, 742, 796, 852, 951, 1006, 1126, 1601, 1607, 1694, 1836, 1992, 2239, 2752, 2971, 3591, 3605, 3709, 4042...}
 ```
 
 ```
