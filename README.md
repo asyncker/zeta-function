@@ -532,9 +532,12 @@ for all Re(xₚ) create Re(xₚ) * i its Im(xₚ)
 
 If use Coordinate by sequence idea. You get automatic naturals to prime:
 ```
+p-1 = 1, 2, 4, 6, 10, 12, 16, 18, 22... zₚ-1
+p*2 = 4, 6, 10, 14, 22, 26, 34... zₚ*2
 p^2 = 4, 25, 49, 121, 169... = zₚ^2
-p! = 2, 6, 120, 5040, 39916800... = gamma(zₚ)
 2^p = 4, 8, 32, 128, 2048, 8192, 131072... = 2^zₚ
+p!  = 2, 6, 120, 5040, 39916800... = gamma(zₚ)
+p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
 ```
 
 <table>
