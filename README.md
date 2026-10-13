@@ -77,14 +77,8 @@ zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
 ```
 
 ```
-zeta(1 - z) / zeta(z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z))
 zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-
-zeta(1 - z) / zeta(z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z)
-zeta(z) / zeta(1 - z) = 1 / (gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z))
-
-zeta(1 - z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / zeta(z))
-zeta(z) = 1 / (gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) / zeta(1 - z))
+zeta(1 - z) / zeta(z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z))
 ```
 
 Any-adic numbers:
