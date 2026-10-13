@@ -29,7 +29,7 @@ fic(f, z, t, v, a) = (f(t * 2v - z * v) + f(z * v)) * a
 ```
 v = freq (default = 1/2)
 t = shift (default = 1/2 or 0)
-a = amp (default = 1/2)
+a = amp (default = 1/2 or 1)
 x = base-power function (default = e)
 z = exponent-power function (default = z)
 ```
@@ -214,15 +214,12 @@ zeta(1 - z) / zeta(z) = 1 / (zeta(z) / zeta(1 - z))
 ```
 sin(z * pi/2) * 2i = (1 - (-1)^(-z/2)) - (1 - (-1)^(z/2))
 sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
-amplitude: +2, -2
+amplitude: -2, +2
 inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
-```
 
-```
 1 - (-1)^(-z)
-inter: ...-2, +2, −2,    +2, -2, +2...
-zeros: ...-6, -4, -2, 0, +2, +4, +6...
+amplitude: 0, +2
 ```
 
 ```
@@ -431,11 +428,17 @@ zeta(0) = zcosh(0, 0) = -1/2
 \zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
 ```
 
-Graphics zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png">
-
-Graphics subtract zeros zsinh (green), zcosh (blue), t = 0
-<img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png">
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png" alt="sin(xₚ)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png" alt="sin(xₙ)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>zeros zsinh (green), zcosh (blue), t = 0</code></td>
+    <td align="center"><code>subtract zeros zsinh (green), zcosh (blue), t = 0</code></td>
+  </tr>
+</table>
+Graphics https://asyncker.github.io/zeta-function/index_graphic.html
 
 The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
 The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
@@ -492,8 +495,6 @@ t = 1/2 - 0.00001
 43.993543569869915147558964285592053160826471283816
 ```
 
-See graphics on https://asyncker.github.io/zeta-function/index_graphic.html
-
 <br /> Zeta Bicomplex 4d
 
 Use idempotent function:
@@ -526,10 +527,8 @@ x1 = +w * (7 * w) ^ (1/2)
 x2 = -w * (7 * w) ^ (1/2)
 ```
 
-All real numbers form a ring and two points ±0 and ±inf any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.
-
-<br />Starting point and shift
-
+All real numbers form a ring and two points ±0 and ±inf any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.<br />
+Starting point and shift
 ```
                 ±0 (0)
           -1 (0)    +1 (0)
@@ -540,13 +539,9 @@ All real numbers form a ring and two points ±0 and ±inf any graph including ga
                 ±0 (∞)
 ```
 
-Standart start with 0 and shift
+Start 0 and invert ∞ with shift
 ```
 -3 (0), -2 (0), -1 (0), 0 (0), +1 (0), +2 (0), +3 (0)
-```
-
-Invert start with ∞ and shift
-```
 -3 (∞), -2 (∞), -1 (∞), 0 (∞), +1 (∞), +2 (∞), +3 (∞)
 ```
 
@@ -562,17 +557,13 @@ a = 2^n * 5^m
 
 define Φ₆ complex:
 ```
-Φ₆(z, s) = 1 + (z^s - 1) * z^s
-```
-
-```
-Φ₆(z, s) = z^(2s) - z^(1s) + 1
+Φ₆(z, w) = 1 + (z^w - 1) * z^w
+Φ₆(z, w) = z^(2w) - z^(1w) + 1
 
 Φ₆(10, 2) = 9901
 Φ₆(10, 4) = 99990001
 Φ₆(10, 6) = 999999000001
 Φ₆(10, 8) = 9999999900000001
-
 33333333333333336666666666666667 = 7 * 13 * 37 * 9901 * 99990001 * 9999999900000001
 ```
 
@@ -584,9 +575,7 @@ ptlim(10^n + 7) = {1, 2, 4, 8, 9, 24, 60, 110, 134, 222, 412, 700, 999...}
 ptlim(10^(2n) - 10^(1n) + 1) = {2, 4, 6, 8}
 ptlim(12 * (2^n - 1) - 1) = {1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49, 72, 75, 124, 180, 196, 208, 312, 480, 568, 1113, 1729, 2244, 3129...}
 ptlim(2^n * 3 - 1) = {0, 1, 2, 3, 4, 6, 7, 11, 18, 34, 38, 43, 55, 64, 76, 94, 103, 143, 206, 216, 306, 324, 391, 458, 470, 827, 1274, 3276, 4204, 5134, 7559, 12676, 14898, 18123, 18819, 25690, 26459, 41628, 51387, 71783, 80330, 85687, 88171, 97063, 123630, 155930, 164987, 234760...}
-
 ptlim(2^n * 33 - 65) = {2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 23, 26, 27, 37, 40, 43, 45, 46, 53, 55, 56, 58, 59, 62, 64, 69, 79, 81, 85, 98, 106, 146, 154, 173, 179, 197, 289, 331, 359, 602, 612, 615, 657, 675, 823, 885, 901, 931, 988, 1033, 1039, 1089, 2313, 2671, 3066, 3203, 3813, 4735, 4786, 5114, 5384, 5823, 5832, 6610, 6817, 7800, 10432, 13009, 14802, 18577, 18841, 20612, 23037, 23877, 25673, 27951, 34276, 35656, 36358, 38224...}
-
 ptlim(2^n * 14388 - 12545) = {1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 20, 29, 31, 34, 35, 41, 43, 50, 61, 74, 79, 82, 83, 89, 97, 113, 118, 125, 128, 130, 148, 173, 190, 202, 230, 257, 273, 295, 331, 339, 368, 373, 397, 419, 421, 497, 507, 513, 525, 541, 646, 869, 959, 1302, 1843, 2431, 3103, 3220, 3459, 3947, 4099, 4226, 5241, 5467, 5841, 6531, 6574, 6617, 6669, 6936, 8133, 11145, 12125, 12790, 13115, 15760, 16711, 21593, 27521, 27811, 28367, 29795, 31556, 38861...}
 
 Asymptotic and count function ptlim:
@@ -603,6 +592,7 @@ We use any set as initial coordinates (naturals, fibbonachi, squares, prime, ran
 xₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
 
 Re(xₚ) = linear(xₚ) add rational and irrational numbers between primes
+
 for all Re(xₚ) create Re(xₚ) * i its Im(xₚ)
 ```
 
@@ -658,9 +648,6 @@ sig(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
 (|gamma(-1.0 - eps)| + |gamma(-1.0 + eps)|) / 2 = +-x
 (|gamma(-0.0 - eps)| + |gamma(-0.0 + eps)|) / 2 = -+x
 (|1/(-0.0 - eps)| + |1/(-0.0 + eps)|) / 2 = -+x
-
-eps - exp(ln(eps)) = 0
-w - exp(ln(w)) = 0
 
 roots(eps^2, 2) = +-eps
 roots(w^2, 2) = +-w
