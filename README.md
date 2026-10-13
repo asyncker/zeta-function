@@ -65,18 +65,17 @@ The zeros lie on Re(w) = 1/2 for any x ∈ N except x = +1
 
 Any-adic numbers:
 
-family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime numbers or fibonachi numbers or 2, 4, 8, 16, 32... or random numbers or any sequance)
+family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
 ```
 Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
 ```
 
-family of exp functions (period 2pi * prime or fibonachi numbers or 2, 4, 8, 16, 32... or random numbers or any sequance)
+family of exp functions (period 2pi * prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
 ```
 e(z, s = {2, 3, 5, 7...}) = 
 ```
 
 Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
-
 <table>
   <tr>
     <td><img src="https://asyncker.github.io/zeta-function/img/1-exp(0.5-z).png" alt="1 - exp(1/2 - z)"></td>
@@ -132,6 +131,9 @@ h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 exp(hau(z, w, w/2)) = z^(-w/2)
+
+supersymmetry value:
+h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ```
 
 ```
@@ -150,11 +152,6 @@ exp(-w/2 * ln(z)) - exp(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 ln(4) = 2 * ln(2) which is also the natural-log entropy of two independent bits, I wonder whether this is merely a numerical coincidence or whether there is a genuine connection between the zeta function, the constant ln(4), and two-bit entropy.
-
-supersymmetry value:
-```
-h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
-```
 
 ```
 ζ(±z) - c
@@ -441,7 +438,7 @@ x1 = +w * (7 * w) ^ (1/2)
 x2 = -w * (7 * w) ^ (1/2)
 ```
 
-All real numbers form a ring and two points ±0 and ±inf any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.<br />
+All real numbers form a ring and two points ±0, ±∞ any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.<br />
 Starting point and shift
 ```
                 ±0 (0)
