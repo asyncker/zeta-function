@@ -562,6 +562,10 @@ even: 1 - (1/4^z + exp(i * pi))
 odd:  1 - (1/3^z)
 ```
 
+```
+(2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+```
+
 So 2 it's center left and right:
 ```
 zeta((z^2)^0.5) - 2 + eps
