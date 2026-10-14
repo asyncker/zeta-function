@@ -4,7 +4,6 @@ Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
 define folds
 ```
-fold(z, k) = (z ^ k) ^ 1/k
 folds(z, k) = roots(z ^ k, k)
 ```
 
@@ -131,9 +130,7 @@ h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 exp(hau(z, w, w/2)) = z^(-w/2)
-
-supersymmetry value:
-h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
+supersymmetry value: h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 ```
 
 ```
@@ -170,8 +167,7 @@ zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
 
 zeta function if use exp and gamma:
 ```
-phase = i*pi/2
-zeta(z) = exp((z - 1) * ln(2pi)) * exp(-phase) * (exp(z * phase) - exp(-z * phase)) * gamma(1 - z) * zeta(1 - z)
+zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z) * zeta(1 - z)
 ```
 
 zeta function if use gamma:
@@ -262,13 +258,11 @@ define Γₚ, pgamma, gsi, gsiₚ
 ```
 
 ```
-gsi(z) = Γ(1-z) / Γ(z)
+gsiₙ(z) = Γₙ(1-z) / Γₙ(z)
 gsiₚ(z) = Γₚ(1-z) / Γₚ(z)
 ```
 
 Hypothesis: all zeros of the gsiₚ(z)⁻ with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
-If Re(z) >= 1 infinity zeros and Re(z) <= 0 infinity zeros
-
 ```
 gsiₙ(z) zeros on 1/2 with natural numbers:
 im(gsiₙ(1/2 + it)⁻) = 0 |t={2.7485719, 4.0333153, 5.0685937, 5.9864659, 6.8314286, 7.6251207, 8.3800571, 9.1042716, 9.8032975, 10.4811442, 11.1408316, 11.7847041, 12.4146264, 13.0321124, 13.6384114, 14.2345698, 14.8214748}
@@ -299,10 +293,7 @@ dotpow(z, w, k) = exp(log(z * w̄) * k)
 sop(z, w) = z / w̄
 soplog(z, w, k) = log(z / w̄) * k
 soppow(z, w, k) = exp(log(z / w̄) * k)
-
 |z| = dotpow(z, z, 1/2)
-log(|z|) = dotlog(z, z, 1/2)
-1 / |z| = dotpow(z, z, -1/2)
 ```
 
 Define zeta‑based functions as symmetric combinations of ζ
@@ -351,7 +342,7 @@ zeta(0) = zcosh(0, 0) = -1/2
     <td align="center"><code>subtract zeros zsinh (green), zcosh (blue), t = 0</code></td>
   </tr>
 </table>
-Graphics https://asyncker.github.io/zeta-function/index_graphic.html
+Graphics https://asyncker.github.io/zeta-function/index_graphic.html <br />
 
 The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
 The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
@@ -363,9 +354,7 @@ The roots of the zeta-cosine function consistently become greater than the roots
 A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
 
 ```js
-for (let i = 1; i < 30001; i++) {
-    console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
-}
+zsinh_zeros[i] < zcosh_zeros[i] // 30k all true except first (t < 1/2)
 ```
 
 t = 1/2 - 0.00001
@@ -406,9 +395,7 @@ t = 1/2 - 0.00001
 43.993543569869915147558964285592053160826471283816
 ```
 
-<br /> Zeta Bicomplex 4d
-
-Use idempotent function:
+Zeta Bicomplex 4d (with idempotent)
 ```
 BL(z) = (z.x - z.w) + (z.y + z.z) * i
 BR(z) = (z.x + z.w) + (z.y - z.z) * i
@@ -418,7 +405,7 @@ bizeta(z) = BW(ζ(BL(z)), ζ(BR(z)))
 
 <img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
 
-<br />Non-Archimedean + Hyperreal + p-adic + Laurent Ring<br />
+Non-Archimedean + Hyperreal + p-adic + Laurent Ring
 ```
 eps = 1 - 0.999999... (eps ≠ 0)
 eps^-1 = w
@@ -438,8 +425,7 @@ x1 = +w * (7 * w) ^ (1/2)
 x2 = -w * (7 * w) ^ (1/2)
 ```
 
-All real numbers form a ring and two points ±0, ±∞ any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space.<br />
-Starting point and shift
+all real numbers form a ring and two points ±0, ±∞ any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space. Start 0 and invert ∞ with shift
 ```
                 ±0 (0)
           -1 (0)    +1 (0)
@@ -450,7 +436,6 @@ Starting point and shift
                 ±0 (∞)
 ```
 
-Start 0 and invert ∞ with shift
 ```
 -3 (0), -2 (0), -1 (0), 0 (0), +1 (0), +2 (0), +3 (0)
 -3 (∞), -2 (∞), -1 (∞), 0 (∞), +1 (∞), +2 (∞), +3 (∞)
@@ -470,7 +455,6 @@ define Φ₆ complex:
 ```
 Φ₆(z, w) = 1 + (z^w - 1) * z^w
 Φ₆(z, w) = z^(2w) - z^(1w) + 1
-
 Φ₆(10, 2) = 9901
 Φ₆(10, 4) = 99990001
 Φ₆(10, 6) = 999999000001
@@ -496,7 +480,7 @@ count(ptlim(2^n - 1)) ~ floor(ln(x) * 2)
 count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 ```
 
-<br />Coordinate by sequence:
+Coordinate by sequence:
 
 We use any set as initial coordinates (naturals, fibbonachi, squares, prime, random)
 ```
