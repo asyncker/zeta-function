@@ -62,18 +62,6 @@ The zeros lie on Re(w) = 1/2 for any x ∈ N except x = +1
 τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
 ```
 
-Any-adic numbers:
-
-family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
-```
-Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
-```
-
-family of exp functions (period 2pi * prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
-```
-e(z, s = {2, 3, 5, 7...}) = 
-```
-
 Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 <table>
   <tr>
@@ -148,11 +136,10 @@ exp(-w/2 * ln(z)) - exp(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
-ln(4) = 2 * ln(2) which is also the natural-log entropy of two independent bits, I wonder whether this is merely a numerical coincidence or whether there is a genuine connection between the zeta function, the constant ln(4), and two-bit entropy.
+ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is this a numerical coincidence or is there a real connection between the zeta function and the entropy of two bits.
 
 ```
-ζ(±z) - c
-interesting c equals {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2}
+ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
 ```
 
 τ(±z, 1/2)⁻
@@ -223,8 +210,7 @@ relumin(z) + relumax(z) = ?
 relumin(z) - relumax(z) = ?
 ```
 
-Empty for relu-curve:
-◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. You can write x = ◇
+Empty for relu-curve ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. You can write x = ◇
 ```
 x = ◇ // float x;
 x = 2
@@ -305,8 +291,6 @@ Define zeta‑based functions as symmetric combinations of ζ
 ```math
 \text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
 ```
-
-<br />
 
 ```math
 zsinh(-z, t) = −zsinh(z, t)
@@ -406,24 +390,6 @@ bizeta(z) = BW(ζ(BL(z)), ζ(BR(z)))
 <img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
 
 Non-Archimedean + Hyperreal + p-adic + Laurent Ring
-```
-eps = 1 - 0.999999... (eps ≠ 0)
-eps^-1 = w
-w^-1 = eps
-w * eps = 1
-```
-
-eps and w is the solution of the equation:
-```
-(x - 1) * 1/x = 1 - eps 
-x = w
-```
-
-```
-7 / x^2 = eps
-x1 = +w * (7 * w) ^ (1/2)
-x2 = -w * (7 * w) ^ (1/2)
-```
 
 all real numbers form a ring and two points ±0, ±∞ any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space. Start 0 and invert ∞ with shift
 ```
@@ -480,7 +446,17 @@ count(ptlim(2^n - 1)) ~ floor(ln(x) * 2)
 count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 ```
 
-Coordinate by sequence:
+Coordinate by sequence (Any-adic numbers)
+
+family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
+```
+Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
+```
+
+family of exp functions (period 2pi * prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
+```
+e(z, s = {2, 3, 5, 7...}) = 
+```
 
 We use any set as initial coordinates (naturals, fibbonachi, squares, prime, random)
 ```
@@ -535,6 +511,24 @@ p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
 </table>
 
 ```
+eps = 1 - 0.999999... (eps ≠ 0)
+eps^-1 = w
+w^-1 = eps
+w * eps = 1
+```
+
+```
+(x - 1) * 1/x = 1 - eps 
+x = w
+```
+
+```
+7 / x^2 = eps
+x1 = +w * (7 * w) ^ (1/2)
+x2 = -w * (7 * w) ^ (1/2)
+```
+
+```
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
 
@@ -543,7 +537,6 @@ ln(eps^w) = -w * ln(w)
 ln(eps^eps) = -eps * ln(w)
 ln(w^w) = -w * ln(eps)
 
-ln(eps * w) = 0
 ln(w) / ln(eps) = -1
 
 sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
@@ -570,6 +563,5 @@ ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 999999... + 0.999999... = 999999... 999.999999... 
 ```
 
-Scale plane (x-asis it's mult y-asis it's power (example x * eps^y)):<br />
-The x-axis is the multiplied coefficient for eps or w  <br />
+Scale plane (x-asis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
 <img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
