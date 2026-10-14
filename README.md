@@ -2,18 +2,9 @@
 
 Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
-define folds
+define 0 ± z̄ = fol(z̄, 2) and 1 ± z̄ = 1 + fol(z̄, 2):
 ```
-folds(z, k) = roots(z ^ k, k)
-```
-
-```
-folds(z, 2) = ±z
-folds(z̄, 2) = ±z̄
-```
-
-define 1 - z = msub(z) and 1 + z = madd(z):
-```
+fol(z, k) = roots(z ^ k, k)
 f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
 ```
@@ -26,10 +17,10 @@ fic(f, z, t, v, a) = (f(t * 2v - z * v) + f(z * v)) * a
 ```
 
 ```
-v = freq (default = 1/2)
+v = freq (default = 1/2 or 1)
 t = shift (default = 1/2 or 0)
 a = amp (default = 1/2 or 1)
-x = base-power function (default = e)
+x = base-power function (default = e or pi)
 z = exponent-power function (default = z)
 ```
 
@@ -136,48 +127,39 @@ exp(-w/2 * ln(z)) - exp(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
-ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is this a numerical coincidence or is there a real connection between the zeta function and the entropy of two bits.
-
 ```
 ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
 ```
+ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is it most likely just a numerical coincidence?
 
 τ(±z, 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
-zeta(z) and zeta(1 - z) function:
-```
-zeta(z) = pow(2pi, z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
-zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
-```
-
-zeta function if use exp and gamma:
-```
-zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z) * zeta(1 - z)
-```
-
-zeta function if use gamma:
-```
-zeta(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z) * zeta(1 - z)
-```
-
-zeta function if use eta function:
-```
-zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = eta(z) / (1 - 2^(1 - z))
-```
-
-eta function:
-```
-eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
-```
-
-zeta function symetric:
+zeta(z) symetric:
 ```
 zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
 zeta(1 - z) / zeta(z) = 1 / (zeta(z) / zeta(1 - z))
+```
+
+zeta(z) and zeta(1 - z) function:
+```
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
+zeta(1 - z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)) * zeta(z)
+zeta(z) = (2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
+```
+
+zeta(z) if use only gamma and only exp:
+```
+zeta(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z) * zeta(1 - z)
+zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z) * zeta(1 - z)
+```
+
+zeta(z) and eta(z) if use eta function:
+```
+eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
+zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) / (1 - 2^z) * eta(1 - z)
+zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
+zeta(z) = eta(z) / (1 - 2^(1 - z))
 ```
 
 ```
@@ -191,11 +173,11 @@ amplitude: 0, +2
 ```
 
 ```
-t = 1/2 & v = 1/2
 1 - gamma(t * 2v - z * v) / gamma(z * v)
 1 - exp(t * 2v - z * v) / exp(z * v) = 1 - exp(t * 2v - z * 2v)
-1 - gamma(1/2 - z/2) / gamma(z/2)
 ```
+
+Hypothesis: all zeros of the 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 define relumax, relumin, relu-curve ai:
 ```
