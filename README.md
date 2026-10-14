@@ -186,7 +186,6 @@ sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
 amplitude: -2, +2
 inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
-
 1 - (-1)^(-z)
 amplitude: 0, +2
 ```
@@ -282,7 +281,7 @@ soppow(z, w, k) = exp(log(z / w̄) * k)
 |z| = dotpow(z, z, 1/2)
 ```
 
-Define zeta‑based functions as symmetric combinations of ζ
+define zeta‑based functions as symmetric combinations of ζ
 
 ```math
 \text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
@@ -335,7 +334,7 @@ The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
 Hypothesis:
 The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
 
-A possible reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
+Reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
 
 ```js
 zsinh_zeros[i] < zcosh_zeros[i] // 30k all true except first (t < 1/2)
@@ -405,9 +404,7 @@ all real numbers form a ring and two points ±0, ±∞ any graph including gamma
 ```
 -3 (0), -2 (0), -1 (0), 0 (0), +1 (0), +2 (0), +3 (0)
 -3 (∞), -2 (∞), -1 (∞), 0 (∞), +1 (∞), +2 (∞), +3 (∞)
-```
 
-```
 2 + ∞ = 2 (∞)
 2 + 0 = 2 (0)
 ```
@@ -446,28 +443,16 @@ count(ptlim(2^n - 1)) ~ floor(ln(x) * 2)
 count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 ```
 
-Coordinate by sequence (Any-adic numbers)
+any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.)
+```
+nₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
 
-family of gamma functions (if x<0 switch sign {-1, +1} to {+1, -1} period prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
-```
-Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
-```
+Re(xₚ) = linear(nₚ) add rational and irrational numbers between primes
 
-family of exp functions (period 2pi * prime or fibonachi or 2, 4, 8, 16, 32... or random or any sequance)
-```
-e(z, s = {2, 3, 5, 7...}) = 
+for all Re(xₚ) create Re(xₚ) * i its Im(xₚ) get zₚ
 ```
 
-We use any set as initial coordinates (naturals, fibbonachi, squares, prime, random)
-```
-xₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
-
-Re(xₚ) = linear(xₚ) add rational and irrational numbers between primes
-
-for all Re(xₚ) create Re(xₚ) * i its Im(xₚ)
-```
-
-If use Coordinate by sequence idea. You get automatic naturals to prime:
+if use coordinate you get automatic naturals to prime:
 ```
 p-1 = 1, 2, 4, 6, 10, 12, 16, 18, 22... zₚ-1
 p*2 = 4, 6, 10, 14, 22, 26, 34... zₚ*2
@@ -487,7 +472,6 @@ p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
     <td align="center"><code>sin(xₙ) | xₙ = bspline(naturals)</code></td>
   </tr>
 </table>
-
 <table>
   <tr>
     <td><img src="https://asyncker.github.io/zeta-function/img/expprimecoords.png" alt="exp(zₚ)"></td>
@@ -498,7 +482,6 @@ p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
     <td align="center"><code>exp(zₙ) + cₙ</code></td>
   </tr>
 </table>
-
 <table>
   <tr>
     <td><img src="https://asyncker.github.io/zeta-function/img/expprimecoordjulia.png" alt="exp(zₚ)"></td>
@@ -510,25 +493,29 @@ p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
   </tr>
 </table>
 
+family of gamma (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.)
+```
+Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
+e(z, s = {2, 3, 5, 7...}) = 
+```
+
+epsilon and omega numbers:
 ```
 eps = 1 - 0.999999... (eps ≠ 0)
 eps^-1 = w
 w^-1 = eps
-w * eps = 1
 ```
 
 ```
 (x - 1) * 1/x = 1 - eps 
 x = w
-```
 
-```
 7 / x^2 = eps
-x1 = +w * (7 * w) ^ (1/2)
-x2 = -w * (7 * w) ^ (1/2)
+x = ±w * (7 * w) ^ (1/2)
 ```
 
 ```
+w * eps = 1
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
 
@@ -536,28 +523,20 @@ ln(w^eps) = -eps * ln(eps)
 ln(eps^w) = -w * ln(w)
 ln(eps^eps) = -eps * ln(w)
 ln(w^w) = -w * ln(eps)
-
-ln(w) / ln(eps) = -1
+ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
+(eps^2 + eps^2) ^ k = 2^k * eps^(2k)
+roots(eps^2, 2) = ±eps
 
 sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
 sig(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
-
 (|gamma(-2.0 - eps)| + |gamma(-2.0 + eps)|) / 2 = {-, +}
 (|gamma(-1.0 - eps)| + |gamma(-1.0 + eps)|) / 2 = {+, -}
 (|gamma(-0.0 - eps)| + |gamma(-0.0 + eps)|) / 2 = {-, +}
 (|1/(-0.0 - eps)| + |1/(-0.0 + eps)|) / 2 = {-, +}
 
-roots(eps^2, 2) = +-eps
-roots(w^2, 2) = +-w
-
-ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
-(eps^2 + eps^2) ^ k = 2^k * eps^(2k)
-
-(w - 1) * w + 1 = 999999... 000000... 001.0
-
 3 * 0.333 + 0.001 = 1.0
 3 * 0.333333... + eps = 1.0
-
+(w - 1) * w + 1 = 999999... 000000... 001.0
 (w - 1) * 1/w = 0.999999...
 (1 - eps) * 1/eps = 999999... 999.000000...
 999999... + 0.999999... = 999999... 999.999999... 
