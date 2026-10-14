@@ -90,15 +90,6 @@ u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 τ(z)⁻ + τ(1 - z)⁻ = 2 - 2 * cosh(z - 1/2)
 ```
 
-prime-function and eta-function factor:
-```
-τₚ(z, 0)⁺⁻ = 1 ± p^(0 - z)
-τ₂(z, 1)⁻ = 1 - 2^(1 - z)
-
-re: ∏(1 + p^-z) = zeta(z) / zeta(2z)
-im: ∏(1 - p^-z) = 1 / zeta(z)
-```
-
 define h-function
 ```
 h(z, w) = -w/2 * ln(z)
@@ -110,7 +101,7 @@ h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 h(z, w) = hau(z, w, w/2)
 h(z, w) + h(z, −w) = 0
-h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2) it's supersymmetry value
+h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 z^(-w/2) = exp(h(z, w))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
@@ -186,7 +177,7 @@ relumin(z) + relumax(z) = ?
 relumin(z) - relumax(z) = ?
 ```
 
-Empty for relu-curve ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. You can write x = ◇
+Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
 ```
 x = ◇ // float x;
 x = 2
@@ -201,13 +192,17 @@ cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
 cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
 ```
 
+define mpow (w ∈ ℕ):
+```
+mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
+```
+
 A function can be given its cosine (re) and sinus (im) decompositions
 ```
-re(gamma(x + 1i)) it's cos-grow
-im(gamma(x + 1i)) it's sin-grow
-re(gamma(1 + xi)) it's cos-wave
-im(gamma(1 + xi)) it's sin-wave
-gamma(w + z) = ??
+re(gamma(x + 1i)) it's re-grow
+im(gamma(x + 1i)) it's im-grow
+re(gamma(1 + xi)) it's re-wave
+im(gamma(1 + xi)) it's im-wave
 ```
 
 define Γₚ, pgamma, gsi, gsiₚ
@@ -217,6 +212,16 @@ define Γₚ, pgamma, gsi, gsiₚ
 
 ```math
 \frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-s}
+```
+
+```math
+\frac{\zeta(z)}{\zeta(2z)} = \prod_{p} 1 + p^{-s}
+```
+
+<br/> prime-function and eta-function factor:
+```
+τₚ(z, 0)⁺⁻ = 1 ± p^(0 - z)
+τ₂(z, 1)⁻ = 1 - 2^(1 - z)
 ```
 
 ```
@@ -233,29 +238,6 @@ re(gsiₙ(1/2 + it)⁻) = 0 |t={2.1497679, 3.3145783, 4.6410998, 5.4849802, 6.45
 gsiₚ(z) zeros on 1/2 with prime numbers:
 im(gsiₚ(1/2 + it)⁻) = 0 t={1.0293, 5.5865, 9.13, 11.79, 14.13, 16.29, 18.34, 20.29, 22.18, 24.01, 25.89, 27.55, 29.26, 30.95, 32.61, 34.24, 35.86, 37.45, 39.03, 40.6}
 re(gsiₚ(1/2 + it)⁻) = 0 t={8.25, 10.00, 13.38, 14.88, 17.64, 19.03, 21.51, 22.84, 25.15, 26.44, 28.63, 29.89, 31.99, 33.22, 35.25, 36.46, 38.44, 39.63, 41.55, 42.73}
-```
-
-define 3-symetryics of f(z):
-```
-opErmitor: f1(f(z), f2(f(w̄)))
-opSymetri: 1 - f1(f(1 - z), f2(f(w)))
-opDerivit: f1(f'(z), f2(f(w)))
-```
-
-define mpow (w ∈ ℕ):
-```
-mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
-```
-
-define dot, dotlog, dotpow, sop, soplog, soppow:
-```
-dot(z, w) = z * w̄
-dotlog(z, w, k) = log(z * w̄) * k
-dotpow(z, w, k) = exp(log(z * w̄) * k)
-sop(z, w) = z / w̄
-soplog(z, w, k) = log(z / w̄) * k
-soppow(z, w, k) = exp(log(z / w̄) * k)
-|z| = dotpow(z, z, 1/2)
 ```
 
 define zeta‑based functions as symmetric combinations of ζ
@@ -355,6 +337,24 @@ t = 1/2 - 0.00001
 43.993543569869915147558964285592053160826471283816
 ```
 
+define 3-symetryics of f(z):
+```
+opErmitor: f1(f(z), f2(f(w̄)))
+opSymetri: 1 - f1(f(1 - z), f2(f(w)))
+opDerivit: f1(f'(z), f2(f(w)))
+```
+
+define dot, dotlog, dotpow, sop, soplog, soppow:
+```
+dot(z, w) = z * w̄
+dotlog(z, w, k) = log(z * w̄) * k
+dotpow(z, w, k) = exp(log(z * w̄) * k)
+sop(z, w) = z / w̄
+soplog(z, w, k) = log(z / w̄) * k
+soppow(z, w, k) = exp(log(z / w̄) * k)
+|z| = dotpow(z, z, 1/2)
+```
+
 Zeta Bicomplex 4d (with idempotent)
 ```
 BL(z) = (z.x - z.w) + (z.y + z.z) * i
@@ -402,7 +402,7 @@ define Φ₆ complex:
 33333333333333336666666666666667 = 7 * 13 * 37 * 9901 * 99990001 * 9999999900000001
 ```
 
-add function ptlim, count, asymtotic. A test to determine whether a number is always composite as n approaches infinity. If possible, determine after what n there will never be any more prime numbers. Ideally, consider n tending to +∞
+add ptlim, count, asymtotic. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
 ```
 ptlim(10^n) = ∅
 ptlim(2n + 1) = {1, 2, 3, 5, 6, 8, 9, 11, 14, 15, 18, 20...}
