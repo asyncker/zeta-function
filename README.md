@@ -73,14 +73,13 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 
 ```
 τ'(z, t)⁻ + τ(z, t)⁻ = 1
-τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z)
-τ(z)⁻ * τ(-z)⁻ = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
-τ(iθ)⁻ * τ(−iθ)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
+τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
+τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
 τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = -2 * sinh(z - 1/2)
 τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = +2 * cosh(z - 1/2)
 
-(z / τ(z, t)⁻)' =
-(τ(z)⁻ / z)' =
+(z / (1 - exp(t - z)))' = ?
+((1 - exp(t - z)) / z)' = ?
 g'(z, t)⁻ / g(z, t)⁺ = 
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
@@ -104,10 +103,10 @@ z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
-ζ((z^2) ^ (1/2)) + c (c = -ln(4))
+ζ(±z) + c (c = -ln(4))
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ((z^2) ^ (1/2)) + c (c = -ln(4))
+ζ(±z) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 ```
@@ -140,7 +139,6 @@ zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*
 zeta(z) and eta(z) if use eta function:
 ```
 eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
-zeta(z) = 2pi^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) / (1 - 2^z) * eta(1 - z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
 zeta(z) = eta(z) / (1 - 2^(1 - z))
 ```
