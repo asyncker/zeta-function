@@ -72,22 +72,19 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 ```
 
 ```
-τ'(z, t)⁻ = exp(t - z)
+τ'(z, t)⁻ + τ(z, t)⁻ = 1
+τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z)
+τ(z)⁻ * τ(-z)⁻ = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
+τ(iθ)⁻ * τ(−iθ)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
+τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = -2 * sinh(z - 1/2)
+τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = +2 * cosh(z - 1/2)
+
 (z / τ(z, t)⁻)' =
 (τ(z)⁻ / z)' =
 g'(z, t)⁻ / g(z, t)⁺ = 
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
-```
-
-```
-τ'(z)⁻ + τ(z)⁻ = 1
-τ(z)⁻ * τ(-z)⁻ = 1 + e - sqrt(e) * 2 * cosh(z)
-τ(z)⁻ * τ(-z)⁻ = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
-τ(iθ)⁻ * τ(−iθ)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-τ(z)⁻ - τ(1 - z)⁻ = 2 * sinh(z - 1/2)
-τ(z)⁻ + τ(1 - z)⁻ = 2 - 2 * cosh(z - 1/2)
 ```
 
 define h-function
@@ -103,8 +100,8 @@ h(z, w) = hau(z, w, w/2)
 h(z, w) + h(z, −w) = 0
 h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 z^(-w/2) = exp(h(z, w))
-z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
+z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
@@ -165,15 +162,18 @@ amplitude: 0, +2
 
 Hypothesis: all zeros of the 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
-define relumax, relumin, relu-curve ai:
+define cmin, cmax, relumax, relumin, relu-curve ai:
 ```
-relumax(x) = max(x, 0)
-relumin(x) = min(x, 0)
-y1 = +relumax(log(x^3 - 2x + 2))
-y2 = -relumin(log(x^3 - 2x + 2))
+cmin(z, w) = min(Re(z), Re(w)) + min(Im(z), Im(w)) * i
+cmax(z, w) = max(Re(z), Re(w)) + max(Im(z), Im(w)) * i
+cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
+cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
+relumax(z) = cmax(z, 0)
+relumin(z) = cmin(z, 0)
 relumax(z) + relumin(z) = z
 relumax(z) - relumin(z) = +|Re(z)| + |Im(z)|*i
 relumin(z) - relumax(z) = -|Re(z)| - |Im(z)|*i
+y = ±relumax(log(x^3 - 2x + 2))
 ```
 
 Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
@@ -182,13 +182,6 @@ x = ◇ // float x;
 x = 2
 relumaxU(z) = z >= +0 ? z : ◇
 reluminU(z) = z <= -0 ? z : ◇
-```
-
-```
-cmin(z, w) = min(z.x, w.x) + min(z.i, w.i) * i
-cmax(z, w) = max(z.x, w.x) + max(z.i, w.i) * i
-cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
-cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
 ```
 
 define mpow (w ∈ ℕ):
