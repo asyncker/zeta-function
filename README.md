@@ -78,6 +78,7 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 g'(z, t)⁻ / g(z, t)⁺ = 
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
+±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 ```
 
 ```
@@ -104,21 +105,15 @@ h(z, w) = -w/2 * ln(z)
 ```
 
 ```
-h(z, w) + h(z, −w) = 0
 h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
-exp(hau(z, w, w/2)) = z^(-w/2)
-supersymmetry value: h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
-```
-
-```
-exp(-w/2 * ln(z)) + exp(w/2 * ln(z)) = 2 * cosh(w/2 * ln(z))
-exp(-w/2 * ln(z)) - exp(w/2 * ln(z)) = 2 * sinh(w/2 * ln(z))
-```
-
-```
-±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
+h(z, w) = hau(z, w, w/2)
+h(z, w) + h(z, −w) = 0
+h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2) it's supersymmetry value
+z^(-w/2) = exp(h(z, w))
+z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
+z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 ```
 
 ζ((z^2) ^ (1/2)) + c (c = -ln(4))
