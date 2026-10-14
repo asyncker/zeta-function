@@ -358,6 +358,17 @@ gsi(z)⁻ on 1/2 re zeros:
 14.541982980473780491122929897776325559162805114317
 ```
 
+zsinh, zcosh altering:
+```
+for (let i = 1; i < 30001; i++) {
+    console.log(zsinh_zeros[i] < zcosh_zeros[i]); // 30k all true except first (t < 1/2)
+}
+```
+
+define fold:
+```
+fold(z, k) = (z ^ k) ^ 1/k
+```
 
 define dot, dotlog, dotpow:
 ```
