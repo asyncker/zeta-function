@@ -171,10 +171,9 @@ relumax(x) = max(x, 0)
 relumin(x) = min(x, 0)
 y1 = +relumax(log(x^3 - 2x + 2))
 y2 = -relumin(log(x^3 - 2x + 2))
-relumax(z) + relumin(z) = ?
-relumax(z) - relumin(z) = ?
-relumin(z) + relumax(z) = ?
-relumin(z) - relumax(z) = ?
+relumax(z) + relumin(z) = z
+relumax(z) - relumin(z) = +|Re(z)| + |Im(z)|*i
+relumin(z) - relumax(z) = -|Re(z)| - |Im(z)|*i
 ```
 
 Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
