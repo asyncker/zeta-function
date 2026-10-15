@@ -26,7 +26,7 @@ z = exponent-power function (default = z)
 
 define tau, gau, τ, g and hau/hal/har:
 ```
-tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v)
+tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v) = x^(t * 2v - z * 2v)
 gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
 τₓ(z, t) = x^(t - z)
 g(z, t) = Γ(t - z/2) / Γ(z/2)
@@ -119,22 +119,16 @@ ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two ind
 
 zeta(z) and zeta(1 - z):
 ```
+X(z) = zeta(z) / zeta(1 - z)
+1 / X(z) = zeta(1 - z) / zeta(z)
 X(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-zeta(z) / zeta(1 - z) = X(z)
-zeta(1 - z) / zeta(z) = 1 / X(z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
 zeta(z) = (2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
-```
 
-zeta(z) if use only gamma and exp:
-```
-zeta(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z) * zeta(1 - z)
-zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z) * zeta(1 - z)
-```
+X(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
+X(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
 
-zeta(z) and eta(z) if use eta:
-```
-eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
+eta(z) = ((1 - 2^(1-z)) / (1 - 2^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
 zeta(z) = eta(z) / (1 - 2^(1 - z))
 ```
@@ -147,11 +141,6 @@ inter: ...-2, +2, −2,    +2, -2, +2...
 zeros: ...-6, -4, -2, 0, +2, +4, +6...
 1 - (-1)^(-z)
 amplitude: 0, +2
-```
-
-```
-1 - gamma(t * 2v - z * v) / gamma(z * v)
-1 - exp(t * 2v - z * v) / exp(z * v) = 1 - exp(t * 2v - z * 2v)
 ```
 
 Hypothesis: all zeros of the 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
