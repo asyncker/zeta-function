@@ -117,26 +117,22 @@ ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two ind
 τ((z^2)^(1/2), 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
-zeta(z) symetric:
+zeta(z) and zeta(1 - z):
 ```
-zeta(z) / zeta(1 - z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-zeta(1 - z) / zeta(z) = 1 / (zeta(z) / zeta(1 - z))
-```
-
-zeta(z) and zeta(1 - z) function:
-```
+X(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+zeta(z) / zeta(1 - z) = X(z)
+zeta(1 - z) / zeta(z) = 1 / X(z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
-zeta(1 - z) = 1 / (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)) * zeta(z)
 zeta(z) = (2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
 ```
 
-zeta(z) if use only gamma and only exp:
+zeta(z) if use only gamma and exp:
 ```
 zeta(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z) * zeta(1 - z)
 zeta(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z) * zeta(1 - z)
 ```
 
-zeta(z) and eta(z) if use eta function:
+zeta(z) and eta(z) if use eta:
 ```
 eta(z) = ((1 - 2^(1-z)) / (1 - 2 ^ z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
@@ -322,7 +318,7 @@ bizeta(z) = BW(ζ(BL(z)), ζ(BR(z)))
 
 Non-Archimedean + Hyperreal + p-adic + Laurent Ring
 
-all real numbers form a ring and two points ±0, ±∞ any graph including gamma and 1/x form a continuous and non-tearing curve filling all 1d space. Start 0 and invert ∞ with shift
+Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearing curve filling all 1d space. Start 0 or ∞ with shift
 ```
                 ±0 (0)
           -1 (0)    +1 (0)
