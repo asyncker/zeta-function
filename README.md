@@ -48,7 +48,7 @@ Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
 τ'[z](z, t) / τ(z, t) = -1
 ```
 
-The zeros lie on Re(w) = 1/2 for any x ∈ N except x = +1
+The zeros lie on Re(z) = 1/2 for any x ∈ N except x = +1
 ```
 τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
 ```
@@ -75,14 +75,14 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 τ'(z, t)⁻ + τ(z, t)⁻ = 1
 τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
 τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = -2 * sinh(z - 1/2)
-τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = +2 * cosh(z - 1/2)
+τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = 0 + 2 * sinh(z - 1/2)
+τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = 2 - 2 * cosh(z - 1/2)
+u(z, t) = e^(z - t) - 1
+u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 
 (z / (1 - exp(t - z)))' = ?
 ((1 - exp(t - z)) / z)' = ?
 g'(z, t)⁻ / g(z, t)⁺ = 
-u(z, t) = e^(z - t) - 1
-u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(w - t) - 1)) * e^(w - t)
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 ```
 
@@ -103,10 +103,10 @@ z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
-ζ(±z) + c (c = -ln(4))
+ζ((z^2)^(1/2)) + c (c = -ln(4))
 <img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
 
-ζ(±z) + c (c = -ln(4))
+ζ((z^2)^(1/2)) + c (c = -ln(4))
 <img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
 
 ```
@@ -114,7 +114,7 @@ z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is it most likely just a numerical coincidence?
 
-τ(±z, 1/2)⁻
+τ((z^2)^(1/2), 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
 zeta(z) symetric:
@@ -201,14 +201,14 @@ define Γₚ, pgamma, gsi, gsiₚ
 ```
 
 ```math
-\frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-s}
+\frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-z}
 ```
 
 ```math
-\frac{\zeta(z)}{\zeta(2z)} = \prod_{p} 1 + p^{-s}
+\frac{\zeta(z)}{\zeta(2z)} = \prod_{p} 1 + p^{-z}
 ```
 
-<br/> prime-function and eta-function factor:
+prime-function and eta-function factor:
 ```
 τₚ(z, 0)⁺⁻ = 1 ± p^(0 - z)
 τ₂(z, 1)⁻ = 1 - 2^(1 - z)
@@ -246,10 +246,6 @@ zsinh(-z, t) = −zsinh(z, t)
 
 ```math
 zcosh(-z, t) = zcosh(z, t)
-```
-
-```math
-zeta(0) = zcosh(0, 0) = -1/2
 ```
 
 ```math
@@ -327,10 +323,8 @@ t = 1/2 - 0.00001
 43.993543569869915147558964285592053160826471283816
 ```
 
-define 3-symetryics of f(z):
 ```
 opErmitor: f1(f(z), f2(f(w̄)))
-opSymetri: 1 - f1(f(1 - z), f2(f(w)))
 opDerivit: f1(f'(z), f2(f(w)))
 ```
 
@@ -345,7 +339,7 @@ soppow(z, w, k) = exp(log(z / w̄) * k)
 |z| = dotpow(z, z, 1/2)
 ```
 
-Zeta Bicomplex 4d (with idempotent)
+zeta bicomplex 4d with idempotent
 ```
 BL(z) = (z.x - z.w) + (z.y + z.z) * i
 BR(z) = (z.x + z.w) + (z.y - z.z) * i
