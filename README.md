@@ -24,7 +24,7 @@ x = base-power function (default = e or pi)
 z = exponent-power function (default = z)
 ```
 
-define tau, gau, τ, g and hau/hal/har:
+define tau, gau, τ, g and hau/hal/har/h:
 ```
 tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v) = x^(t * 2v - z * 2v)
 gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
@@ -34,6 +34,7 @@ g(z, t) = Γ(t - z/2) / Γ(z/2)
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
+h(z, w) = -w/2 * ln(z)
 ```
 
 Bose-Einstein (-1) and Fermi-Dirac (+1):
@@ -68,10 +69,6 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 </table>
 
 ```
-1 / τ(z, t)⁻ = 1 / (1 - e^(t - z))
-```
-
-```
 τ'(z, t)⁻ + τ(z, t)⁻ = 1
 τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
 τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
@@ -80,18 +77,12 @@ Visual identity zeta(z) and τ(z, 1/2)⁺⁻:
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 
+1 / τ(z, t)⁻ = 1 / (1 - e^(t - z))
 (z / (1 - exp(t - z)))' = ?
 ((1 - exp(t - z)) / z)' = ?
-g'(z, t)⁻ / g(z, t)⁺ = 
+g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
-```
 
-define h-function
-```
-h(z, w) = -w/2 * ln(z)
-```
-
-```
 h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
