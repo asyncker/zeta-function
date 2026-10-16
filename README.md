@@ -2,9 +2,9 @@
 
 Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
-define 0 ± z̄ = fol(z̄, 2) and 1 ± z̄ = 1 + fol(z̄, 2):
+define ±z̄ = aps(z̄, 2)
 ```
-fol(z, k) = roots(z ^ k, k)
+aps(z, w) = roots(z^w, w)
 f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
 ```
@@ -283,6 +283,14 @@ sop(z, w) = z / w̄
 soplog(z, w, k) = log(z / w̄) * k
 soppow(z, w, k) = exp(log(z / w̄) * k)
 |z| = dotpow(z, z, 1/2)
+```
+
+define als, abs, phs, aps
+```
+als(z, w) = sqrt(z * w)
+abs(z, w) = sqrt(z * w̄)
+phs(z, w) = sqrt(z / w̄)
+aps(z, w) = roots(z^w, w)
 ```
 
 zeta bicomplex 4d with idempotent
