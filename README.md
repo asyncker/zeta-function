@@ -108,7 +108,6 @@ ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two ind
 τ((z^2)^(1/2), 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
-zeta(z) and zeta(1 - z):
 ```
 X(z) = zeta(z) / zeta(1 - z)
 1 / X(z) = zeta(1 - z) / zeta(z)
@@ -160,7 +159,7 @@ reluminU(z) = z <= -0 ? z : ◇
 
 define mpow (w ∈ ℕ):
 ```
-mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2))
+mpow(z, w) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
 ```
 
 A function can be given its cosine (re) and sinus (im) decompositions
