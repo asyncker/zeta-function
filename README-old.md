@@ -240,6 +240,8 @@ zeta(z) = (2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
 zeta(1 - z) = gamma(z/2) / gamma(1/2 - z/2) * pi^(1/2 - z) * zeta(z)
 ```
 
+Visual identity zeta(z) and τ(z, 1/2)⁺⁻
+
 ```
 zeta(0) = zcosh(0, 0) = -1/2
 ln(w) / ln(eps) = -1
