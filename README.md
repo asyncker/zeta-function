@@ -432,11 +432,12 @@ ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
 roots(eps^2, 2) = ±eps
 
-sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
+sv(f(x)) = { f(x - eps), f(x + eps) }
 signs(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
 signs(gamma(-1)) = {+, -}
 signs(gamma(-0)) = {-, +}
 signs(1 / 0) = {-, +}
+sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
 (|gamma(-0 - eps)| + |gamma(-0 + eps)|) / 2 = ~(1/eps + eps)
 
 3 * 0.333 + 0.001 = 1.0
