@@ -615,6 +615,10 @@ primes.map(x => x*2).filter(x => primes.map(x => x-1).includes(x)).map(x => x + 
 ```
 
 ```
+2 * prime + 1
+```
+
+```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2)) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
 apow(z, w) = |z|^w * exp(i * arg(z) * w)
 ```
