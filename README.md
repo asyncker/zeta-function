@@ -286,6 +286,12 @@ phs(z, w) = sqrt(z / w̄)
 fold(z, w) = roots(z^w, w)
 ```
 
+define non:
+```
+non(z, w) = (ln(w / z) / w) * i
+non(z, w)' = -i / (z * w)
+```
+
 zeta bicomplex 4d with idempotent
 ```
 BL(z) = (z.x - z.w) + (z.y + z.z) * i
