@@ -159,14 +159,6 @@ define mpow (w ∈ ℕ):
 mpow(z, w) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
 ```
 
-A function can be given its cosine (re) and sinus (im) decompositions
-```
-re(gamma(x + 1i)) it's re-grow
-im(gamma(x + 1i)) it's im-grow
-re(gamma(1 + xi)) it's re-wave
-im(gamma(1 + xi)) it's im-wave
-```
-
 define Γₚ, pgamma, gsi, gsiₚ
 ```math
 \frac{1}{\Gammaₚ(z)} = z e^{\gamma z} \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
@@ -282,6 +274,7 @@ define abs, phs, fold
 abs(z, w) = sqrt(z * w̄)
 phs(z, w) = sqrt(z / w̄)
 fold(z, w) = roots(z^w, w)
+±z̄ = fold(z̄, 2)
 ```
 
 define non:
