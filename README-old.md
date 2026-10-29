@@ -626,6 +626,14 @@ primes.map(x => x*2).filter(x => primes.map(x => x-1).includes(x)).map(x => x + 
 2 * prime + 1
 ```
 
+A function can be given its cosine (re) and sinus (im) decompositions
+```
+re(gamma(x + 1i)) it's re-grow
+im(gamma(x + 1i)) it's im-grow
+re(gamma(1 + xi)) it's re-wave
+im(gamma(1 + xi)) it's im-wave
+```
+
 ```
 mpow(z, w) = |z|^w * exp(i * arg(z) * ((1 - exp(i * pi * w)) / 2)) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
 apow(z, w) = |z|^w * exp(i * arg(z) * w)
