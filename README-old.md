@@ -373,6 +373,14 @@ So interesting (z - 1) / (z + 1)
 sin((z - 1) / (z + 1))
 ```
 
+Other limit definition:
+```
+x = eps for sin(x) / x
+sin(eps) / eps ~= 1
+```
+because: sin(0.0000001) / 0.0000001 ~= 1
+
+
 We need to come up with a randomness test, and then we can quickly say whether a number is prime or composite. Perhaps we need to check ln(n) and find statistical deviations in it, just like in prime numbers, by looking at numbers close to it. Or we need to specifically condition prime numbers so that they show that they break the pattern, and we detect them.
 
 relu:
