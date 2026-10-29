@@ -2,9 +2,7 @@
 
 Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
-define ±z̄ = fold(z̄, 2)
 ```
-fold(z, w) = roots(z^w, w)
 f(z)⁻ = 1 - f(z)
 f(z)⁺ = 1 + f(z)
 ```
