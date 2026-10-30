@@ -166,7 +166,7 @@ prime-function and eta-function factor:
 ```
 
 ```math
-\frac{1}{\Gammaₚ(z)} = z \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+\frac{1}{Gₚ(z)} = z \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
 ```
 
 ```math
@@ -181,12 +181,12 @@ prime-function and eta-function factor:
 T(z) = \frac{\Gamma\left( 1 - \frac{z}{2}\right)}{\Gamma\left(\frac{z}{2}\right)}
 ```
 
-Hypothesis: all zeros of the 1 - Γₚ(1/2 - z/2) / Γₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Hypothesis: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 ```
-Tₙ(z) = 1 - Γₙ(1/2 - z/2) / Γₙ(z/2)
+T(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
 zeros: {6.1680546, 10.5921764, 14.0544503, 17.1172819, 19.9410492, 22.5995625, 25.1343279, 27.5715454, 29.9290628, 32.2197156, 34.4531187, 36.6367064, 38.7763749, 40.8768989, 42.9422132, 44.9756082...}
 
-Tₚ(z) = 1 - Γₚ(1/2 - z/2) / Γₚ(z/2)
+f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
 zeros: {7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
 ```
 
