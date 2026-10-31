@@ -432,12 +432,11 @@ signs(1 / 0) = {-, +}
 sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
 (|gamma(-0 - eps)| + |gamma(-0 + eps)|) / 2 = ~(1/eps + eps)
 
-3 * 0.333 + 0.001 = 1.0
-3 * 0.333333... + eps = 1.0
-(w - 1) * w + 1 = 999999... 000000... 001.0
-(w - 1) * 1/w = 0.999999...
-(1 - eps) * 1/eps = 999999... 999.000000...
-999999... + 0.999999... = 999999... 999.999999... 
+3 * 0.333 + 0.001 = 1
+(w - 1) * 1/w = 1 - eps
+(w - 1) * w + 1 = (1 - eps + eps^2) / eps^2
+(1 - eps) * 1/eps = w - 1
+(1 - eps) * w + (w - 1) * eps = w - eps
 ```
 
 Scale plane (x-asis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
