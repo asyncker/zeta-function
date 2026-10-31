@@ -420,10 +420,7 @@ w * eps = 1
 ln(eps) = -ln(w)
 ln(w) = -ln(eps)
 
-ln(w^eps) = -eps * ln(eps)
-ln(eps^w) = -w * ln(w)
 ln(eps^eps) = -eps * ln(w)
-ln(w^w) = -w * ln(eps)
 ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
 roots(eps^2, 2) = ±eps
