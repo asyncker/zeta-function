@@ -500,6 +500,13 @@ zeta((z^(-2))^(0.5)) - 1/w
 zeta((z^(-2))^(0.5)) - 1/3
 ```
 
+epsilon and omega:
+```
+ln(w^eps) = -eps * ln(eps)
+ln(eps^w) = -w * ln(w)
+ln(eps^eps) = -eps * ln(w)
+ln(w^w) = -w * ln(eps)
+```
 
 Find primes<br />
 ```
