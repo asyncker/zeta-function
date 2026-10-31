@@ -182,7 +182,7 @@ prime-function and eta-function factor:
 ```
 
 ```math
-T(z) = \frac{\Gamma\left( 1 - \frac{z}{2}\right)}{\Gamma\left(\frac{z}{2}\right)}
+T(z) = \frac{\Gamma\left( \frac{1}{2} - \frac{z}{2}\right)}{\Gamma\left(\frac{z}{2}\right)}
 ```
 
 Hypothesis: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
