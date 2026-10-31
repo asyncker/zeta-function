@@ -258,22 +258,18 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
-define dot, dotlog, dotpow, sop, soplog, soppow:
+define dot, dotlog, dotpow, sop, soplog, soppow, abs, phs, fold:
 ```
 dot(z, w) = z * w̄
-dotlog(z, w, k) = log(z * w̄) * k
-dotpow(z, w, k) = exp(log(z * w̄) * k)
 sop(z, w) = z / w̄
-soplog(z, w, k) = log(z / w̄) * k
-soppow(z, w, k) = exp(log(z / w̄) * k)
-|z| = dotpow(z, z, 1/2)
-```
-
-define abs, phs, fold
-```
 abs(z, w) = sqrt(z * w̄)
 phs(z, w) = sqrt(z / w̄)
 fold(z, w) = roots(z^w, w)
+dotlog(z, w, k) = log(z * w̄) * k
+dotpow(z, w, k) = exp(log(z * w̄) * k)
+soplog(z, w, k) = log(z / w̄) * k
+soppow(z, w, k) = exp(log(z / w̄) * k)
+|z| = dotpow(z, z, 1/2)
 ±z̄ = fold(z̄, 2)
 ```
 
