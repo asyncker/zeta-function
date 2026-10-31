@@ -166,10 +166,6 @@ prime-function and eta-function factor:
 ```
 
 ```math
-\frac{1}{Gₚ(z)} = z \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
-```
-
-```math
 \frac{1}{\zeta(z)} = \prod_{p} 1 - p^{-z}
 ```
 
@@ -178,12 +174,20 @@ prime-function and eta-function factor:
 ```
 
 ```math
+\frac{1}{G_p(z)} = z \prod_{p} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+```
+
+```math
+\frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
+```
+
+```math
 T(z) = \frac{\Gamma\left( 1 - \frac{z}{2}\right)}{\Gamma\left(\frac{z}{2}\right)}
 ```
 
 Hypothesis: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 ```
-T(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
+f(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
 zeros: {6.1680546, 10.5921764, 14.0544503, 17.1172819, 19.9410492, 22.5995625, 25.1343279, 27.5715454, 29.9290628, 32.2197156, 34.4531187, 36.6367064, 38.7763749, 40.8768989, 42.9422132, 44.9756082...}
 
 f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
