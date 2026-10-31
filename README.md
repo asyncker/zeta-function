@@ -397,12 +397,11 @@ p^p = 4, 27, 3125, 823543, 285311670611... zₚ^zₚ
 family of gamma (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.)
 ```
 Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
-e(z, s = {2, 3, 5, 7...}) = 
+exp(z, s = {2, 3, 5, 7...}) = ??
 ```
 
 epsilon and omega numbers:
 ```
-eps = 1 - 0.999999... (eps ≠ 0)
 eps^-1 = w
 w^-1 = eps
 ```
