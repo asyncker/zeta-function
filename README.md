@@ -66,6 +66,13 @@ The zeros lie on Re(z) = 1/2 for any x ∈ N except x = +1
 </table>
 
 ```
+S(z) = (f(z) - f(-z)) / 2
+U(z) = f(z) / f(-z)
+F(z) = f'(z) / f(z)
+F'(z) = f''(z) / f(z) - F(z)^2
+```
+
+```
 τ'(z, t)⁻ + τ(z, t)⁻ = 1
 τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
 τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
