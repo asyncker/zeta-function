@@ -69,7 +69,9 @@ The zeros lie on Re(z) = 1/2 for any x ∈ N except x = +1
 S(z) = (f(z) - f(-z)) / 2
 U(z) = f(z) / f(-z)
 F(z) = f'(z) / f(z)
+S'(z) = (f'(z) + f'(-z)) / 2
 F'(z) = f''(z) / f(z) - F(z)^2
+U'(z) = (F(z) + F(-z)) * U(z)
 ```
 
 ```
