@@ -22,13 +22,23 @@ x = base-power function (default = e or pi)
 z = exponent-power function (default = z)
 ```
 
-define tau, gau, τ, g and hau/hal/har/h:
+```math
+tau(z, t, v) = \frac{x^{t \cdot 2v - z \cdot v}}{x^{z \cdot v}} = x^{t \cdot 2v - z \cdot 2v}
 ```
-tauₓ(z, t, v) = x^(t * 2v - z * v) / x^(z * v) = x^(t * 2v - z * 2v)
-gau(z, t, v) = Γ(t * 2v - z * v) / Γ(z * v)
-τₓ(z, t) = x^(t - z)
-g(z, t) = Γ(t - z/2) / Γ(z/2)
 
+```math
+\mathrm{gau}(z, t, v) = \frac{\Gamma(t \cdot 2v - z \cdot v)}{\Gamma(z \cdot v)}
+```
+
+```math
+\tau_x(z, t) = x^{t - z}
+```
+
+```math
+g(z, t) = \frac{\Gamma(t - \frac{z}{2})}{\Gamma(\frac{z}{2})}
+```
+
+```
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
@@ -95,7 +105,6 @@ h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
 h(z, w) = hau(z, w, w/2)
 h(z, w) + h(z, −w) = 0
 h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
-z^(-w/2) = exp(h(z, w))
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
@@ -201,10 +210,6 @@ prime-function and eta-function factor:
 
 ```math
 \frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
-```
-
-```math
-T(z) = \frac{\Gamma\left( \frac{1}{2} - \frac{z}{2}\right)}{\Gamma\left(\frac{z}{2}\right)}
 ```
 
 Hypothesis: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
