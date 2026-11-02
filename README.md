@@ -407,6 +407,10 @@ count(ptlim(2^n - 1)) ~ floor(ln(x) * 2)
 count(ptlim(2^n * 33 - 65)) ~ floor(ln(x) * 7)
 ```
 
+```math
+\mathrm{ptlim}(2n + 1) = \{1,\, 2,\, 3,\, 5,\, 6,\, 8,\, 9,\, 11,\, 14,\, 15,\, 18,\, 20,\, \dots\}
+```
+
 any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.)
 ```
 nₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
@@ -464,17 +468,28 @@ exp(z, s = {2, 3, 5, 7...}) = ??
 ```
 
 epsilon and omega numbers:
-```
-eps^-1 = w
-w^-1 = eps
+```math
+\varepsilon^{-1} = \omega
 ```
 
+```math
+\omega^{-1} = \varepsilon
 ```
-(x - 1) * 1/x = 1 - eps 
-x = w
 
-7 / x^2 = eps
-x = ±sqrt(7 * w)
+```math
+\omega \cdot \varepsilon = 1
+```
+
+```math
+\ln(\varepsilon) = -\ln(\omega)
+```
+
+```math
+\ln(\omega) = -\ln(\varepsilon)
+```
+
+```math
+\ln\!\left(\varepsilon^{\varepsilon}\right) = -\varepsilon \cdot \ln(\omega)
 ```
 
 ```math
@@ -486,16 +501,10 @@ x = ±sqrt(7 * w)
 ```
 
 ```
-w * eps = 1
-ln(eps) = -ln(w)
-ln(w) = -ln(eps)
-
-ln(eps^eps) = -eps * ln(w)
 ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
 roots(eps^2, 2) = ±eps
 
-sv(f(x)) = { f(x - eps), f(x + eps) }
 signs(gamma(-1)) = {+, -}
 signs(gamma(-0)) = {-, +}
 signs(1 / 0) = {-, +}
