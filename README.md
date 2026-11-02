@@ -46,13 +46,6 @@ tau(z, t, v) = \frac{x^{t \cdot 2v - z \cdot v}}{x^{z \cdot v}} = x^{t \cdot 2v 
 g(z, t) = \frac{\Gamma(t - \frac{z}{2})}{\Gamma(\frac{z}{2})}
 ```
 
-```
-hau(z, w, t) = (t - w) * ln(z)
-hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
-har(z, w, v) = (w * v) * ln(z)
-h(z, w) = -w/2 * ln(z)
-```
-
 Bose-Einstein (-1) and Fermi-Dirac (+1):
 ```math
 \frac{\tau'(z, t)^{-}}{\tau(z, t)^{-}} = \frac{+1}{e^{z - t} - 1}
@@ -98,8 +91,11 @@ F'(z) = f''(z) / f(z) - F(z)^2
 U'(z) = (F(z) + F(-z)) * U(z)
 ```
 
+```math
+\tau'(z, t)^{-} + \tau(z, t)^{-} = 1
 ```
-τ'(z, t)⁻ + τ(z, t)⁻ = 1
+
+```
 τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
 τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
 τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = 0 + 2 * sinh(z - 1/2)
@@ -113,6 +109,10 @@ u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 
+hau(z, w, t) = (t - w) * ln(z)
+hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
+har(z, w, v) = (w * v) * ln(z)
+h(z, w) = -w/2 * ln(z)
 h(z, w)'[w] = -1/2 * ln(z)
 h(z, w)'[z] = -w / 2z
 h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
@@ -217,10 +217,13 @@ define mpow (w ∈ ℕ):
 mpow(z, w) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
 ```
 
-prime-function and eta-function factor:
+eta-function and prime-function factor:
+```math
+\tau_2(z, 1)^{-} = 1 - 2^{\,1 - z}
 ```
-τₚ(z, 0)⁺⁻ = 1 ± p^(0 - z)
-τ₂(z, 1)⁻ = 1 - 2^(1 - z)
+
+```math
+\tau_p(z, 0)^{-} = 1 - p^{-z}
 ```
 
 ```math
@@ -326,7 +329,6 @@ dotpow(z, w, k) = (z * w̄)^k
 ±z̄ = fold(z̄, 2)
 ```
 
-define non:
 ```math
 non(z, w) = \frac{\ln(w / z)}{w} \cdot i
 ```
@@ -336,11 +338,20 @@ non'(z, w) = -\frac{i}{z \, w}
 ```
 
 zeta bicomplex 4d with idempotent
+```math
+\mathrm{BL}(z) = (z_x - z_w) + (z_y + z_z)\, i
 ```
-BL(z) = (z.x - z.w) + (z.y + z.z) * i
-BR(z) = (z.x + z.w) + (z.y - z.z) * i
-BW(z, w) = 1/2 * (w.x + z.x, z.y + w.y, z.y - w.y, w.x - z.x)
-bizeta(z) = BW(ζ(BL(z)), ζ(BR(z)))
+
+```math
+\mathrm{BR}(z) = (z_x + z_w) + (z_y - z_z)\, i
+```
+
+```math
+\mathrm{BW}(z, w) = \frac{1}{2}\left(w_x + z_x,\; z_y + w_y,\; z_y - w_y,\; w_x - z_x\right)
+```
+
+```math
+\mathrm{bizeta}(z) = BW(\zeta(BL(z)), \zeta(BR(z)))
 ```
 
 <img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
@@ -466,6 +477,14 @@ x = w
 x = ±sqrt(7 * w)
 ```
 
+```math
+\mathrm{sv}(x) = \{ f(x - \varepsilon), f(x + \varepsilon) \}
+```
+
+```math
+\mathrm{signs}(x) = \{ \mathrm{sgn}(f(x - \varepsilon)), \mathrm{sgn}(f(x + \varepsilon)) \}
+```
+
 ```
 w * eps = 1
 ln(eps) = -ln(w)
@@ -477,7 +496,6 @@ ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 roots(eps^2, 2) = ±eps
 
 sv(f(x)) = { f(x - eps), f(x + eps) }
-signs(x) = { sign(f(x - eps)), sign(f(x + eps)) }; // {-, -} {-, +} {+, -} {+, +}
 signs(gamma(-1)) = {+, -}
 signs(gamma(-0)) = {-, +}
 signs(1 / 0) = {-, +}
