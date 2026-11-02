@@ -686,3 +686,13 @@ zeta((z^2)^0.5) - log(33)
 ```
 
 Using a sequance coords is a good idea, but exists sequance function like sinₚ(z) then x is not periodic?
+
+
+
+```
+1 - (gamma(0.5 * 2 * w - z * w)^(-2) * gamma(z * w)^(+2))
+1 - (gamma(0.5 * 2 * w - z * w)^(-1) * gamma(z * w)^(+1))
+1 - (gamma(0.5 * 2 * w - z * w)^(+1) * gamma(z * w)^(-1))
+1 - (gamma(0.5 * 2 * w - z * w)^(+2) * gamma(z * w)^(-2))
+1 - (gamma(0.5 * 2 * w - z * w)^(+3) * gamma(z * w)^(-3))
+```
