@@ -143,7 +143,7 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
     <td><img src="https://github.com/asyncker/fractals/blob/main/render/abs1div(exp(z)-1).png" alt="1/(exp(|Re(z)| + |Im(z)|*i) - 1))"></td>
   </tr>
   <tr>
-    <td align="center"><code>zeta(±z + 1) - 1</code></td>
+    <td align="center"><code>ζ(±z + 1) - 1</code></td>
     <td align="center"><code>1 / (exp(±z) - 1)‎</code></td>
   </tr>
 </table>
@@ -161,20 +161,24 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
 ```
 
+```math
+\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1}{2} - \tfrac{z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{-1/2 + z}
+```
+
+```math
+\frac{1}{\chi(z)} = \frac{\zeta(1 - z)}{\zeta(z)}
+```
 
 ```
-X(z) = zeta(z) / zeta(1 - z)
-1 / X(z) = zeta(1 - z) / zeta(z)
-X(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) * zeta(1 - z)
-zeta(z) = (2*pi)^(z - 1) * sin(z * pi/2) * 2 * gamma(1 - z) * zeta(1 - z)
+χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
+χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
+χ(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
 
-X(z) = 2pi^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
-X(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
-
+eta(z) = ((1 - 2^(1-z)) / (1 - 2^z)) * (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)) * eta(1 - z)
 eta(z) = ((1 - 2^(1-z)) / (1 - 2^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
 zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = eta(z) / (1 - 2^(1 - z))
+zeta(z) = eta(z) / (1 - 2^(1 - z)) = χ(z) * zeta(1 - z)
 ```
 
 ```
@@ -187,7 +191,7 @@ zeros: ...-6, -4, -2, 0, +2, +4, +6...
 amplitude: 0, +2
 ```
 
-Hypothesis: all zeros of the 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 define cmin, cmax, relumax, relumin, relu-curve ai:
 ```
