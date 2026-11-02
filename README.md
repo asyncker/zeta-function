@@ -2,16 +2,24 @@
 
 Fractals of the zeta: https://asyncker.github.io/zeta-function/zeta_fractal.html
 
-```
-f(z)⁻ = 1 - f(z)
-f(z)⁺ = 1 + f(z)
+```math
+f(z)^{-} = 1 - f(z)
 ```
 
-define fau, fis, fic:
+```math
+f(z)^{+} = 1 + f(z)
 ```
-fau(f, z, t, v, a) = (f(t * 2v - z * v) / f(z * v)) * a
-fis(f, z, t, v, a) = (f(t * 2v - z * v) - f(z * v)) * a
-fic(f, z, t, v, a) = (f(t * 2v - z * v) + f(z * v)) * a
+
+```math
+\mathrm{fau}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} / {f(z \cdot v)}) \cdot a
+```
+
+```math
+\mathrm{fis}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} - {f(z \cdot v)}) \cdot a
+```
+
+```math
+\mathrm{fic}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} + {f(z \cdot v)}) \cdot a
 ```
 
 ```
@@ -46,18 +54,24 @@ h(z, w) = -w/2 * ln(z)
 ```
 
 Bose-Einstein (-1) and Fermi-Dirac (+1):
+```math
+\frac{\tau'(z, t)^{-}}{\tau(z, t)^{-}} = \frac{+1}{e^{z - t} - 1}
 ```
-τ'(z, t)⁻ / τ(z, t)⁻ = +1 / (e^(z - t) - 1)
-τ'(z, t)⁺ / τ(z, t)⁺ = -1 / (e^(z - t) + 1)
+
+```math
+\frac{\tau'(z, t)^{+}}{\tau(z, t)^{+}} = \frac{-1}{e^{z - t} + 1}
 ```
 
 Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
-```
-τ'[t](z, t) / τ(z, t) = +1
-τ'[z](z, t) / τ(z, t) = -1
+```math
+\frac{\partial_t \tau(z, t)}{\tau(z, t)} = +1
 ```
 
-The zeros lie on Re(z) = 1/2 for any x ∈ N except x = +1
+```math
+\frac{\partial_z \tau(z, t)}{\tau(z, t)} = -1
+```
+
+The zeros lie on Re(z) = 1/2 for any x > 0 except x = +1
 ```
 τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
 ```
@@ -109,18 +123,19 @@ z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
-ζ((z^2)^(1/2)) + c (c = -ln(4))
-<img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png">
-
-ζ((z^2)^(1/2)) + c (c = -ln(4))
-<img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png">
-
+```math
+z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ```
-ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
-```
-ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is it most likely just a numerical coincidence?
-
-A similar fractal pattern around a square with length -2 to 2 and height -2i and 2i formula zeta(z + 1) - 1 and 1 / (exp(z) - 1)
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png"></td>
+    <td><img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+  </tr>
+</table>
 
 <table>
   <tr>
@@ -128,13 +143,24 @@ A similar fractal pattern around a square with length -2 to 2 and height -2i and
     <td><img src="https://github.com/asyncker/fractals/blob/main/render/abs1div(exp(z)-1).png" alt="1/(exp(|Re(z)| + |Im(z)|*i) - 1))"></td>
   </tr>
   <tr>
-    <td align="center"><code>zeta(|Re(z)| + |Im(z)|*i + 1) - 1</code></td>
-    <td align="center"><code>‎1/(exp(|Re(z)| + |Im(z)|*i) - 1))</code></td>
+    <td align="center"><code>zeta(±z + 1) - 1</code></td>
+    <td align="center"><code>1 / (exp(±z) - 1)‎</code></td>
   </tr>
 </table>
 
-τ((z^2)^(1/2), 1/2)⁻
-<img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>1 - exp(1/2 - ±z)</code></td>
+  </tr>
+</table>
+
+```
+ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
+```
+
 
 ```
 X(z) = zeta(z) / zeta(1 - z)
