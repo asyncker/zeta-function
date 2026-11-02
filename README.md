@@ -171,14 +171,11 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 
 ```
 χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
 χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
-χ(z) = exp((z - 1) * ln(2pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
-
-eta(z) = ((1 - 2^(1-z)) / (1 - 2^z)) * (gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)) * eta(1 - z)
-eta(z) = ((1 - 2^(1-z)) / (1 - 2^z)) * 2^z * pi^(z - 1) * sin(z * pi/2) * gamma(1 - z) * eta(1 - z)
-zeta(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z) / (1 - 2^z) * eta(1 - z)
-zeta(z) = eta(z) / (1 - 2^(1 - z)) = χ(z) * zeta(1 - z)
+χ(z) = exp((z - 1) * ln(2*pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
+χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
+eta(z) = (((1 - 2^(1-z)) / (1 - 2^z)) * χ(z) * eta(1 - z))
+zeta(z) = eta(z) / (1 - 2^(1 - z))
 ```
 
 ```
