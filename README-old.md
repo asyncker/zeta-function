@@ -696,3 +696,12 @@ Using a sequance coords is a good idea, but exists sequance function like sinₚ
 1 - (gamma(0.5 * 2 * w - z * w)^(+2) * gamma(z * w)^(-2))
 1 - (gamma(0.5 * 2 * w - z * w)^(+3) * gamma(z * w)^(-3))
 ```
+
+```
+zeta(1 - z) ~= 1 / (exp(-z) - 1) + 1
+zeta(z) ~= 1 / (exp(-(1-z)) - 1) + 1
+```
+
+```
+-(1 - z) = z - 1
+```
