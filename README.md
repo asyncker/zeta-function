@@ -111,6 +111,19 @@ z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 ln(4) = 2 * ln(2), which is also the natural logarithm of the entropy of two independent bits. Is it most likely just a numerical coincidence?
 
+A similar fractal pattern around a square with length -2 to 2 and height -2i and 2i formula zeta(z + 1) - 1 and 1 / (exp(z) - 1)
+
+<table>
+  <tr>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abszeta(1-z)-1.png" alt="zeta(|Re(z)| + |Im(z)|*i + 1) - 1"></td>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abs1div(exp(z)-1).png" alt="1/(exp(|Re(z)| + |Im(z)|*i) - 1))"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>zeta(|Re(z)| + |Im(z)|*i + 1) - 1</code></td>
+    <td align="center"><code>‎1/(exp(|Re(z)| + |Im(z)|*i) - 1))</code></td>
+  </tr>
+</table>
+
 τ((z^2)^(1/2), 1/2)⁻
 <img src="https://asyncker.github.io/fractals/render/t((w%5E2)%5E(0.5)%2C0.5).png">
 
