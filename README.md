@@ -267,25 +267,27 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
-define dot, dotlog, dotpow, sop, soplog, soppow, abs, phs, fold:
+define fold, dot, dotlog, dotpow, sop, soplog, abs, phs:
 ```
+fold(z, w) = roots(z^w, w)
 dot(z, w) = z * w̄
-sop(z, w) = z / w̄
+sop(z, w) = z * w̄^(-1)
+dos(z, w, k, t) = (z * w̄ ^ t)^k
 abs(z, w) = sqrt(z * w̄)
 phs(z, w) = sqrt(z / w̄)
-fold(z, w) = roots(z^w, w)
-dotlog(z, w, k) = log(z * w̄) * k
-dotpow(z, w, k) = exp(log(z * w̄) * k)
-soplog(z, w, k) = log(z / w̄) * k
-soppow(z, w, k) = exp(log(z / w̄) * k)
-|z| = dotpow(z, z, 1/2)
+dotlog(z, w, k) = ln(z * w̄) * k
+dotpow(z, w, k) = (z * w̄)^k
+|z| = dos(z, z, 1/2, 1)
 ±z̄ = fold(z̄, 2)
 ```
 
 define non:
+```math
+non(z, w) = \frac{\ln(w / z)}{w} \cdot i
 ```
-non(z, w) = (ln(w / z) / w) * i
-non(z, w)' = -i / (z * w)
+
+```math
+non'(z, w) = -\frac{i}{z \, w}
 ```
 
 zeta bicomplex 4d with idempotent
