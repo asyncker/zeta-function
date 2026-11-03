@@ -538,10 +538,13 @@ p^{p} = 4,\, 27,\, 3125,\, 823543,\, 285311670611,\, \dots = z_{p}^{z_{p}}
   </tr>
 </table>
 
-family of gamma (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.)
+family of gamma 1 / (z · e^wz · ∏ₛ((1 + z/n) · e^(−z/n))) (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.)
+```math
+\frac{1}{\Gamma(z, w, s = \{2,3,5...\})} = ze^{wz} \prod_{n \in s} \left(1 + \frac{z}{n}\right) e^{-z/n}
 ```
-Γ(z, s = {2, 3, 5, 7...}) = 1 / (z · e^γz · ∏ₛ((1 + z/n) · e^(−z/n)))
-exp(z, s = {2, 3, 5, 7...}) = ??
+
+```math
+exp(z, s = {2, 3, 5, 7...}) = ?
 ```
 
 epsilon and omega numbers:
