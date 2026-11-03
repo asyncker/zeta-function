@@ -322,18 +322,24 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
-define fold, dot, dotlog, dotpow, sop, soplog, abs, phs:
+```math
+fol(z, w) = \sqrt[w]{z^w}
 ```
-fold(z, w) = roots(z^w, w)
-dot(z, w) = z * w̄
-sop(z, w) = z * w̄^(-1)
-dos(z, w, k, t) = (z * w̄ ^ t)^k
-abs(z, w) = sqrt(z * w̄)
-phs(z, w) = sqrt(z / w̄)
-dotlog(z, w, k) = ln(z * w̄) * k
-dotpow(z, w, k) = (z * w̄)^k
-|z| = dos(z, z, 1/2, 1)
-±z̄ = fold(z̄, 2)
+
+```math
+dot(z, w) = z \cdot \bar{w}
+```
+
+```math
+abs(z, w) = \sqrt{z \cdot \bar{w}}
+```
+
+```math
+phs(z, w) = \sqrt{z / \bar{w}}
+```
+
+```math
+dos(z, w, k, t) = \left(z \cdot \left(\bar{w}\right)^t\right)^k
 ```
 
 ```math
