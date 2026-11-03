@@ -470,10 +470,9 @@ add count function and asymtotic:
 
 any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.)
 
-
 Add ℤ, ℚ, 𝕀, ℂ between primes
 ```math
-n_p = \{\dots, -11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11, \dots\}
+n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots + \infty \}
 ```
 
 ```math
@@ -488,8 +487,7 @@ n_p = \{\dots, -11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11, \dots\}
 z_p = \mathrm{Re}(x_p) + i\,\mathrm{Im}(x_p)
 ```
 
-if use coordinate you get automatic this:
-
+if use coordinate you get automatic naturals to primes:
 ```math
 p - 1 = 1,\, 2,\, 4,\, 6,\, 10,\, 12,\, 16,\, 18,\, 22,\, \dots = z_{p} -1
 ```
