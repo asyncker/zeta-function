@@ -469,15 +469,26 @@ add count function and asymtotic:
 ```
 
 any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.)
+
+
+Add ℤ, ℚ, 𝕀, ℂ between primes
+```math
+n_p = \{\dots, -11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11, \dots\}
 ```
-nₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
 
-Re(xₚ) = linear(nₚ) add rational and irrational numbers between primes
-
-for all Re(xₚ) create Re(xₚ) * i its Im(xₚ) get zₚ
+```math
+\mathrm{Re}(x_p) = (1 - t)\,n_k + t\,n_{k+1}, \quad t = \frac{x - n_k}{n_{k+1} - n_k}
 ```
 
-if use coordinate you get automatic naturals to prime:
+```math
+\mathrm{Im}(x_p) = \mathrm{Re}(x_p)
+```
+
+```math
+z_p = \mathrm{Re}(x_p) + i\,\mathrm{Im}(x_p)
+```
+
+if use coordinate you get automatic this:
 
 ```math
 p - 1 = 1,\, 2,\, 4,\, 6,\, 10,\, 12,\, 16,\, 18,\, 22,\, \dots = z_{p} -1
