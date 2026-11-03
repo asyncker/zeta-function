@@ -316,15 +316,28 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
+```math
+\min.\left(\max.\left(\,\zeta(z),\, -\frac{1}{\varepsilon}\right),\, \frac{1}{\varepsilon}\right) \approx \mathrm{Re}\,\zeta(z)
 ```
-cmin(z, w) = min(Re(z), Re(w)) + min(Im(z), Im(w)) * i
-cmax(z, w) = max(Re(z), Re(w)) + max(Im(z), Im(w)) * i
-cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
-cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
-cmax(z, 0) + cmin(z, 0) = z
-cmax(z, 0) - cmin(z, 0) = +|Re(z)| + |Im(z)|*i
-cmin(z, 0) - cmax(z, 0) = -|Re(z)| - |Im(z)|*i
-y = ±cmax(ln(x^3 - 2x + 2), 0)
+
+```math
+\min.\left(\max.\left(\,-i \cdot \zeta(z),\, -\frac{1}{\varepsilon}\right),\, \frac{1}{\varepsilon}\right) \approx \mathrm{Im}\,\zeta(z)
+```
+
+```math
+\max.(z, 0) + \min.(z, 0) = z
+```
+
+```math
+\max.(z, 0) - \min.(z, 0) = +|\mathrm{Re}(z)| + |\mathrm{Im}(z)|\, i
+```
+
+```math
+\min.(z, 0) - \max.(z, 0) = -|\mathrm{Re}(z)| - |\mathrm{Im}(z)|\, i
+```
+
+```math
+y = \pm\max(\ln\left(x^{3} - 2x + 2\right),\, 0)
 ```
 
 Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. x = ◇ like float x; in programming language without value.
