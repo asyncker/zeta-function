@@ -107,7 +107,6 @@ U'(z) = (F(z) + F(-z)) * U(z)
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 
-1 / τ(z, t)⁻ = 1 / (1 - e^(t - z))
 (z / (1 - exp(t - z)))' = ?
 ((1 - exp(t - z)) / z)' = ?
 g'(z, t)⁻ / g(z, t)⁺ = ?
@@ -116,16 +115,35 @@ g'(z, t)⁻ / g(z, t)⁺ = ?
 hau(z, w, t) = (t - w) * ln(z)
 hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
 har(z, w, v) = (w * v) * ln(z)
-h(z, w) = -w/2 * ln(z)
-h(z, w)'[w] = -1/2 * ln(z)
-h(z, w)'[z] = -w / 2z
-h(z, w)'[z] / h(z, w) = 1 / (z * ln(z))
-h(z, w) = hau(z, w, w/2)
-h(z, w) + h(z, −w) = 0
-h(2, 4) = -ln(4) = ln(1/4) = -2 * ln(2)
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
+
+```math
+h(z, w) = -\frac{w}{2}\,\ln(z) = \mathrm{hau}\!\left(z,\, w,\, \frac{w}{2}\right)
+```
+
+```math
+h(z, w) + h(z, -w) = 0
+```
+
+```math
+\partial_z\, h(z, w) = -\frac{w}{2z}
+```
+
+```math
+\partial_w\, h(z, w) = -\frac{1}{2}\,\ln(z)
+```
+
+```math
+\frac{\partial_z\, h(z, w)}{h(z, w)} = \frac{1}{z \ln(z)}
+```
+
+```math
+h(2, 4) = -\ln 4 = \ln \frac{1}{4} = -2\ln 2
+```
+
+Fractal zeta and exp function:
 
 ```math
 z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
@@ -201,7 +219,6 @@ amplitude: 0, +2
 
 Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
-eta-function and prime-function factor:
 ```math
 \tau_2(z, 1)^{-} = 1 - 2^{\,1 - z}
 ```
@@ -391,10 +408,8 @@ Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearin
 2 + 0 = 2 (0)
 ```
 
-define Φ₆ complex:
 ```
-Φ₆(z, w) = 1 + (z^w - 1) * z^w
-Φ₆(z, w) = z^(2w) - z^(1w) + 1
+Φ₆(z, w) = z^(2w) - z^(1w) + 1 = 1 + (z^w - 1) * z^w
 Φ₆(10, 2) = 9901
 Φ₆(10, 4) = 99990001
 Φ₆(10, 6) = 999999000001
