@@ -408,14 +408,28 @@ Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearin
 2 + 0 = 2 (0)
 ```
 
+```math
+\Phi_6(z, w) = z^{2w} - z^{1w} + 1 = 1 + (z^w - 1) * z^w
 ```
-Φ₆(z, w) = z^(2w) - z^(1w) + 1 = 1 + (z^w - 1) * z^w
-Φ₆(10, 2) = 9901
-Φ₆(10, 4) = 99990001
-Φ₆(10, 6) = 999999000001
-Φ₆(10, 8) = 9999999900000001
-33333333333333336666666666666667 = 7 * 13 * 37 * 9901 * 99990001 * 9999999900000001
-a = 2^n * 5^m (all non-periodic fractions for the 10-adic)
+
+```math
+\Phi_6(10, 2) = 9901
+```
+
+```math
+\Phi_6(10, 4) = 99990001
+```
+
+```math
+\Phi_6(10, 6) = 999999000001
+```
+
+```math
+\Phi_6(10, 8) = 9999999900000001
+```
+
+```math
+33333333333333336666666666666667 = 7 \cdot 13 \cdot 37 \cdot 9901 \cdot 99990001 \cdot 9999999900000001
 ```
 
 Add asymptotic and count function ptlim. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
@@ -440,10 +454,6 @@ ptlim(2^n \cdot 3 - 1) = \{0, 1, 2, 3, 4, 6, 7, 11, 18, 34, 38, 43, 55, 64, 76, 
 ```
 
 ```math
-ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49, 72, 75, 124, 180, 196, 208, 312, 480, 568, 1113, 1729...\}
-```
-
-```math
 ptlim(2^n \cdot 14388 - 12545) = \{1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 20, 29, 31, 34, 35, 41, 43, 50, 61, 74, 79, 82, 83, 89, 97...\}
 ```
 
@@ -451,7 +461,10 @@ ptlim(2^n \cdot 14388 - 12545) = \{1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 
 ptlim(2^n \cdot 33 - 65) = \{2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 23, 26, 27, 37, 40, 43, 45, 46, 53, 55, 56, 58, 59, 62, 64, 69, 79, 81, 85, 98, 106, 146, 154, 173, 179, 197, 289, 331, 359, 602, 612, 615, 657, 675, 823, 885, 901, 931, 988, 1033, 1039, 1089, 2313, 2671, 3066, 3203, 3813, 4735, 4786, 5114, 5384, 5823, 5832, 6610, 6817, 7800, 10432, 13009, 14802, 18577, 18841, 20612, 23037, 23877, 25673, 27951, 34276, 35656, 36358, 38224...\}
 ```
 
-add count function and asymtotic:
+```math
+ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49, 72, 75, 124, 180, 196, 208, 312, 480, 568, 1113, 1729...\}
+```
+
 ```math
 \mathrm{count}(\mathrm{ptlim}(n)) = \pi(n) = \mathrm{count}(\{2,3,5,7,11,13,17,\dots\}) = \{0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7,\dots\}
 ```
@@ -468,9 +481,11 @@ add count function and asymtotic:
 \mathrm{count}(\mathrm{ptlim}(2^n - 1)) \sim \lfloor 2 \cdot \ln(x) \rfloor
 ```
 
-any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.)
+```math
+a = 2^{n} \cdot 5^{m} \text{(all non-periodic fractions in the 10-adics)}
+```
 
-Add ℤ, ℚ, 𝕀, ℂ between primes
+Any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
 ```math
 n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots + \infty \}
 ```
