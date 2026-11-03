@@ -169,13 +169,20 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 \frac{1}{\chi(z)} = \frac{\zeta(1 - z)}{\zeta(z)}
 ```
 
+```math
+\eta(z) = \frac{1 - 2^{1 - z}}{1 - 2^{z}} \cdot \chi(z) \cdot \eta(1 - z)
+```
+
+```math
+\zeta(z) = \frac{\eta(z)}{1 - 2^{\,1 - z}}
+```
+
 ```
 χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
 χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
 χ(z) = exp((z - 1) * ln(2*pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
 χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
-eta(z) = (((1 - 2^(1-z)) / (1 - 2^z)) * χ(z) * eta(1 - z))
-zeta(z) = eta(z) / (1 - 2^(1 - z))
+zeta(z) = ((1 - 2^(1-z)) / (1 - 2^z) * hi(z) * eta(1 - z)) / (1 - 2^(1 - z))
 ```
 
 ```
@@ -500,22 +507,40 @@ epsilon and omega numbers:
 \mathrm{signs}(x) = \{ \mathrm{sgn}(f(x - \varepsilon)), \mathrm{sgn}(f(x + \varepsilon)) \}
 ```
 
+```math
+sym(x) = \frac{|f(x - \varepsilon)| + |f(x + \varepsilon)|}{2}
+```
+
+```math
+3 * 0.333 + 0.001 = 1
+```
+
+Solve the equation using epsilone and omega
+
+```math
+(1 - \varepsilon) \cdot \omega + (\omega - 1) \cdot \varepsilon = \omega - \varepsilon
+```
+
+```math
+(1 - \varepsilon) \cdot \frac{1}{\varepsilon} = \omega - 1
+```
+
+```math
+(\omega - 1) \cdot \omega + 1 = \frac{1 - \varepsilon + \varepsilon^{2}}{\varepsilon^{2}}
+```
+
+```math
+(\omega - 1) \cdot \frac{1}{\omega} = 1 - \varepsilon
+```
+
 ```
 ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
 (eps^2 + eps^2) ^ k = 2^k * eps^(2k)
-roots(eps^2, 2) = ±eps
 
 signs(gamma(-1)) = {+, -}
 signs(gamma(-0)) = {-, +}
 signs(1 / 0) = {-, +}
-sym(x) = (|f(x - eps)| + |f(x + eps)|) / 2
 (|gamma(-0 - eps)| + |gamma(-0 + eps)|) / 2 = ~(1/eps + eps)
-
-3 * 0.333 + 0.001 = 1
-(w - 1) * 1/w = 1 - eps
-(w - 1) * w + 1 = (1 - eps + eps^2) / eps^2
-(1 - eps) * 1/eps = w - 1
-(1 - eps) * w + (w - 1) * eps = w - eps
 ```
 
 Scale plane (x-asis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
