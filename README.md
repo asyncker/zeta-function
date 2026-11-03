@@ -65,8 +65,12 @@ Maxwell–Boltzmann (-0) and Maxwell–Boltzmann (+0):
 ```
 
 The zeros lie on Re(z) = 1/2 for any x > 0 except x = +1
+```math
+\tau_x(z, \frac{1}{2})^{-} = 1 - x^{\frac{1}{2} - z}
 ```
-τₓ(z, 1/2)⁺⁻ = 1 ± x^(1/2 - z)
+
+```math
+\tau_x(z, \frac{1}{2})^{+} = 1 + x^{\frac{1}{2} - z}
 ```
 
 <table>
@@ -197,33 +201,6 @@ amplitude: 0, +2
 
 Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
-define cmin, cmax, relumax, relumin, relu-curve ai:
-```
-cmin(z, w) = min(Re(z), Re(w)) + min(Im(z), Im(w)) * i
-cmax(z, w) = max(Re(z), Re(w)) + max(Im(z), Im(w)) * i
-cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
-cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
-relumax(z) = cmax(z, 0)
-relumin(z) = cmin(z, 0)
-relumax(z) + relumin(z) = z
-relumax(z) - relumin(z) = +|Re(z)| + |Im(z)|*i
-relumin(z) - relumax(z) = -|Re(z)| - |Im(z)|*i
-y = ±relumax(log(x^3 - 2x + 2))
-```
-
-Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
-```
-x = ◇ // float x;
-x = 2
-relumaxU(z) = z >= +0 ? z : ◇
-reluminU(z) = z <= -0 ? z : ◇
-```
-
-define mpow (w ∈ ℕ):
-```
-mpow(z, w) = |z|^w * exp(i * arg(z) * (1 - (-1)^w) / 2)
-```
-
 eta-function and prime-function factor:
 ```math
 \tau_2(z, 1)^{-} = 1 - 2^{\,1 - z}
@@ -320,6 +297,32 @@ t = 1/2 - 0.00001
 27.6701825613616, 29.7384907914406, 30.4248701666825, 30.4248929060160, 31.7179796105915, 32.9350461254213, 32.9350680548172,
 33.6238113619786, 35.4671838452361, 37.2567074304069, 37.5861751320591, 37.5862111935404, 38.9992117507559, 40.6999543309432,
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
+```
+
+define cmin, cmax, relumax, relumin, relu-curve ai:
+```
+cmin(z, w) = min(Re(z), Re(w)) + min(Im(z), Im(w)) * i
+cmax(z, w) = max(Re(z), Re(w)) + max(Im(z), Im(w)) * i
+cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
+cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
+relumax(z) = cmax(z, 0)
+relumin(z) = cmin(z, 0)
+relumax(z) + relumin(z) = z
+relumax(z) - relumin(z) = +|Re(z)| + |Im(z)|*i
+relumin(z) - relumax(z) = -|Re(z)| - |Im(z)|*i
+y = ±relumax(log(x^3 - 2x + 2))
+```
+
+Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
+```
+x = ◇ // float x;
+x = 2
+relumaxU(z) = z >= +0 ? z : ◇
+reluminU(z) = z <= -0 ? z : ◇
+```
+
+```math
+mpow(z, w) = |z|^w \cdot \exp\!\left(i \cdot \arg(z) \cdot \frac{1 - (-1)^w}{2}\right), \quad w \in \mathbb{N}
 ```
 
 ```math
@@ -524,7 +527,7 @@ sym(x) = \frac{|f(x - \varepsilon)| + |f(x + \varepsilon)|}{2}
 Solve the equation using epsilone and omega
 
 ```math
-(1 - \varepsilon) \cdot \omega + (\omega - 1) \cdot \varepsilon = \omega - \varepsilon
+(\omega - 1) \cdot \frac{1}{\omega} = 1 - \varepsilon
 ```
 
 ```math
@@ -532,21 +535,27 @@ Solve the equation using epsilone and omega
 ```
 
 ```math
+(1 - \varepsilon) \cdot \omega + (\omega - 1) \cdot \varepsilon = \omega - \varepsilon
+```
+
+```math
 (\omega - 1) \cdot \omega + 1 = \frac{1 - \varepsilon + \varepsilon^{2}}{\varepsilon^{2}}
 ```
 
 ```math
-(\omega - 1) \cdot \frac{1}{\omega} = 1 - \varepsilon
+\left(\varepsilon^{2} + \varepsilon^{2}\right)^{k} = 2^{k} \cdot \varepsilon^{2k}
 ```
 
+```math
+sym(\Gamma(0)) \approx \left( \frac{1}{\varepsilon} + \varepsilon \right)
 ```
-ln(eps^2 + eps^2) * k = ln(2)*k + ln(eps) * 2k
-(eps^2 + eps^2) ^ k = 2^k * eps^(2k)
 
-signs(gamma(-1)) = {+, -}
-signs(gamma(-0)) = {-, +}
-signs(1 / 0) = {-, +}
-(|gamma(-0 - eps)| + |gamma(-0 + eps)|) / 2 = ~(1/eps + eps)
+```math
+signs(\Gamma(0)) = \{-, +\}
+```
+
+```math
+signs(\Gamma(-1)) = \{+, -\}
 ```
 
 Scale plane (x-asis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
