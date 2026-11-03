@@ -368,6 +368,10 @@ gamma(2 + z) = (1+z) * gamma(1+z)
 -1 / τ(z, t)⁻ = -1 / (1 - e^(t - z))
 ```
 
+```
+1 / τ(z, t)⁻ = 1 / (1 - e^(t - z))
+```
+
 So interesting (z - 1) / (z + 1)
 ```
 sin((z - 1) / (z + 1))
@@ -594,6 +598,8 @@ ptlimp(2^n * 33 - 65) ~ floor(e ^ ((x - 8) * 0.3))
 
 algebraic-physic
 
+Non-Archimedean + Hyperreal + p-adic + Laurent Ring
+
 Is it possible to create ln-prime to get a function x^z on prime period that will give the period of prime numbers?
 
 ```
@@ -690,7 +696,6 @@ zeta((z^2)^0.5) - log(33)
 ```
 
 Using a sequance coords is a good idea, but exists sequance function like sinₚ(z) then x is not periodic?
-
 
 
 ```
