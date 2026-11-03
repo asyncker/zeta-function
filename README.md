@@ -119,6 +119,14 @@ z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
+```
+χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
+χ(z) = exp((z - 1) * ln(2*pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
+χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
+zeta(z) = ((1 - 2^(1-z)) / (1 - 2^z) * χ(z) * eta(1 - z)) / (1 - 2^(1 - z))
+```
+
 ```math
 h(z, w) = -\frac{w}{2}\,\ln(z) = \mathrm{hau}\!\left(z,\, w,\, \frac{w}{2}\right)
 ```
@@ -137,6 +145,18 @@ h(z, w) + h(z, -w) = 0
 
 ```math
 \frac{\partial_z\, h(z, w)}{h(z, w)} = \frac{1}{z \ln(z)}
+```
+
+```math
+sin(z \cdot \frac{\pi}{2}) \cdot 2i = (1 - (-1)^{-z/2}) - (1 - (-1)^{z/2})
+```
+
+```math
+sin(z \cdot \frac{\pi}{2}) \cdot 2 = -i \cdot ((-1)^{z/2} - (-1)^{-z/2})
+```
+
+```math
+1 - (-1)^{-z}
 ```
 
 ```math
@@ -179,8 +199,8 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
   </tr>
 </table>
 
-```
-ζ(±z) - c (c in {2*ln(2), sqrt(2), 2, 2±eps, 1/2, e/2, ~pi/2})
+```math
+\zeta(\pm z) - c, \qquad c \in \left\{\, 2\ln 2,\ \sqrt{2},\ 2,\ 2 \pm \varepsilon,\ \tfrac{1}{2},\ \tfrac{e}{2},\ \tfrac{\pi}{2} \,\right\}
 ```
 
 ```math
@@ -197,24 +217,6 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 
 ```math
 \zeta(z) = \frac{\eta(z)}{1 - 2^{\,1 - z}}
-```
-
-```
-χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
-χ(z) = exp((z - 1) * ln(2*pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
-χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
-zeta(z) = ((1 - 2^(1-z)) / (1 - 2^z) * χ(z) * eta(1 - z)) / (1 - 2^(1 - z))
-```
-
-```
-sin(z * pi/2) * 2i = (1 - (-1)^(-z/2)) - (1 - (-1)^(z/2))
-sin(z * pi/2) * 2 = ((-1)^(z/2) - (-1)^(-z/2)) * -1i
-amplitude: -2, +2
-inter: ...-2, +2, −2,    +2, -2, +2...
-zeros: ...-6, -4, -2, 0, +2, +4, +6...
-1 - (-1)^(-z)
-amplitude: 0, +2
 ```
 
 Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
