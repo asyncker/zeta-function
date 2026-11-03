@@ -606,6 +606,14 @@ Non-Archimedean + Hyperreal + p-adic + Laurent Ring
 Is it possible to create ln-prime to get a function x^z on prime period that will give the period of prime numbers?
 
 ```
+nₚ = {...-11, -7, -5, -3, -2, 0, +2, +3, +5, +7, +11...}
+
+Re(xₚ) = linear(nₚ) 
+
+for all Re(xₚ) create Re(xₚ) * i its Im(xₚ) get zₚ
+```
+
+```
 zeta(z) / zeta(2 * z) + c
 ```
 
