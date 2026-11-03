@@ -299,26 +299,24 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
-define cmin, cmax, relumax, relumin, relu-curve ai:
 ```
 cmin(z, w) = min(Re(z), Re(w)) + min(Im(z), Im(w)) * i
 cmax(z, w) = max(Re(z), Re(w)) + max(Im(z), Im(w)) * i
 cmin(cmax(zeta(z), -1/eps), 1/eps) ~= re(zeta(z))
 cmin(cmax(zeta(z) * -i, -1/eps), 1/eps) ~= im(zeta(z))
-relumax(z) = cmax(z, 0)
-relumin(z) = cmin(z, 0)
-relumax(z) + relumin(z) = z
-relumax(z) - relumin(z) = +|Re(z)| + |Im(z)|*i
-relumin(z) - relumax(z) = -|Re(z)| - |Im(z)|*i
-y = ±relumax(log(x^3 - 2x + 2))
+cmax(z, 0) + cmin(z, 0) = z
+cmax(z, 0) - cmin(z, 0) = +|Re(z)| + |Im(z)|*i
+cmin(z, 0) - cmax(z, 0) = -|Re(z)| - |Im(z)|*i
+y = ±cmax(ln(x^3 - 2x + 2), 0)
 ```
 
-Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself.
+Empty ◇ means there is no function value at this point. All functions except the equal sign (=) are prohibited, and ◇ is not equal to anything except itself. x = ◇ like float x; in programming language without value.
+```math
+\mathrm{relumaxU}(z) = \begin{cases} z, & z \ge +0 \\ \diamond, & z < +0 \end{cases}
 ```
-x = ◇ // float x;
-x = 2
-relumaxU(z) = z >= +0 ? z : ◇
-reluminU(z) = z <= -0 ? z : ◇
+
+```math
+\mathrm{reluminU}(z) = \begin{cases} z, & z \le -0 \\ \diamond, & z > -0 \end{cases}
 ```
 
 ```math
