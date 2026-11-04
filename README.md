@@ -31,7 +31,7 @@ z = exponent-power function (default = z)
 ```
 
 ```math
-tau(z, t, v) = \frac{x^{t \cdot 2v - z \cdot v}}{x^{z \cdot v}} = x^{t \cdot 2v - z \cdot 2v}
+tau(z, t, v) = \frac{x^{t \cdot 2v - z \cdot v}}{x^{z \cdot v}} = x^{(t - z) \cdot 2v}
 ```
 
 ```math
