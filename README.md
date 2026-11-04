@@ -99,7 +99,7 @@ The zeros lie on Re(z) = 1/2 for any x > 0 except x = +1
 ```
 
 ```math
-\tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z) = (\sqrt e - e^{z}) * (\sqrt e - e^{-z})
+\tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z) = (\sqrt e - e^{z}) \cdot (\sqrt e - e^{-z})
 ```
 
 ```math
@@ -123,7 +123,7 @@ z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
 ```
 
 ```math
-f(z, u, t) = u / (t * z^{2}) * (e^{u / (z * t)} / (e^{u / (z * t)} - 1))
+f(z, u, t) = u / (t \cdot z^{2}) \cdot (e^{u / (z \cdot t)} / (e^{u / (z \cdot t)} - 1))
 ```
 
 ```math
@@ -464,7 +464,7 @@ Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearin
 ```
 
 ```math
-\Phi_6(z, w) = z^{2w} - z^{1w} + 1 = 1 + (z^w - 1) * z^w
+\Phi_6(z, w) = z^{2w} - z^{1w} + 1 = 1 + (z^w - 1) \cdot z^w
 ```
 
 ```math
