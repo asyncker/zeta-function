@@ -540,7 +540,7 @@ ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49,
 a = 2^{n} \cdot 5^{m} \text{(all non-periodic fractions in the 10-adics)}
 ```
 
-Any-adic set coordinate by initial numbers: (naturals, fibbonachi, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
+Any-adic set coordinate by initial numbers: (naturals, fibonacci, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
 ```math
 n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots + \infty \}
 ```
@@ -619,11 +619,11 @@ p^{p} = 4,\, 27,\, 3125,\, 823543,\, 285311670611,\, \dots = z_{p}^{z_{p}}
 
 family of gamma 1 / (z · e^wz · ∏ₛ((1 + z/n) · e^(−z/n))) (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.)
 ```math
-\frac{1}{\Gamma(z, w, s = \{2,3,5...\})} = ze^{wz} \prod_{n \in s} \left(1 + \frac{z}{n}\right) e^{-z/n}
+\frac{1}{\Gamma(z, w, s = \{2,3,5,7...\})} = ze^{wz} \prod_{n \in s} \left(1 + \frac{z}{n}\right) e^{-z/n}
 ```
 
 ```math
-exp(z, s = {2, 3, 5, 7...}) = ?
+\mathrm{sinh}(z, s = \{2,3,5,7...\}) = z \prod_{n=s} \left(1 + \frac{z^{2}}{\pi^{2} n^{2}}\right)
 ```
 
 epsilon and omega numbers:
@@ -701,5 +701,5 @@ signs(\Gamma(0)) = \{-, +\}
 signs(\Gamma(-1)) = \{+, -\}
 ```
 
-Scale plane (x-asis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
+Scale plane (x-axis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
 <img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
