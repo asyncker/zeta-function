@@ -99,7 +99,7 @@ The zeros lie on Re(z) = 1/2 for any x > 0 except x = +1
 ```
 
 ```math
-\tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z)
+\tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z) = (\sqrt e - e^{z}) * (\sqrt e - e^{-z})
 ```
 
 ```math
