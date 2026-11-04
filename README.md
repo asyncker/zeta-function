@@ -171,6 +171,11 @@ Fractal zeta and exp function:
 ```math
 z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ```
+
+```math
+\zeta(\pm z) - c, \qquad c \in \left\{\, 2\ln 2,\ \sqrt{2},\ 2,\ 2 \pm \varepsilon,\ \tfrac{1}{2},\ \tfrac{e}{2},\ \tfrac{\pi}{2} \,\right\}
+```
+
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png"></td>
@@ -201,10 +206,6 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
     <td align="center"><code>1 - exp(1/2 - ±z)</code></td>
   </tr>
 </table>
-
-```math
-\zeta(\pm z) - c, \qquad c \in \left\{\, 2\ln 2,\ \sqrt{2},\ 2,\ 2 \pm \varepsilon,\ \tfrac{1}{2},\ \tfrac{e}{2},\ \tfrac{\pi}{2} \,\right\}
-```
 
 ```math
 \chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1}{2} - \tfrac{z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{-1/2 + z}
