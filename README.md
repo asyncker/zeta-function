@@ -108,14 +108,6 @@ U'(z) = (F(z) + F(-z)) * U(z)
 ```
 
 ```math
-z^{-w/2} - z^{w/2} = -2 \cdot sinh(\frac{w}{2} \cdot \ln(z))
-```
-
-```math
-z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
-```
-
-```math
 \tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z)
 ```
 
@@ -124,13 +116,23 @@ z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
 ```
 
 ```math
+z^{-w/2} - z^{w/2} = -2 \cdot sinh(\frac{w}{2} \cdot \ln(z))
+```
+
+```math
+z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
+```
+
+```math
+\frac{g'(z, t)}{g(z, t)} = \psi(t - \frac{z}{2})
+```
+
+```math
 \frac{\left(e^{z-t} - 1\right)'}{e^{z-t} - 1} = \frac{1}{1 - e^{t-z}} = \frac{e^{z-t}}{e^{z-t} - 1}
 ```
 
-```
-z / (1 - exp(t - z))' = 
-g'(z, t)⁻ / g(z, t)⁺ = ?
-±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
+```math
+f(z, u, t) = u / (t * z^{2}) * (e^{u / (z * t)} / (e^{u / (z * t)} - 1))
 ```
 
 ```math
