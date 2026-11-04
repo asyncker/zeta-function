@@ -86,15 +86,6 @@ The zeros lie on Re(z) = 1/2 for any x > 0 except x = +1
   </tr>
 </table>
 
-```
-S(z) = (f(z) - f(-z)) / 2
-U(z) = f(z) / f(-z)
-F(z) = f'(z) / f(z)
-S'(z) = (f'(z) + f'(-z)) / 2
-F'(z) = f''(z) / f(z) - F(z)^2
-U'(z) = (F(z) + F(-z)) * U(z)
-```
-
 ```math
 \tau'(z, t)^{-} + \tau(z, t)^{-} = 1
 ```
@@ -338,6 +329,34 @@ t = 1/2 - 0.00001
 33.6238113619786, 35.4671838452361, 37.2567074304069, 37.5861751320591, 37.5862111935404, 38.9992117507559, 40.6999543309432,
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
+
+Symmetric formulas:
+
+```math
+S(z) = \frac{f(z) - f(-z)}{2}
+```
+
+```math
+U(z) = \frac{f(z)}{f(-z)}
+```
+
+```math
+F(z) = \frac{f'(z)}{f(z)}
+```
+
+```math
+S'(z) = \frac{f'(z) + f'(-z)}{2}
+```
+
+```math
+F'(z) = \frac{f''(z)}{f(z)} - F(z)^{2}
+```
+
+```math
+U'(z) = (F(z) + F(-z)) \cdot U(z)
+```
+
+Function by component:
 
 ```math
 \min.\left(\max.\left(\,\zeta(z),\, -\frac{1}{\varepsilon}\right),\, \frac{1}{\varepsilon}\right) \approx \mathrm{Re}\,\zeta(z)
