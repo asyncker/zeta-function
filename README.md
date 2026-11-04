@@ -112,20 +112,16 @@ u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
 
-hau(z, w, t) = (t - w) * ln(z)
-hal(z, w, t, v) = (t * 2v - w * v) * ln(z)
-har(z, w, v) = (w * v) * ln(z)
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
-```
-χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
-χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
+```math
+hau(z, w, t, v) = (t \cdot 2v - w \cdot v) \cdot \ln(z)
 ```
 
 ```math
-h(z, w) = -\frac{w}{2}\,\ln(z) = \mathrm{hau}\!\left(z,\, w,\, \frac{w}{2}\right)
+h(z, w) = -\frac{w}{2}\,\ln(z) = \mathrm{hau}\!\left(z,\, w,\, \frac{w}{2},\, \frac{1}{2}\right)
 ```
 
 ```math
@@ -205,6 +201,10 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ```
 
 ```math
+\chi(z) = (2\pi)^{z-1} \cdot 2 \cdot \sin\!\left(\frac{z\pi}{2}\right) \Gamma(1-z)
+```
+
+```math
 \frac{1}{\chi(z)} = \frac{\zeta(1 - z)}{\zeta(z)}
 ```
 
@@ -214,6 +214,11 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 
 ```math
 \zeta(z) = \frac{\eta(z)}{1 - 2^{\,1 - z}}
+```
+
+```
+f(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+zeros: {3.4362182, 9.6669081, 17.8455995, 23.1702827, 27.6701822, 31.7179800, 35.4671843, 38.9992100, 42.3635504, 45.5930290, 48.7107766, 51.7338428, 54.6752374, 57.5451652, 60.3518120, 63.1018680}
 ```
 
 Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
