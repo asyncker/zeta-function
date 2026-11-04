@@ -1,5 +1,13 @@
 # Zeta Based Functions
 
+```
+χ(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+χ(z) = (2*pi)^(z - 1) * 2 * sin(z * pi/2) * gamma(1 - z)
+χ(z) = (2*pi)^z / (gamma(z/2) * gamma(1 - z/2)) * gamma(1 - z)
+χ(z) = exp((z - 1) * ln(2*pi)) * exp(-i*pi/2) * (exp(z * i*pi/2) - exp(-z * i*pi/2)) * gamma(1 - z)
+zeta(z) = ((1 - 2^(1-z)) / (1 - 2^z) * χ(z) * eta(1 - z)) / (1 - 2^(1 - z))
+```
+
 To describe zeta, you need to use zeta itself. <br />
 Define zeta‑based functions as symmetric combinations of ζ
 
