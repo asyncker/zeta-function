@@ -116,13 +116,18 @@ z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
 ```
 
 ```math
-\tau(z, \frac{1}{2})^{-} * \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z)
+\tau(z, \frac{1}{2})^{-} \cdot \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z)
+```
+
+```math
+\tau(iθ, \frac{1}{2})^{-} \cdot \tau(−iθ, \frac{1}{2})^{-} = (1 - sqrt(e))^{2} + 4 \cdot sqrt(e) \cdot sin(θ/2)^{2}
+```
+
+```math
+\frac{\left(e^{z-t} - 1\right)'}{e^{z-t} - 1} = \frac{1}{1 - e^{t-z}} = \frac{e^{z-t}}{e^{z-t} - 1}
 ```
 
 ```
-τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-u(z, t) = e^(z - t) - 1
-u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
 z / (1 - exp(t - z))' = 
 g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
