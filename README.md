@@ -106,12 +106,10 @@ U'(z) = (F(z) + F(-z)) * U(z)
 τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = 2 - 2 * cosh(z - 1/2)
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
-
 (z / (1 - exp(t - z)))' = ?
 ((1 - exp(t - z)) / z)' = ?
 g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
-
 z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
 z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
@@ -216,12 +214,12 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 \zeta(z) = \frac{\eta(z)}{1 - 2^{\,1 - z}}
 ```
 
+Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+
 ```
 f(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
 zeros: {3.4362182, 9.6669081, 17.8455995, 23.1702827, 27.6701822, 31.7179800, 35.4671843, 38.9992100, 42.3635504, 45.5930290, 48.7107766, 51.7338428, 54.6752374, 57.5451652, 60.3518120, 63.1018680}
 ```
-
-Hypothesis: all zeros of the 1 - ζ(z) / ζ(1 - z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 ```math
 \tau_2(z, 1)^{-} = 1 - 2^{\,1 - z}
