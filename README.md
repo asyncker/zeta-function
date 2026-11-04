@@ -99,19 +99,33 @@ U'(z) = (F(z) + F(-z)) * U(z)
 \tau'(z, t)^{-} + \tau(z, t)^{-} = 1
 ```
 
+```math
+\tau(z, \frac{1}{2})^{-} - \tau(1 - z, \frac{1}{2})^{-} = 0 + 2 \cdot sinh(z - \frac{1}{2})
 ```
-τ(z, 1/2)⁻ * τ(-z, 1/2)⁻ = 1 + e - sqrt(e) * 2 * cosh(z) = (sqrt(e) - exp(z)) * (sqrt(e) - exp(-z))
+
+```math
+\tau(z, \frac{1}{2})^{-} + \tau(1 - z, \frac{1}{2})^{-} = 2 - 2 \cdot cosh(z - \frac{1}{2})
+```
+
+```math
+z^{-w/2} - z^{w/2} = -2 \cdot sinh(\frac{w}{2} \cdot \ln(z))
+```
+
+```math
+z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
+```
+
+```math
+\tau(z, \frac{1}{2})^{-} * \tau(-z, \frac{1}{2})⁻ = 1 + e - \sqrt e \cdot 2 \cdot cosh(z)
+```
+
+```
 τ(iθ, 1/2)⁻ * τ(−iθ, 1/2)⁻ = (1 - sqrt(e))^2 + 4 * sqrt(e) * sin(θ/2)^2
-τ(z, 1/2)⁻ - τ(1 - z, 1/2)⁻ = 0 + 2 * sinh(z - 1/2)
-τ(z, 1/2)⁻ + τ(1 - z, 1/2)⁻ = 2 - 2 * cosh(z - 1/2)
 u(z, t) = e^(z - t) - 1
 u'(z, t) / u(z, t) = 1 / (1 - e^(t - z)) = (1 / (e^(z - t) - 1)) * e^(z - t)
-(z / (1 - exp(t - z)))' = ?
-((1 - exp(t - z)) / z)' = ?
+z / (1 - exp(t - z))' = 
 g'(z, t)⁻ / g(z, t)⁺ = ?
 ±f(z, u, t) = u / (t * z^2) * (exp(u / (z * t)) / (exp(u / (z * t)) - 1))
-z^(-w/2) - z^(w/2) = -2 * sinh(w/2 * ln(z))
-z^(-w/2) + z^(w/2) = +2 * cosh(w/2 * ln(z))
 ```
 
 ```math
