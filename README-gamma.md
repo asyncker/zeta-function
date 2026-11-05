@@ -1,9 +1,5 @@
 ```math
-\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \prod_{p}^{\infty} \frac{1-p^{z-1}}{1-p^{-z}}
-```
-
-```math
-\chi(z) = \frac{\Gamma\!\left(\tfrac{1 - z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{z - 1/2}
+\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1 - z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{z - 1/2}
 ```
 
 Hypothesis: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
