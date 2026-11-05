@@ -230,7 +230,7 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 Hypothesis: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 ```
-f(z) = gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
+f(z) = 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
 Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.1702827, 27.6701822, 31.7179800, 35.4671843, 38.9992100, 42.3635504, 45.5930290, 48.7107766, 51.7338428, 54.6752374, 57.5451652, 60.3518120, 63.1018680}
 ```
 
@@ -248,6 +248,10 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 
 ```math
 \frac{\zeta(z)}{\zeta(2z)} = \prod_{p}^{\infty} 1 + p^{-z}
+```
+
+```math
+\frac{\zeta(z)}{\zeta(1 - z)} = \prod_{p}^{\infty} \frac{1-p^{z-1}}{1-p^{-z}}
 ```
 
 ```math
