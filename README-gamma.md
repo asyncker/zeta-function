@@ -37,4 +37,3 @@ $$
 References:
 1. Fröberg, C. E. (1968). On the prime zeta function. BIT Numerical Mathematics, 8(3), 187–202.
 2. Apostol, T. M. (1976). Introduction to Analytic Number Theory. Springer-Verlag.
-3. Alhargan, F. A. (2025). Prime Sine Function and The Riemann Hypothesis. OSF Preprints. https://doi.org/10.31219/osf.io/k7ycq
