@@ -16,6 +16,8 @@ Weierstrass gamma function by primes:
 \frac{1}{Gp(z)} = z \prod_{p}^{\infty} \left( 1 + \frac{z}{p} \right) e^{-z/p}
 ```
 
+Note: The integral converges absolutely for $z \in \mathbb{C} \setminus (-\infty, -2]$
+
 ```math
 \frac{1}{Gp(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
 ```
