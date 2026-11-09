@@ -133,6 +133,21 @@
       return evalStack[0];
     }
 
+    function ln(n) {
+      if (n === 1n) return 0;
+      const bitLength = n.toString(2).length;
+      const e = BigInt(bitLength - 1);
+      const shift = bitLength - 53;
+      let mantissa;
+      if (shift > 0) {
+        const top = n >> BigInt(shift);
+        mantissa = Number(top) / 2 ** 53;
+      } else {
+        mantissa = Number(n) / 2 ** Number(e);
+      }
+      return Math.log(mantissa) + Number(e) * 0.6931471805599453;
+    }
+
     function mul(x, n) {
       let r = 0n;
       for (let i = 0; i < n; i++) { r += x; }
@@ -185,8 +200,20 @@
       return result;
     }
 
+    function prime(n) {
+      return primes(n + 1)[n];
+    }
+
     function primorial(n) { // primefactorial
       return seqmul(primes(n));
+    }
+
+    function lnfactorial(n) {
+      return BigInt(Math.floor(ln(factorial(n))));
+    }
+
+    function test41(n) {
+      return lnfactorial(n) + BigInt(n * 1.8);
     }
 
     function seqadd(arr, x = 1n, c = 1n) {
