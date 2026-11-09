@@ -271,6 +271,11 @@ f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
 Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
 ```
 
+naturals number asymtotic (exp asymtotic):
+```math
+exp(z)
+```
+
 prime number asymtotic (gamma prime asymtotic):
 ```math
 z^z \cdot \ln(z)^z \cdot exp(-z)
