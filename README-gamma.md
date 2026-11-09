@@ -1,15 +1,3 @@
-```math
-\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1 - z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{z - 1/2}
-```
-
-Hypothesis: all zeros of the $f(z) = 1 - \chi(z)$ with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
-
-zeros at z = 1/2 + it, t ∈ R:
-
-$$
-t \in \{3.4362182, 9.6669081, 17.8455995, 23.1702827, 27.6701822, 31.7179800, 35.4671843, 38.9992100, 42.3635504, 45.5930290, 48.7107766, 51.7338428, 54.6752374, 57.5451652, 60.3518120, 63.1018680, \dots\}
-$$
-
 Weierstrass gamma function by primes:
 
 ```math
