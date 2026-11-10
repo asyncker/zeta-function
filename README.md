@@ -271,6 +271,18 @@ f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
 Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
 ```
 
+Truncate method:
+
+Simplifying the problem by taking not an infinite sum/product, but a finite one, and it should still converge and give symmetry
+
+```math
+\frac{1}{f_p(z)} = z \prod_{p}^{3} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+```
+
+```math
+\Phi(z) = 1 - f_p(\frac{1}{2} - \frac{z}{2}) / f_p(\frac{z}{2})
+```
+
 naturals number asymtotic (exp asymtotic):
 ```math
 exp(z)
