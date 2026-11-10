@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue,
+    pdftitle={Weierstrass Gamma Function by Primes},
+    pdfauthor={Vladislav Panin}
+}
+
+\title{Weierstrass Gamma Function by Primes}
+\author{Vladislav Panin}
+\date{November 10, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+We introduce a Weierstrass-type gamma function defined by a product over the primes,
+derive an integral representation involving the prime-counting function $\pi(x)$,
+and formulate a conjecture on the location of zeros in the strip $0 < \operatorname{Re}(z) < 1$.
+Numerical approximations of the first zeros on the line $\operatorname{Re}(z) = \frac{1}{2}$ are presented.
+\end{abstract}
+
+\begin{center}
+{\large\bfseries Definition and Integral Representation}
+\end{center}
+
+The Weierstrass gamma function by primes:
+\begin{equation*}
+    \frac{1}{G_p(z)} = z \prod_{p}^{\infty} \left( 1 + \frac{z}{p} \right) e^{-z/p}
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{G_p(z)} = z \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
+\end{equation*}
+
+\textit{Remark:} The integral converges absolutely for $z \in \mathbb{C} \setminus (-\infty, -2]$.
+
+\begin{equation*}
+    \Phi(z) = \frac{G_p\left(\frac{1 - z}{2}\right)}{G_p\left(\frac{z}{2}\right)}
+\end{equation*}
+
+\textbf{Conjecture:} All zeros of $f(z) = 1 - \Phi(z)$ with $0 < \operatorname{Re}(z) < 1$ lie on the line $\operatorname{Re}(z) = \frac{1}{2}$.
+
+The zeros are located at $z = \frac{1}{2} + it$, $t \in \mathbb{R}$:
+\begin{align*}
+    t \in \{ &7.5593242,\; 14.6100647,\; 20.3194037,\; 25.5268164,\; 30.4450039,\; 35.1672954, \\
+    &39.7447722,\; 44.2091084,\; 48.5815992,\; 52.8774028,\; 57.1077783,\; 61.2813706, \\
+    &65.4049958,\; 69.4841471,\; 73.5233328,\; 77.5263103,\; \dots \}
+\end{align*}
+
+\begin{thebibliography}{9}
+\bibitem{froberg1968}
+Fr\"oberg, C. E. (1968). 
+\newblock On the prime zeta function.
+\newblock \emph{BIT Numerical Mathematics}, 8(3), 187--202.
+
+\bibitem{apostol1976}
+Apostol, T. M. (1976). 
+\newblock \emph{Introduction to Analytic Number Theory}. 
+\newblock Springer-Verlag.
+\end{thebibliography}
+
+\end{document}
