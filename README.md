@@ -695,6 +695,10 @@ sym(x) = \frac{|f(x - \varepsilon)| + |f(x + \varepsilon)|}{2}
 ```
 
 ```math
+arctanh(x) = \frac{\ln(1 + x) - \ln(1 - x)}{2}
+```
+
+```math
 3 \cdot 0.333 + 0.001 = 1
 ```
 
