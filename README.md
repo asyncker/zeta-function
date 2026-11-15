@@ -516,6 +516,10 @@ Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearin
 
 Add asymptotic and count function ptlim. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
 ```math
+\text{ptlim}(f) = \{ n \in \mathbb{Z}_{\ge 0} \mid f(n) \in \mathbb{P} \}, \mathbb{P} = \{2, 3, 5, 7, 11, 13, \dots\}
+```
+
+```math
 ptlim(10^n) = ∅
 ```
 
@@ -549,6 +553,10 @@ ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49,
 
 ```math
 ptlim(n) ~ x \cdot (\ln(x) + \ln(\ln(x)) - 1)
+```
+
+```math
+\text{count}(S) = \left( \big| \{ k \in S \mid k \le n \} \big| \right)_{n=0}^{\infty}
 ```
 
 ```math
