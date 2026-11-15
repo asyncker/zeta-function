@@ -699,10 +699,6 @@ arccoth(x) = \frac{\ln(x + 1) - \ln(x - 1)}{2}
 ```
 
 ```math
-sym(x) = \frac{f(x - \varepsilon) + f(x + \varepsilon)}{2}
-```
-
-```math
 3 \cdot 0.333 + 0.001 = 1
 ```
 
