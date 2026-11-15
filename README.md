@@ -733,6 +733,10 @@ Solve the equation using epsilone and omega
 ```
 
 ```math
+(1 ± \varepsilon)^{2} = 1 ± (2\varepsilon ± \varepsilon^{2}) = \{ 1 - (2\varepsilon  - \varepsilon^{2}), 1 + (2\varepsilon + \varepsilon^{2}) \}
+```
+
+```math
 sym(\Gamma(0)) \approx \left( \frac{1}{\varepsilon} + \varepsilon \right)
 ```
 
