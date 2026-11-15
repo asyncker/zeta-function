@@ -280,7 +280,7 @@ Simplifying the problem by taking not an infinite sum/product, but a finite one,
 ```
 
 ```math
-\Phi(z) = 1 - f_p(\frac{1}{2} - \frac{z}{2}) / f_p(\frac{z}{2})
+\Phi(z) = 1 - \frac{f_p(\frac{1}{2} - \frac{z}{2})}{f_p(\frac{z}{2})} = 1 - \frac{(1 - z) \cdot (5 - z) \cdot (7 - z)}{(0 + z) \cdot (4 + z) \cdot (6 + z)} \cdot exp(\frac{5 \cdot (2z - 1)}{12})
 ```
 
 naturals number asymtotic (exp asymtotic):
