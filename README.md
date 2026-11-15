@@ -552,7 +552,7 @@ ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49,
 ```
 
 ```math
-ptlim(n) ~ x \cdot (\ln(x) + \ln(\ln(x)) - 1)
+ptlim(n) \approx x \cdot (\ln(x) + \ln(\ln(x)) - 1)
 ```
 
 ```math
@@ -622,7 +622,19 @@ p^{p} = 4,\, 27,\, 3125,\, 823543,\, 285311670611,\, \dots = z_{p}^{z_{p}}
 ```
 
 ```math
-\sum_{p}^{\infty} \frac{1}{2^p} = 0.4146825...
+\sum_{p}^{\infty} 2^{-p} = 0.4146825...
+```
+
+```math
+\sum_{p}^{\infty} p^{-2} = 0.4522474...
+```
+
+```math
+f(s) = \sum_{p}^{\infty} \frac{1}{s^p}
+```
+
+```math
+P(s) = \sum_{p}^{\infty} \frac{1}{p^s}
 ```
 
 <table>
@@ -730,6 +742,10 @@ Solve the equation using epsilone and omega
 
 ```math
 \left(\varepsilon^{2} + \varepsilon^{2}\right)^{k} = 2^{k} \cdot \varepsilon^{2k}
+```
+
+```math
+(1 + \varepsilon)^{\frac{\ln(2)}{\ln(1 + \varepsilon)}} = 2
 ```
 
 ```math
