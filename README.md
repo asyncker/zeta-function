@@ -422,8 +422,10 @@ Empty ◇ means there is no function value at this point. All functions except t
 mpow(z, w) = |z|^w \cdot \exp\!\left(i \cdot \arg(z) \cdot \frac{1 - (-1)^w}{2}\right), \quad w \in \mathbb{N}
 ```
 
+Symetric reflection:
+
 ```math
-fol(z, w) = \sqrt[w]{z^w}
+\pm z = \sqrt{zz},\quad |z| = \sqrt{z\bar z},\quad |\Re(z)| + |\Im(z)|\,i,\quad -\bigl(|\Re(z)| + |\Im(z)|\,i\bigr).
 ```
 
 ```math
@@ -436,6 +438,10 @@ abs(z, w) = \sqrt{z \cdot \bar{w}}
 
 ```math
 phs(z, w) = \sqrt{z / \bar{w}}
+```
+
+```math
+fol(z, w) = \sqrt[w]{z^w}
 ```
 
 ```math
