@@ -227,7 +227,7 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 \frac{1}{1 - 2^{1 - z}} = \frac{\zeta(z)}{\eta(z)}
 ```
 
-Hypothesis: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Conjecture: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 ```
 f(z) = 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
@@ -235,7 +235,7 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 ```
 
 ```math
-\tau_2(z, 1)^{-} = 1 - 2^{\,1 - z}
+\frac{1}{\tau_2(z, 1)^{-}} = \frac{1}{1 - 2^{\,1 - z}}
 ```
 
 ```math
@@ -262,14 +262,18 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 \frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
 ```
 
-Hypothesis: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Conjecture: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
 ```
-f(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
-Let z = 1/2 + it, t ∈ R zeros at t={6.1680546, 10.5921764, 14.0544503, 17.1172819, 19.9410492, 22.5995625, 25.1343279, 27.5715454, 29.9290628, 32.2197156, 34.4531187, 36.6367064, 38.7763749, 40.8768989, 42.9422132, 44.9756082...}
-
 f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
 Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
 ```
+
+```
+f(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
+Let z = 1/2 + it, t ∈ R zeros at t={6.1680546, 10.5921764, 14.0544503, 17.1172819, 19.9410492, 22.5995625, 25.1343279, 27.5715454, 29.9290628, 32.2197156, 34.4531187, 36.6367064, 38.7763749, 40.8768989, 42.9422132, 44.9756082...}
+```
+
+Conjecture: infinity zeros of the 1 - Gₚ(t - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = t
 
 Truncate method:
 
@@ -339,7 +343,7 @@ The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
 The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
 The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
 
-Hypothesis:
+Conjecture:
 The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
 
 Reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
