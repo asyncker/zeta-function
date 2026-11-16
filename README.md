@@ -227,7 +227,7 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 \frac{1}{1 - 2^{1 - z}} = \frac{\zeta(z)}{\eta(z)}
 ```
 
-Conjecture: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
+Conjecture: all zeros of the 1 - χ(z) with 0 < Re(z) < 1 lie on the critical line Re(z) = 1/2
 
 ```
 f(z) = 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
@@ -273,7 +273,7 @@ f(z) = 1 - Γ(1/2 - z/2) / Γ(z/2)
 Let z = 1/2 + it, t ∈ R zeros at t={6.1680546, 10.5921764, 14.0544503, 17.1172819, 19.9410492, 22.5995625, 25.1343279, 27.5715454, 29.9290628, 32.2197156, 34.4531187, 36.6367064, 38.7763749, 40.8768989, 42.9422132, 44.9756082...}
 ```
 
-Conjecture: infinity zeros of the 1 - Gₚ(t - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = t
+Conjecture: infinity zeros of the 1 - Gₚ(t - z/2) / Gₚ(z/2) lie on the line Re(z) = t
 
 Truncate method:
 
