@@ -127,11 +127,19 @@ f(z, u, t) = u / (t \cdot z^{2}) \cdot (e^{u / (z \cdot t)} / (e^{u / (z \cdot t
 ```
 
 ```math
-hau(z, w, t, v) = (t \cdot 2v - w \cdot v) \cdot \ln(z)
+sin(z \cdot \frac{\pi}{2}) \cdot 2i = (1 - (-1)^{-z/2}) - (1 - (-1)^{z/2})
 ```
 
 ```math
-h(z, w) = -\frac{w}{2}\,\ln(z) = \mathrm{hau}\!\left(z,\, w,\, \frac{w}{2},\, \frac{1}{2}\right)
+sin(z \cdot \frac{\pi}{2}) \cdot 2 = -i \cdot ((-1)^{z/2} - (-1)^{-z/2})
+```
+
+```math
+1 - (-1)^{-z}
+```
+
+```math
+h(z, w) = -\frac{w}{2}\,\ln(z)
 ```
 
 ```math
@@ -151,19 +159,7 @@ h(z, w) + h(z, -w) = 0
 ```
 
 ```math
-sin(z \cdot \frac{\pi}{2}) \cdot 2i = (1 - (-1)^{-z/2}) - (1 - (-1)^{z/2})
-```
-
-```math
-sin(z \cdot \frac{\pi}{2}) \cdot 2 = -i \cdot ((-1)^{z/2} - (-1)^{-z/2})
-```
-
-```math
-1 - (-1)^{-z}
-```
-
-```math
-h(2, 4) = -\ln 4 = \ln \frac{1}{4} = -2\ln 2
+h(2, 4) = -\ln 4 = \ln(\frac{1}{4}) = -2\ln 2
 ```
 
 Fractal zeta and exp function:
@@ -425,7 +421,7 @@ mpow(z, w) = |z|^w \cdot \exp\!\left(i \cdot \arg(z) \cdot \frac{1 - (-1)^w}{2}\
 Symetric reflection:
 
 ```math
-\pm z = \sqrt{zz},\quad |z| = \sqrt{z\bar z},\quad |\Re(z)| + |\Im(z)|\,i,\quad -\bigl(|\Re(z)| + |\Im(z)|\,i\bigr).
+\pm z = \sqrt{zz},\quad |z| = \sqrt{z\bar z},\quad |\Re(z)| + |\Im(z)|\,i
 ```
 
 ```math
