@@ -75,28 +75,6 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
   </tr>
 </table>
 
-Symetric:
-
-```math
-\mathrm{fau}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} / {f(z \cdot v)}) \cdot a
-```
-
-```math
-\mathrm{fis}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} - {f(z \cdot v)}) \cdot a
-```
-
-```math
-\mathrm{fic}(f, z, t, v, a) = ({f(t \cdot 2v - z \cdot v)} + {f(z \cdot v)}) \cdot a
-```
-
-```
-v = freq (default = 1/2 or 1)
-t = shift (default = 1/2 or 0)
-a = amp (default = 1/2 or 1)
-x = base-power function (default = e or pi)
-z = exponent-power function (default = z)
-```
-
 ```math
 \chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1}{2} - \tfrac{z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{-1/2 + z}
 ```
