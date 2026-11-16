@@ -118,6 +118,10 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 \frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
 ```
 
+```math
+\mathrm{psinh}(z) = {z} \prod_{p}^{\infty} \left(1 + \frac{z^{2}}{\pi^{2} p^{2}}\right)
+```
+
 Conjecture: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
 ```
 f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
@@ -147,7 +151,6 @@ prime number asymtotic (gamma prime asymtotic):
 ```math
 z^z \cdot \ln(z)^z \cdot exp(-z)
 ```
-
 
 Symetric reflection:
 
@@ -374,15 +377,6 @@ P(s) = \sum_{p}^{\infty} \frac{1}{p^s}
     <td align="center"><code>exp(zₙ) (scale 1:1)</code></td>
   </tr>
 </table>
-
-family of gamma 1 / (z · e^wz · ∏ₛ((1 + z/n) · e^(−z/n))) (if x<0 switch sign {-1, +1} to {+1, -1} in prime, random, etc.), exp (2pi * prime, 2pi * random, etc.) often w = 0
-```math
-\frac{1}{\Gamma(z, w, s = \{2,3,5,7...\})} = ze^{wz} \prod_{n \in s} \left(1 + \frac{z}{n}\right) e^{-z/n}
-```
-
-```math
-\mathrm{sinh}(z, w, s = \{2,3,5,7...\}) = ze^{wz} \prod_{n=s} \left(1 + \frac{z^{2}}{\pi^{2} n^{2}}\right)
-```
 
 epsilon and omega numbers:
 ```math
