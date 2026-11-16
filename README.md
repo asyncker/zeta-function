@@ -162,10 +162,6 @@ h(z, w) + h(z, -w) = 0
 h(2, 4) = -\ln 4 = \ln(\frac{1}{4}) = -2\ln 2
 ```
 
-```math
-\frac{1}{1 - e^{1 - z}} \sim zeta(z)
-```
-
 Fractal zeta and exp function:
 
 ```math
@@ -225,6 +221,10 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 
 ```math
 \zeta(z) = \frac{\eta(z)}{1 - 2^{\,1 - z}}
+```
+
+```math
+\frac{1}{1 - 2^{1 - z}} = \frac{\zeta(z)}{\eta(z)}
 ```
 
 Hypothesis: all zeros of the 1 - χ(z) with Re(z) > 0 and Re(z) < 1 lie on the critical line Re(z) = 1/2
