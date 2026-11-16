@@ -162,6 +162,10 @@ h(z, w) + h(z, -w) = 0
 h(2, 4) = -\ln 4 = \ln(\frac{1}{4}) = -2\ln 2
 ```
 
+```math
+\frac{1}{1 - e^{1 - z}} \sim zeta(z)
+```
+
 Fractal zeta and exp function:
 
 ```math
