@@ -409,6 +409,8 @@ Function by component:
 \min.(z, 0) - \max.(z, 0) = -|\mathrm{Re}(z)| - |\mathrm{Im}(z)|\, i
 ```
 
+Relu curve:
+
 ```math
 y = \pm\max(\ln\left(x^{3} - 2x + 2\right),\, 0)
 ```
@@ -589,7 +591,7 @@ ptlim(n) \sim \lceil x \cdot (\ln(x) + \ln(\ln(x)) - 1)\rceil
 a = 2^{n} \cdot 5^{m} \text{(all non-periodic fractions in the 10-adics)}
 ```
 
-Any-adic set coordinate by initial numbers: (naturals, fibonacci, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
+Set coordinate by initial numbers: (naturals, fibonacci, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
 ```math
 n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots + \infty \}
 ```
