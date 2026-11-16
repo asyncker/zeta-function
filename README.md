@@ -554,10 +554,6 @@ ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49,
 ```
 
 ```math
-ptlim(n) \approx x \cdot (\ln(x) + \ln(\ln(x)) - 1)
-```
-
-```math
 \text{count}(S) = \left( \big| \{ k \in S \mid k \le n \} \big| \right)_{n=0}^{\infty}
 ```
 
@@ -575,6 +571,10 @@ ptlim(n) \approx x \cdot (\ln(x) + \ln(\ln(x)) - 1)
 
 ```math
 \mathrm{count}(\mathrm{ptlim}(2^n - 1)) \sim \lfloor 2 \cdot \ln(x) \rfloor
+```
+
+```math
+ptlim(n) \sim \lceil x \cdot (\ln(x) + \ln(\ln(x)) - 1)\rceil
 ```
 
 ```math
