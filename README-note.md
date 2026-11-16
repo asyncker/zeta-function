@@ -32,6 +32,71 @@ Maxwell–Boltzmann (+0)
 \frac{\partial_z e^{t - z}}{e^{t - z}} = -1
 ```
 
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/1-exp(0.5-z).png" alt="1 - exp(1/2 - z)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeta(z).png" alt="zeta(z)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>1 - exp(1/2 - z)</code></td>
+    <td align="center"><code>zeta(z)</code></td>
+  </tr>
+</table>
+
+Fractal zeta and exp function:
+
+```math
+z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
+```
+
+```math
+\zeta(\pm z) - c, \qquad c \in \left\{\, 2\ln 2,\ \sqrt{2},\ 2,\ 2 \pm \varepsilon,\ \tfrac{1}{2},\ \tfrac{e}{2},\ \tfrac{\pi}{2} \,\right\}
+```
+
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png"></td>
+    <td><img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abszeta(1-z)-1.png" alt="zeta(|Re(z)| + |Im(z)|*i + 1) - 1"></td>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abs1div(exp(z)-1).png" alt="1/(exp(|Re(z)| + |Im(z)|*i) - 1))"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>ζ(±z + 1) - 1</code></td>
+    <td align="center"><code>1 / (exp(±z) - 1)‎</code></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/asyncker/fractals/refs/heads/main/render/zeta_abs.png"></td>
+    <td><img src="https://asyncker.github.io/fractals/render/zeta_abs_zoom.png"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+    <td align="center"><code>ζ(±z) - ln(4)</code></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abszeta(1-z)-1.png" alt="zeta(|Re(z)| + |Im(z)|*i + 1) - 1"></td>
+    <td><img src="https://github.com/asyncker/fractals/blob/main/render/abs1div(exp(z)-1).png" alt="1/(exp(|Re(z)| + |Im(z)|*i) - 1))"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>ζ(±z + 1) - 1</code></td>
+    <td align="center"><code>1 / (exp(±z) - 1)‎</code></td>
+  </tr>
+</table>
+
 Symetric:
 
 ```math
