@@ -115,7 +115,7 @@ z^{-w/2} + z^{w/2} = +2 \cdot cosh(\frac{w}{2} \cdot \ln(z))
 ```
 
 ```math
-\frac{g'(z, t)}{g(z, t)} = \psi(t - \frac{z}{2})
+\frac{g'(z, t)}{g(z, t)} = -\tfrac12\big[\psi(t-\tfrac z2)+\psi(\tfrac z2)\big]
 ```
 
 ```math
