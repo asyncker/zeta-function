@@ -131,6 +131,8 @@ Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268
 
 Conjecture: infinity zeros of the 1 - Gₚ(t - z/2) / Gₚ(z/2) lie on the line Re(z) = t
 
+Conjecture: infinity zeros of the Gₚ(t - z/2) - Gₚ(z/2) lie on the line Re(z) = t
+
 Truncate method:
 
 Simplifying the problem by taking not an infinite sum/product, but a finite one, and it should still converge and give symmetry
@@ -207,38 +209,6 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
-if take exp this get special gamma function encoding prime number
-```math
-exp(z \cdot (\ln(z) + \ln(\ln(z)) - 1)) = z^z \cdot \ln(z)^z \cdot exp(-z)
-```
-
-```math
-non(z, w) = \frac{\ln(w / z)}{w} \cdot i
-```
-
-```math
-non'(z, w) = -\frac{i}{z \, w}
-```
-
-zeta bicomplex 4d with idempotent
-```math
-\mathrm{BL}(z) = (z_x - z_w) + (z_y + z_z)\, i
-```
-
-```math
-\mathrm{BR}(z) = (z_x + z_w) + (z_y - z_z)\, i
-```
-
-```math
-\mathrm{BW}(z, w) = \frac{1}{2}\left(w_x + z_x,\; z_y + w_y,\; z_y - w_y,\; w_x - z_x\right)
-```
-
-```math
-\mathrm{bizeta}(z) = BW(\zeta(BL(z)), \zeta(BR(z)))
-```
-
-<img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
-
 Add asymptotic and count function ptlim. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
 ```math
 \text{ptlim}(f) = \{ n \in \mathbb{Z}_{\ge 0} \mid f(n) \in \mathbb{P} \}, \mathbb{P} = \{2, 3, 5, 7, 11, 13, \dots\}
@@ -288,6 +258,11 @@ ptlim(2^n \cdot 33 - 65) = \{2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 23, 2
 ptlim(n) \sim \lceil x \cdot (\ln(x) + \ln(\ln(x)) - 1)\rceil
 ```
 
+if take exp for prime asymtotic this get special gamma function encoding prime number
+```math
+exp(z \cdot (\ln(z) + \ln(\ln(z)) - 1)) = z^z \cdot \ln(z)^z \cdot exp(-z)
+```
+
 Set coordinate by initial numbers: (naturals, fibonacci, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
 ```math
 n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots + \infty \}
@@ -305,7 +280,7 @@ n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots 
 z_p = \Re(x_p) + i\,\Im(x_p)
 ```
 
-if use coordinate you get automatic naturals to primes:
+if use coordinate by prime you get automatic naturals to primes:
 ```math
 p - 1 = 1,\, 2,\, 4,\, 6,\, 10,\, 12,\, 16,\, 18,\, 22,\, \dots = z_{p} -1
 ```
@@ -339,11 +314,11 @@ p^{p} = 4,\, 27,\, 3125,\, 823543,\, 285311670611,\, \dots = z_{p}^{z_{p}}
 ```
 
 ```math
-f(s) = \sum_{p}^{\infty} \frac{1}{s^p}
+f(s) = \sum_{p}^{\infty} s^{p}
 ```
 
 ```math
-P(s) = \sum_{p}^{\infty} \frac{1}{p^s}
+P(s) = \sum_{p}^{\infty} p^{-s}
 ```
 
 <table>
@@ -462,3 +437,30 @@ signs(\Gamma(-1)) = \{+, -\}
 
 Scale plane (x-axis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
 <img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
+
+```math
+non(z, w) = \frac{\ln(w / z)}{w} \cdot i
+```
+
+```math
+non'(z, w) = -\frac{i}{z \, w}
+```
+
+zeta bicomplex 4d with idempotent
+```math
+\mathrm{BL}(z) = (z_x - z_w) + (z_y + z_z)\, i
+```
+
+```math
+\mathrm{BR}(z) = (z_x + z_w) + (z_y - z_z)\, i
+```
+
+```math
+\mathrm{BW}(z, w) = \frac{1}{2}\left(w_x + z_x,\; z_y + w_y,\; z_y - w_y,\; w_x - z_x\right)
+```
+
+```math
+\mathrm{bizeta}(z) = BW(\zeta(BL(z)), \zeta(BR(z)))
+```
+
+<img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
