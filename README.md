@@ -262,6 +262,10 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 \frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
 ```
 
+```math
+\boxed{\frac{G_p'(z)}{G_p(z)} = -\frac{1}{z} + \sum_p \left[\frac{1}{p} - \frac{1}{p+z}\right] = -\frac{1}{z} + z\sum_p \frac{1}{p(p+z)}}
+```
+
 Conjecture: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
 ```
 f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
