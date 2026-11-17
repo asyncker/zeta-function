@@ -124,6 +124,12 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 \mathrm{psinh}(z) = {z} \prod_{p}^{\infty} \left(1 + \frac{z^{2}}{\pi^{2} p^{2}}\right)
 ```
 
+```math
+\boxed{
+\frac{G_p\!\left(\tfrac12-\tfrac z2\right)}{G_p\!\left(\tfrac z2\right)} = \frac{z}{1-z}\prod_{p}\left[\frac{p+\tfrac z2}{p+\tfrac{1-z}{2}}\,e^{-\frac{z-1/2}{p}}\right]
+}
+```
+
 Conjecture: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
 ```
 Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
