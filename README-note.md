@@ -1,5 +1,3 @@
-Toy model zeta function
-
 ```math
 \frac{1}{1 - 2^{1 - z}} = \frac{\zeta(z)}{\eta(z)}
 ```
@@ -55,14 +53,16 @@ h(z, w) = -\frac{w}{2}\,\ln(z)
 h(2, 4) = -2\ln 2 = -\ln 4
 ```
 
+Symetric reflection:
+
+```math
+\pm z = \sqrt{z^2},\quad |z| = \sqrt{z\bar z},\quad |\Re(z)| + |\Im(z)|\,i
+```
+
 Fractal zeta and exp function:
 
 ```math
 z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
-```
-
-```math
-\zeta(\pm z) - c, \qquad c \in \left\{\, 2\ln 2,\ \sqrt{2},\ 2,\ 2 \pm \varepsilon,\ \tfrac{1}{2},\ \tfrac{e}{2},\ \tfrac{\pi}{2} \,\right\}
 ```
 
 <table>
@@ -88,15 +88,11 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 </table>
 
 ```math
-\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1}{2} - \tfrac{z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{-1/2 + z}
+\chi(z) = \frac{\zeta(z)}{\zeta(1 - z)} = \frac{\Gamma\!\left(\tfrac{1}{2} - \tfrac{z}{2}\right)}{\Gamma\!\left(\tfrac{z}{2}\right)} \cdot \pi^{z - 1/2}
 ```
 
 ```math
 \chi(z) = (2\pi)^{z-1} \cdot 2 \cdot \sin\!\left(\frac{z\pi}{2}\right) \Gamma(1-z)
-```
-
-```math
-\frac{1}{\chi(z)} = \frac{\zeta(1 - z)}{\zeta(z)}
 ```
 
 ```math
@@ -108,9 +104,7 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ```
 
 Conjecture: all zeros of the 1 - χ(z) with 0 < Re(z) < 1 lie on the critical line Re(z) = 1/2
-
 ```
-f(z) = 1 - gamma(1/2 - z/2) / gamma(z/2) * pi^(-1/2 + z)
 Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.1702827, 27.6701822, 31.7179800, 35.4671843, 38.9992100, 42.3635504, 45.5930290, 48.7107766, 51.7338428, 54.6752374, 57.5451652, 60.3518120, 63.1018680}
 ```
 
@@ -136,7 +130,6 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 
 Conjecture: all zeros of the 1 - Gₚ(1/2 - z/2) / Gₚ(z/2) with 0 < Re(z) < 1 lie on the line Re(z) = 1/2
 ```
-f(z) = 1 - Gₚ(1/2 - z/2) / Gₚ(z/2)
 Let z = 1/2 + it, t ∈ R zeros at t={7.5593242, 14.6100647, 20.3194037, 25.5268164, 30.4450039, 35.1672954, 39.7447722, 44.2091084, 48.5815992, 52.8774028, 57.1077783, 61.2813706, 65.4049958, 69.4841471, 73.5233328, 77.5263103...}
 ```
 
@@ -162,12 +155,6 @@ exp(z)
 prime number asymtotic (gamma prime asymtotic):
 ```math
 z^z \cdot \ln(z)^z \cdot exp(-z)
-```
-
-Symetric reflection:
-
-```math
-\pm z = \sqrt{zz},\quad |z| = \sqrt{z\bar z},\quad |\Re(z)| + |\Im(z)|\,i
 ```
 
 define zeta‑based functions as symmetric combinations of ζ
@@ -267,6 +254,10 @@ Add asymptotic and count function ptlim. ptlim - test to see if a number is prim
 ```
 
 ```math
+\text{count}(s) = \left( \big| \{ k \in s \mid k \le n \} \big| \right)_{n=0}^{\infty}
+```
+
+```math
 ptlim(10^n) = ∅
 ```
 
@@ -279,7 +270,7 @@ ptlim(2n + 1) = \{1, 2, 3, 5, 6, 8, 9, 11, 14, 15, 18, 20...\}
 ```
 
 ```math
-ptlim(10^n + 7) = \{1, 2, 4, 8, 9, 24, 60, 110, 134, 222, 412, 700, 999...\}
+ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49, 72, 75, 124, 180, 196, 208, 312, 480, 568, 1113, 1729...\}
 ```
 
 ```math
@@ -287,15 +278,7 @@ ptlim(2^n \cdot 33 - 65) = \{2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 23, 2
 ```
 
 ```math
-ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49, 72, 75, 124, 180, 196, 208, 312, 480, 568, 1113, 1729...\}
-```
-
-```math
-\text{count}(S) = \left( \big| \{ k \in S \mid k \le n \} \big| \right)_{n=0}^{\infty}
-```
-
-```math
-\mathrm{count}(\mathrm{ptlim}(n)) = \pi(n) = \mathrm{count}(\{2,3,5,7,11,13,17,\dots\}) = \{0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7,\dots\}
+\mathrm{count}(\mathrm{ptlim}(n)) = \pi(n) = \{0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7,\dots\}
 ```
 
 ```math
@@ -320,15 +303,15 @@ n_p = \{ - \infty \dots, -11, -7, -5, -3, -2, \pm 0, +2, +3, +5, +7, +11, \dots 
 ```
 
 ```math
-\mathrm{Re}(x_p) = (1 - t)\,n_k + t\,n_{k+1}, \quad t = \frac{x - n_k}{n_{k+1} - n_k}
+\Re(x_p) = (1 - t)\,n_k + t\,n_{k+1}, \quad t = \frac{x - n_k}{n_{k+1} - n_k}
 ```
 
 ```math
-\mathrm{Im}(x_p) = \mathrm{Re}(x_p)
+\Im(x_p) = \Re(x_p)
 ```
 
 ```math
-z_p = \mathrm{Re}(x_p) + i\,\mathrm{Im}(x_p)
+z_p = \Re(x_p) + i\,\Im(x_p)
 ```
 
 if use coordinate you get automatic naturals to primes:
