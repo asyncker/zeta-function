@@ -314,7 +314,7 @@ p^{p} = 4,\, 27,\, 3125,\, 823543,\, 285311670611,\, \dots = z_{p}^{z_{p}}
 ```
 
 ```math
-f(s) = \sum_{p}^{\infty} s^{p}
+f(s) = \sum_{p}^{\infty} s^{-p}
 ```
 
 ```math
@@ -394,7 +394,6 @@ sym(x) = \frac{|f(x - \varepsilon)| + |f(x + \varepsilon)|}{2}
 ```
 
 Solve the equation using epsilone and omega
-
 ```math
 (\omega - 1) \cdot \frac{1}{\omega} = 1 - \varepsilon
 ```
