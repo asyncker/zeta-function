@@ -143,16 +143,6 @@ Simplifying the problem by taking not an infinite sum/product, but a finite one,
 \Phi(z) = 1 - \frac{f_p(\frac{1}{2} - \frac{z}{2})}{f_p(\frac{z}{2})} = 1 - \frac{(1 - z) \cdot (5 - z) \cdot (7 - z)}{(0 + z) \cdot (4 + z) \cdot (6 + z)} \cdot exp(\frac{5 \cdot (2z - 1)}{12})
 ```
 
-naturals number asymtotic (exp asymtotic):
-```math
-exp(z)
-```
-
-prime number asymtotic (gamma prime asymtotic):
-```math
-z^z \cdot \ln(z)^z \cdot exp(-z)
-```
-
 define zeta‑based functions as symmetric combinations of ζ
 
 ```math
@@ -215,6 +205,11 @@ t = 1/2 - 0.00001
 27.6701825613616, 29.7384907914406, 30.4248701666825, 30.4248929060160, 31.7179796105915, 32.9350461254213, 32.9350680548172,
 33.6238113619786, 35.4671838452361, 37.2567074304069, 37.5861751320591, 37.5862111935404, 38.9992117507559, 40.6999543309432,
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
+```
+
+if take exp this get special gamma function encoding prime number
+```math
+exp(z \cdot (\ln(z) + \ln(\ln(z)) - 1)) = z^z \cdot \ln(z)^z \cdot exp(-z)
 ```
 
 ```math
@@ -467,4 +462,3 @@ signs(\Gamma(-1)) = \{+, -\}
 
 Scale plane (x-axis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
 <img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
-
