@@ -92,10 +92,6 @@ z_{n+1} = \zeta\!\left(\sqrt{z_n^2}\right) - \ln 4
 ```
 
 ```math
-\chi(z) = (2\pi)^{z-1} \cdot 2 \cdot \sin\!\left(\frac{z\pi}{2}\right) \Gamma(1-z)
-```
-
-```math
 \eta(z) = \frac{1 - 2^{1 - z}}{1 - 2^{z}} \cdot \chi(z) \cdot \eta(1 - z)
 ```
 
@@ -424,10 +420,6 @@ sym(x) = \frac{|f(x - \varepsilon)| + |f(x + \varepsilon)|}{2}
 ```
 
 ```math
-arccoth(x) = \frac{\ln(x + 1) - \ln(x - 1)}{2}
-```
-
-```math
 3 \cdot 0.333 + 0.001 = 1
 ```
 
@@ -458,7 +450,7 @@ Solve the equation using epsilone and omega
 ```
 
 ```math
-(1 ± \varepsilon)^{2} = 1 ± (2\varepsilon ± \varepsilon^{2}) = \{ 1 - (2\varepsilon  - \varepsilon^{2}), 1 + (2\varepsilon + \varepsilon^{2}) \}
+(1 + \varepsilon)^{2} = 1 + (2\varepsilon + \varepsilon^{2})
 ```
 
 ```math
