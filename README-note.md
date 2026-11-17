@@ -5,11 +5,11 @@ Toy model zeta function
 ```
 
 ```math
-1 - e^{\frac{1}{2} - z}
+\frac{1}{1 - e^{1 - z}}
 ```
 
 ```math
-\frac{1}{1 - e^{1 - z}}
+1 - e^{\frac{1}{2} - z}
 ```
 
 Bose-Einstein (-1):
@@ -42,6 +42,18 @@ Maxwell–Boltzmann (+0)
     <td align="center"><code>zeta(z)</code></td>
   </tr>
 </table>
+
+```math
+h(z, w) = -\frac{w}{2}\,\ln(z)
+```
+
+```math
+\frac{\partial_z\, h(z, w)}{h(z, w)} = \frac{1}{z \ln(z)}
+```
+
+```math
+h(2, 4) = -2\ln 2 = -\ln 4
+```
 
 Fractal zeta and exp function:
 
@@ -222,7 +234,32 @@ t = 1/2 - 0.00001
 40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
 ```
 
+```math
+non(z, w) = \frac{\ln(w / z)}{w} \cdot i
+```
 
+```math
+non'(z, w) = -\frac{i}{z \, w}
+```
+
+zeta bicomplex 4d with idempotent
+```math
+\mathrm{BL}(z) = (z_x - z_w) + (z_y + z_z)\, i
+```
+
+```math
+\mathrm{BR}(z) = (z_x + z_w) + (z_y - z_z)\, i
+```
+
+```math
+\mathrm{BW}(z, w) = \frac{1}{2}\left(w_x + z_x,\; z_y + w_y,\; z_y - w_y,\; w_x - z_x\right)
+```
+
+```math
+\mathrm{bizeta}(z) = BW(\zeta(BL(z)), \zeta(BR(z)))
+```
+
+<img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
 
 Add asymptotic and count function ptlim. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
 ```math
@@ -243,14 +280,6 @@ ptlim(2n + 1) = \{1, 2, 3, 5, 6, 8, 9, 11, 14, 15, 18, 20...\}
 
 ```math
 ptlim(10^n + 7) = \{1, 2, 4, 8, 9, 24, 60, 110, 134, 222, 412, 700, 999...\}
-```
-
-```math
-ptlim(2^n \cdot 3 - 1) = \{0, 1, 2, 3, 4, 6, 7, 11, 18, 34, 38, 43, 55, 64, 76, 94, 103, 143, 206, 216, 306, 324, 391, 458, 470, 827...\}
-```
-
-```math
-ptlim(2^n \cdot 14388 - 12545) = \{1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 20, 29, 31, 34, 35, 41, 43, 50, 61, 74, 79, 82, 83, 89, 97...\}
 ```
 
 ```math
@@ -283,10 +312,6 @@ ptlim(12 \cdot (2^n - 1) - 1) = \{1, 3, 4, 7, 9, 12, 15, 16, 25, 37, 40, 43, 49,
 
 ```math
 ptlim(n) \sim \lceil x \cdot (\ln(x) + \ln(\ln(x)) - 1)\rceil
-```
-
-```math
-a = 2^{n} \cdot 5^{m} \text{(all non-periodic fractions in the 10-adics)}
 ```
 
 Set coordinate by initial numbers: (naturals, fibonacci, squares, prime, random and etc.). Add ℤ, ℚ, 𝕀, ℂ between sequence
