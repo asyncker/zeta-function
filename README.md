@@ -485,8 +485,6 @@ zeta bicomplex 4d with idempotent
 
 <img src="https://asyncker.github.io/fractals/render/bicomplex_zeta_near_center.png">
 
-Non-Archimedean + Hyperreal + p-adic + Laurent Ring
-
 Ring two points ±0, ±∞ any graph gamma, 1/x form a continuous and non-tearing curve filling all 1d space. Start 0 or ∞ with shift
 ```
                 ±0 (0)
