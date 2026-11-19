@@ -109,19 +109,11 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 ```
 
 ```math
-\frac{\zeta(z)}{\zeta(1 - z)} = \prod_{p}^{\infty} \frac{1-p^{z-1}}{1-p^{-z}}
-```
-
-```math
 \frac{1}{G_p(z)} = z \prod_{p}^{\infty} \left( 1 + \frac{z}{p} \right) e^{-z/p}
 ```
 
 ```math
 \frac{1}{G_p(z)} = {z} \exp\left( - \int_{2}^{\infty} \pi(x) \frac{z^2}{x^2(x+z)} \, dx \right)
-```
-
-```math
-\mathrm{psinh}(z) = {z} \prod_{p}^{\infty} \left(1 + \frac{z^{2}}{\pi^{2} p^{2}}\right)
 ```
 
 ```math
