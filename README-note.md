@@ -155,70 +155,6 @@ Simplifying the problem by taking not an infinite sum/product, but a finite one,
 \Phi(z) = 1 - \frac{f_p(\frac{1}{2} - \frac{z}{2})}{f_p(\frac{z}{2})} = 1 - \frac{(1 - z) \cdot (5 - z) \cdot (7 - z)}{(0 + z) \cdot (4 + z) \cdot (6 + z)} \cdot exp(\frac{5 \cdot (2z - 1)}{12})
 ```
 
-define zeta‑based functions as symmetric combinations of ζ
-
-```math
-\text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
-```
-
-```math
-\text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
-```
-
-```math
-zsinh(-z, t) = −zsinh(z, t)
-```
-
-```math
-zcosh(-z, t) = zcosh(z, t)
-```
-
-```math
-\zeta(t + z) = zcosh(z, t) + zsinh(z, t)
-```
-
-```math
-\zeta(t - z) = zcosh(z, t) - zsinh(z, t)
-```
-
-```math
-\zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
-```
-
-<table>
-  <tr>
-    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png" alt="sin(xₚ)"></td>
-    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png" alt="sin(xₙ)"></td>
-  </tr>
-  <tr>
-    <td align="center"><code>zeros zsinh (green), zcosh (blue), t = 0</code></td>
-    <td align="center"><code>subtract zeros zsinh (green), zcosh (blue), t = 0</code></td>
-  </tr>
-</table>
-Graphics https://asyncker.github.io/zeta-function/index_graphic.html <br />
-
-The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
-The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
-The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
-
-Conjecture:
-The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
-
-Reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
-
-```js
-zsinh_zeros[i] < zcosh_zeros[i] // 30k all true except first (t < 1/2)
-```
-
-t = 1/2 - 0.00001
-```
-3.43621400940427, 0.81955124399808, 9.66691026271173, 14.1346623378012, 14.1347267337240, 14.5179833560666, 17.8455997038111,
-20.6539992177491, 21.0220373965483, 21.0220842314575, 23.1702821112028, 25.0108287890044, 25.0108610531865, 25.4915386782135,
-27.6701825613616, 29.7384907914406, 30.4248701666825, 30.4248929060160, 31.7179796105915, 32.9350461254213, 32.9350680548172,
-33.6238113619786, 35.4671838452361, 37.2567074304069, 37.5861751320591, 37.5862111935404, 38.9992117507559, 40.6999543309432,
-40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
-```
-
 Add asymptotic and count function ptlim. ptlim - test to see if a number is prime as n approaches +∞ and at what n this ends.
 ```math
 \text{ptlim}(f) = \{ n \in \mathbb{Z}_{\ge 0} \mid f(n) \in \mathbb{P} \}, \mathbb{P} = \{2, 3, 5, 7, 11, 13, \dots\}
@@ -446,6 +382,72 @@ signs(\Gamma(-1)) = \{+, -\}
 
 Scale plane (x-axis it's mult coefficient for eps or w y-asis it's power (example x * eps^y)):<br />
 <img src="https://asyncker.github.io/fractals/render/scale_plane_algebra.png">
+
+define zeta‑based functions as symmetric combinations of ζ
+
+```math
+\text{zsinh}(z, t) = \frac{\zeta(t + z) - \zeta(t - z)}{2}
+```
+
+```math
+\text{zcosh}(z, t) = \frac{\zeta(t + z) + \zeta(t - z)}{2}
+```
+
+```math
+zsinh(-z, t) = −zsinh(z, t)
+```
+
+```math
+zcosh(-z, t) = zcosh(z, t)
+```
+
+```math
+\zeta(t + z) = zcosh(z, t) + zsinh(z, t)
+```
+
+```math
+\zeta(t - z) = zcosh(z, t) - zsinh(z, t)
+```
+
+```math
+\zeta(t + z)\zeta(t - z) = \text{zcosh}^2(z, t) - \text{zsinh}^2(z, t)
+```
+
+<table>
+  <tr>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos.png" alt="sin(xₚ)"></td>
+    <td><img src="https://asyncker.github.io/zeta-function/img/zeros-zsin-zcos-sub.png" alt="sin(xₙ)"></td>
+  </tr>
+  <tr>
+    <td align="center"><code>zeros zsinh (green), zcosh (blue), t = 0</code></td>
+    <td align="center"><code>subtract zeros zsinh (green), zcosh (blue), t = 0</code></td>
+  </tr>
+</table>
+Graphics https://asyncker.github.io/zeta-function/index_graphic.html <br />
+
+The zeros of zsinh(z, t) lie where `Im(ζ(z + t))` <br />
+The zeros of zcosh(z, t) lie where `Re(ζ(z + t))` <br />
+The zeros of f(x) lie where `Im(ζ(iz) * ζ(-iz))` <br />
+
+Conjecture:
+The roots of the zeta-cosine function consistently become greater than the roots of the zeta-sine function. Does this always hold true for t<1/2? For t=1/2, this rule is violated.
+
+Reason for the alternation of zeros: the phase of arg(ζ(it)) changes almost monotonically, its derivative ~= −ln(t/2pi) plus limited fluctuations, and with increasing t, the logarithm suppresses the fluctuations more and more. The zeros of Re (phase ≡ pi/2 mod pi) and the zeros of Im (phase ≡ 0 mod pi) must strictly alternate with a monotonic phase.
+
+```js
+zsinh_zeros[i] < zcosh_zeros[i] // 30k all true except first (t < 1/2)
+```
+
+t = 1/2 - 0.00001
+```
+3.43621400940427, 0.81955124399808, 9.66691026271173, 14.1346623378012, 14.1347267337240, 14.5179833560666, 17.8455997038111,
+20.6539992177491, 21.0220373965483, 21.0220842314575, 23.1702821112028, 25.0108287890044, 25.0108610531865, 25.4915386782135,
+27.6701825613616, 29.7384907914406, 30.4248701666825, 30.4248929060160, 31.7179796105915, 32.9350461254213, 32.9350680548172,
+33.6238113619786, 35.4671838452361, 37.2567074304069, 37.5861751320591, 37.5862111935404, 38.9992117507559, 40.6999543309432,
+40.9187169370250, 40.9187671906725, 42.3635472250736, 43.3270600163924, 43.3270808195068, 43.9935435698699
+```
+
+Modular try:
 
 ```math
 non(z, w) = \frac{\ln(w / z)}{w} \cdot i
