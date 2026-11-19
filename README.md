@@ -688,7 +688,7 @@ family of gamma 1 / (z · e^wz · ∏ₛ((1 + z/n) · e^(−z/n))) (if x<0 switc
 ```
 
 ```math
-\mathrm{sinh}(z, w, s = \{2,3,5,7...\}) = ze^{wz} \prod_{n=s} \left(1 + \frac{z^{2}}{\pi^{2} n^{2}}\right)
+\mathrm{sinh}(z, s = \{2,3,5,7...\}) = z \prod_{n=s} \left(1 + \frac{z^{2}}{\pi^{2} n^{2}}\right)
 ```
 
 epsilon and omega numbers:
