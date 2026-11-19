@@ -296,6 +296,10 @@ See graphics on https://asyncker.github.io/zeta-trigonometry/index.html
 
 If we take the derivative of zsinh using exp, then the function becomes non-closed. The question is, what will the exp derivative tend to if we take it an infinite number of times from zsinh?
 
+```math
+\mathrm{psinh}(z) = {z} \prod_{p}^{\infty} \left(1 + \frac{z^{2}}{\pi^{2} p^{2}}\right)
+```
+
 <br />12-adic numbers<br />
 
 ```math
