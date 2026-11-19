@@ -185,11 +185,11 @@ ptlim(2^n \cdot 33 - 65) = \{2, 3, 4, 5, 7, 9, 13, 15, 16, 18, 19, 20, 21, 23, 2
 ```
 
 ```math
-\mathrm{count}(\mathrm{ptlim}(2^n \cdot 33 - 65)) \sim \lfloor 7 \cdot \ln(x) \rfloor
+\mathrm{count}(\mathrm{ptlim}(2^n \cdot 33 - 65)) \sim \rceil 7 \cdot \ln(x) \rceil
 ```
 
 ```math
-\mathrm{count}(\mathrm{ptlim}(2^n - 1)) \sim \lfloor 2 \cdot \ln(x) \rfloor
+\mathrm{count}(\mathrm{ptlim}(2^n - 1)) \sim \lceil 2 \cdot \ln(2 \cdot x \cdot \ln(x)) \rceil
 ```
 
 ```math
