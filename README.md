@@ -263,6 +263,10 @@ Let z = 1/2 + it, t ∈ R zeros at t={3.4362182, 9.6669081, 17.8455995, 23.17028
 ```
 
 ```math
+\mathrm{psinh}(z) = {z} \prod_{p}^{\infty} \left(1 + \frac{z^{2}}{\pi^{2} p^{2}}\right)
+```
+
+```math
 \boxed{\frac{G_p'(z)}{G_p(z)} = -\frac{1}{z} + \sum_p \left[\frac{1}{p} - \frac{1}{p+z}\right] = -\frac{1}{z} + z\sum_p \frac{1}{p(p+z)}}
 ```
 
